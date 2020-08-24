@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-4 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h5 class="card-title text-center">Sign In</h5>
+          <form #form="ngForm" (ngSubmit)="checkLogin()">
+            <div class="form-group">
+
+              <input  type="text" name="username"[(ngModel)]="username"  class="form-control" id="username" placeholder="Login">
+
+            </div>
+            <div class="form-group">
+
+              <input name="password" [(ngModel)]="password"  type="password" class="form-control" id="password" placeholder="Password">
+            </div>
+
+            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+          </form>
+        </div>
+        <p *ngIf="error" class="error">
+          {{ error }}
+        </p>
+      </div>
+    </div>
+  </div>
+
+</div>
