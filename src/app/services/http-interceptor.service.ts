@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
 
 @Injectable({
@@ -6,14 +6,15 @@ import {HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
 })
 export class HttpInterceptorService implements HttpInterceptor {
 
-  constructor() { }
+  constructor() {
+  }
 
-  intercept(req: HttpRequest<any>, next: HttpHandler): any {
+  intercept(req: HttpRequest<any>, next: HttpHandler) {
 
-    if (sessionStorage.getItem('username') && sessionStorage.getItem('token')) {
+    if (sessionStorage.getItem('username') && sessionStorage.getItem('basicauth')) {
       req = req.clone({
         setHeaders: {
-          Authorization: sessionStorage.getItem('token')
+          Authorization: sessionStorage.getItem('basicauth')
         }
       });
     }
