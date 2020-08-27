@@ -10,20 +10,54 @@ import {HttpInterceptorService} from './services/http-interceptor.service';
 import {HeaderComponent} from './header/header.component';
 import {FormsModule} from '@angular/forms';
 import { HomeComponent } from './home/home.component';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ClientsComponent } from './clients/clients.component';
+import { NewClientComponent } from './new-client/new-client.component';
+import { ClientDetailsComponent } from './client-details/client-details.component';
+import { EditClientComponent } from './edit-client/edit-client.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSortModule} from '@angular/material/sort';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatOptionModule} from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     LoginComponent,
     LogoutComponent,
-    HomeComponent
+    HomeComponent,
+    ClientsComponent,
+    NewClientComponent,
+    ClientDetailsComponent,
+    EditClientComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    FontAwesomeModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatInputModule,
+    MatSnackBarModule,
+    MatOptionModule,
+    MatSelectModule,
+
   ],
  providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}],
   bootstrap: [AppComponent]

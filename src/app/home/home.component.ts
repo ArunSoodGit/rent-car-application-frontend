@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthenticationService} from '../services/authentication.service';
+import {CarService} from '../services/car.service';
+import {Car} from '../models/Car';
 
 @Component({
   selector: 'app-home',
@@ -8,15 +9,17 @@ import {AuthenticationService} from '../services/authentication.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private authService: AuthenticationService) {
+
+  carList: Car[] = [];
+
+  constructor(private carService: CarService) {
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void{
+    this.carService.getCars().subscribe(car =>
+      this.carList = car
+    );
+
   }
 
-  test() {
-    console.log(sessionStorage.getItem('username'));
-    console.log(sessionStorage.getItem('basicauth'));
-    return this.authService.test().subscribe();
-  }
 }
