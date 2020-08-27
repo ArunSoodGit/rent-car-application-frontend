@@ -9,7 +9,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {HttpInterceptorService} from './services/http-interceptor.service';
 import {HeaderComponent} from './header/header.component';
 import {FormsModule} from '@angular/forms';
-import { HomeComponent } from './home/home.component';
+import { CarTableComponent } from './car-table/car-table.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ClientsComponent } from './clients/clients.component';
 import { NewClientComponent } from './new-client/new-client.component';
@@ -27,17 +27,23 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatOptionModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
+import { CarDetailsComponent } from './car-details/car-details.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { SidenavComponent } from './sidenav/sidenav.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     LoginComponent,
     LogoutComponent,
-    HomeComponent,
+    CarTableComponent,
     ClientsComponent,
     NewClientComponent,
     ClientDetailsComponent,
-    EditClientComponent
+    EditClientComponent,
+    CarDetailsComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +63,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatSnackBarModule,
     MatOptionModule,
     MatSelectModule,
+    MatCardModule,
+    MatSidenavModule,
 
   ],
  providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}],

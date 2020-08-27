@@ -1,27 +1,32 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-  <i class="fa fa-car brand-icon" ></i>
-  <i class="" ></i>
-
-  <a class="navbar-brand" href="/home">CarManagerApp</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+  <button mat-icon-button (click)="onToggleSidenav()">
+    <mat-icon>menu</mat-icon>
   </button>
+
+
+
+
+
+    <a class="navbar-brand" href="/home"><i class="fa fa-car brand-icon"></i>CarManagerApp</a>
+
+
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item ">
-        <a class="nav-link" *ngIf="authenticationService.isUserLoggedIn()"href="/cars"> <i class="fa fa-car icon"></i> </a>
+        <a class="nav-link" *ngIf="authenticationService.isUserLoggedIn()" href="/cars"> <i class="fa fa-car icon"></i>
+        </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" *ngIf="authenticationService.isUserLoggedIn()" href="/clients"><i class="fa fa-user icon"></i></a>
+        <a class="nav-link" *ngIf="authenticationService.isUserLoggedIn()" href="/clients"><i
+          class="fa fa-user icon"></i></a>
       </li>
     </ul>
 
     <a class="nav-link" *ngIf="authenticationService.isUserLoggedIn()" href="/logout">
 
-      <i class="fa fa fa-sign-out icon" ></i>
+      <i class="fa fa fa-sign-out icon"></i>
     </a>
 
 

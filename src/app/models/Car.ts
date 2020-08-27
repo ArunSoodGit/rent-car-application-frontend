@@ -8,6 +8,7 @@ export class Car {
   engineCapacity: number;
   review: string;
   isAvailable: string;
+  imagePath: string;
   dateOfProduction: Date;
   carMarkModel: CarMarkModel;
 
