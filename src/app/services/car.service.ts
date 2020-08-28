@@ -22,4 +22,8 @@ export class CarService {
     return this.httpClient.get<Car[]>('http://localhost:8080/available-cars');
 
   }
+
+  addCar(car: Car) {
+    return this.httpClient.post<Car>('http://localhost:8080/add-car', car);
+  }
 }

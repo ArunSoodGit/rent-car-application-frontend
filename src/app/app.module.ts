@@ -33,8 +33,10 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { HomeComponent } from './home/home.component';
 import { AllCarsComponent } from './all-cars/all-cars.component';
-import { AvailableCarsComponent } from './available-cars/available-cars.component';
+
 import {MatTabsModule} from '@angular/material/tabs';
+import { RentalComponent } from './rental/rental.component';
+import { NewCarComponent } from './new-car/new-car.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +52,10 @@ import {MatTabsModule} from '@angular/material/tabs';
     SidenavComponent,
     HomeComponent,
     AllCarsComponent,
-    AvailableCarsComponent
+
+    RentalComponent,
+
+    NewCarComponent
   ],
     imports: [
         BrowserModule,
@@ -73,6 +78,7 @@ import {MatTabsModule} from '@angular/material/tabs';
         MatCardModule,
         MatSidenavModule,
         MatTabsModule,
+
 
     ],
  providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}],

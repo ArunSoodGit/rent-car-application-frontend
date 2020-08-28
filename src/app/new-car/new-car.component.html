@@ -1,0 +1,58 @@
+<div mat-dialog-content>
+  <form #customerForm="ngForm" (ngSubmit)="customerForm.form.valid && onSubmit(car)" class="example-form">
+    <p>
+      <mat-form-field  >
+        <mat-label>Vin</mat-label>
+        <input matInput placeholder="vin"  [(ngModel)]="car.vin"  name ="vin" required="true">
+        <mat-icon matSuffix >person</mat-icon>
+      </mat-form-field>
+      <mat-form-field class="element" >
+        <input type="text" matInput placeholder="Nazwisko"  [(ngModel)]="car"  name ="nazwisko" required="true">
+      </mat-form-field>
+    </p>
+    <mat-form-field class="full" >
+      <input type="text" matInput placeholder="Adres email" [(ngModel)]="car.email"  name ="email" >
+      <mat-icon matSuffix >email</mat-icon>
+    </mat-form-field>
+    <mat-form-field  class="full">
+      <input type="number" matInput placeholder="Nr. telefonu"  [(ngModel)]="car.nrTelefonu"  name ="nrTelefonu" required="true">
+      <mat-icon matSuffix >local_phone</mat-icon>
+    </mat-form-field>
+    <p>
+      <mat-form-field >
+        <input type="text" matInput placeholder="Kraj"  [(ngModel)]="car.kraj"  name ="kraj">
+        <mat-icon matSuffix >location_on</mat-icon>
+      </mat-form-field>
+      <mat-form-field  class="element">
+        <input type="text" matInput placeholder="Miasto"  [(ngModel)]="car.miasto"  name ="miasto">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field >
+        <input type="text" matInput placeholder="Ulica"  [(ngModel)]="car.ulica"  name ="ulica">
+        <mat-icon matSuffix >home</mat-icon>
+      </mat-form-field>
+      <mat-form-field class="element">
+        <input type="text" matInput placeholder="Nr. budynku"  [(ngModel)]="car.nrBudynku"  name ="nrBudynku">
+      </mat-form-field>
+      <mat-form-field class="full" >
+        <input type="text" matInput placeholder="Nr. lokalu"  [(ngModel)]="car.nrLokalu"  name ="nrLokalu">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field >
+        <input type="text" matInput placeholder="Nr. prawa jazdy"  [(ngModel)]="car.nrPrawaJazdy "  name ="nrPrawaJazdy" required="true">
+        <mat-icon matSuffix >credit_card</mat-icon>
+      </mat-form-field>
+      <mat-form-field class="element">
+        <input type="number" matInput placeholder="Pesel"  [(ngModel)]="car.pesel" required="true"  name ="imie">
+      </mat-form-field>
+    </p>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button class="create" (click)="onSubmit(car)"   [disabled]="!customerForm.form.valid">
+    <mat-icon>person_add</mat-icon>
+    Dodaj
+  </button>
+</div>
