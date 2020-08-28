@@ -31,6 +31,10 @@ import { CarDetailsComponent } from './car-details/car-details.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { HomeComponent } from './home/home.component';
+import { AllCarsComponent } from './all-cars/all-cars.component';
+import { AvailableCarsComponent } from './available-cars/available-cars.component';
+import {MatTabsModule} from '@angular/material/tabs';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,30 +47,34 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     ClientDetailsComponent,
     EditClientComponent,
     CarDetailsComponent,
-    SidenavComponent
+    SidenavComponent,
+    HomeComponent,
+    AllCarsComponent,
+    AvailableCarsComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    FontAwesomeModule,
-    BrowserAnimationsModule,
-    MatIconModule,
-    MatSortModule,
-    MatFormFieldModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatDialogModule,
-    MatButtonModule,
-    MatInputModule,
-    MatSnackBarModule,
-    MatOptionModule,
-    MatSelectModule,
-    MatCardModule,
-    MatSidenavModule,
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        FontAwesomeModule,
+        BrowserAnimationsModule,
+        MatIconModule,
+        MatSortModule,
+        MatFormFieldModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatDialogModule,
+        MatButtonModule,
+        MatInputModule,
+        MatSnackBarModule,
+        MatOptionModule,
+        MatSelectModule,
+        MatCardModule,
+        MatSidenavModule,
+        MatTabsModule,
 
-  ],
+    ],
  providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}],
   bootstrap: [AppComponent]
 })

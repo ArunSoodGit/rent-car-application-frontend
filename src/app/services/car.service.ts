@@ -17,5 +17,9 @@ export class CarService {
 
   }
 
+  getAvailableCars(): Observable<Car[]> {
 
+    return this.httpClient.get<Car[]>('http://localhost:8080/available-cars');
+
+  }
 }
