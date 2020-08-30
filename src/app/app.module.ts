@@ -25,7 +25,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatOptionModule} from '@angular/material/core';
+import {MatNativeDateModule, MatOptionModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import { CarDetailsComponent } from './car-details/car-details.component';
 import {MatCardModule} from '@angular/material/card';
@@ -37,6 +37,11 @@ import { AllCarsComponent } from './all-cars/all-cars.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { RentalComponent } from './rental/rental.component';
 import { NewCarComponent } from './new-car/new-car.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatMenuModule} from '@angular/material/menu';
+import { EditCarComponent } from './edit-car/edit-car.component';
+import { RemoveCarComponent } from './remove-car/remove-car.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,32 +60,38 @@ import { NewCarComponent } from './new-car/new-car.component';
 
     RentalComponent,
 
-    NewCarComponent
+    NewCarComponent,
+
+    EditCarComponent,
+
+    RemoveCarComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        FormsModule,
-        FontAwesomeModule,
-        BrowserAnimationsModule,
-        MatIconModule,
-        MatSortModule,
-        MatFormFieldModule,
-        MatTableModule,
-        MatPaginatorModule,
-        MatDialogModule,
-        MatButtonModule,
-        MatInputModule,
-        MatSnackBarModule,
-        MatOptionModule,
-        MatSelectModule,
-        MatCardModule,
-        MatSidenavModule,
-        MatTabsModule,
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    FontAwesomeModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatInputModule,
+    MatSnackBarModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatCardModule,
+    MatSidenavModule,
+    MatTabsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatMenuModule,
 
-
-    ],
+  ],
  providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}],
   bootstrap: [AppComponent]
 })

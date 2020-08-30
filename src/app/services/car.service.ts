@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Car} from '../models/Car';
 import {Observable} from 'rxjs';
 
@@ -7,6 +7,7 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class CarService {
+  private headers = new HttpHeaders({'Content-Type': 'application/json'});
 
   constructor(private httpClient: HttpClient) {
   }
@@ -23,7 +24,8 @@ export class CarService {
 
   }
 
-  addCar(car: Car) {
-    return this.httpClient.post<Car>('http://localhost:8080/add-car', car);
+  addCar(car: Car): Observable<Car> {
+    console.log('test');
+    return this.httpClient.post<Car>('http://localhost:8080/add-car', car, {headers: this.headers});
   }
 }

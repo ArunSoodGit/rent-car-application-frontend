@@ -10,6 +10,6 @@ export class Car {
   isAvailable: string;
   imagePath: string;
   dateOfProduction: Date;
-  carMarkModel: CarMarkModel;
+  carMarkModel: CarMarkModel = new CarMarkModel();
 
 }
