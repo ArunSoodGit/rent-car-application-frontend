@@ -1,36 +1,43 @@
-<div class="info">
-  <button mat-icon-button  (click)="onSidenavClose()">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <button mat-mini-fab class="toolbar-avatar">
+<div class="container">
+  <div class="info">
+    <button mat-icon-button (click)="onSidenavClose()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <button mat-mini-fab class="toolbar-avatar">
 
-  </button>
-  <a class="user">
+    </button>
+    <a class="user">
 
-  </a>
-  <mat-icon class="dioda">fiber_manual_record</mat-icon>
+    </a>
+    <mat-icon class="dioda">fiber_manual_record</mat-icon>
+  </div>
+
+  <ul class="listContainer">
+    <li>
+      <button routerLink="/osobowe" (click)="onSidenavClose()">
+        <mat-icon class="icon">drive_eta</mat-icon>
+        <span class="nav-caption">Flota</span>
+      </button>
+    </li>
+    <li>
+      <button routerLink="/lista-klient" (click)="onSidenavClose()">
+        <mat-icon class="icon">people</mat-icon>
+        <span class="nav-caption">Klienci</span>
+      </button>
+    </li>
+    <li>
+      <button routerLink="/osobowe" (click)="onSidenavClose()">
+        <mat-icon class="icon">view_list</mat-icon>
+        <span class="nav-caption">Rezerwacje</span>
+      </button>
+    </li>
+
+    <li>
+      <button routerLink="/login" (click)="onSidenavClose()">
+        <mat-icon class="icon">account_balance</mat-icon>
+        <span class="nav-caption">Logowanie</span>
+      </button>
+    </li>
+  </ul>
+
 </div>
-
-<ul class="listContainer" >
-  <li>
-    <button routerLink="/osobowe" (click)="onSidenavClose()">
-      <mat-icon class="icon">drive_eta</mat-icon> <span class="nav-caption">Flota</span>
-    </button>
-  </li>
-  <li>
-    <button routerLink="/lista-klient" (click)="onSidenavClose()">
-      <mat-icon class="icon">people</mat-icon> <span class="nav-caption">Klienci</span>
-    </button>
-  </li>
-  <li>
-    <button routerLink="/osobowe" (click)="onSidenavClose()">
-      <mat-icon class="icon">view_list</mat-icon> <span class="nav-caption">Rezerwacje</span>
-    </button>
-  </li>
-
-  <li>
-    <button routerLink="/login" (click)="onSidenavClose()">
-      <mat-icon class="icon">account_balance</mat-icon><span class="nav-caption">Logowanie</span>
-    </button>
-  </li>
-</ul>

@@ -22,7 +22,7 @@ export class AuthenticationService {
 
   authenticate(username, password) {
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username + ':' + password)});
-    return this.httpClient.get<User>('http://localhost:8080/validateLogin', {headers}).pipe(
+    return this.httpClient.get<User>('https://localhost:444/validateLogin', {headers}).pipe(
       map(
         userData => {
           const authString = 'Basic ' + btoa(username + ':' + password);
@@ -34,11 +34,6 @@ export class AuthenticationService {
     );
   }
 
-  test() {
-
-    return this.httpClient.get<User>('http://localhost:8080/test');
-
-  }
 
   isUserLoggedIn() {
     const user = sessionStorage.getItem('username');

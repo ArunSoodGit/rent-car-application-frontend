@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
 import {MatSort} from '@angular/material/sort';
 import {MatPaginator} from '@angular/material/paginator';
 import {CarService} from '../services/car.service';
@@ -25,12 +25,23 @@ export class AllCarsComponent implements OnInit {
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  constructor(private carService: CarService, private dialog: MatDialog) {
+  constructor(private carService: CarService, private dialog: MatDialog, private changeDetectorRefs: ChangeDetectorRef) {
   }
 
 
   ngOnInit(): void {
+    this.refresh();
+  }
+
+
+  applyFilter(filterValue: string): void {
+    this.dataSource.filter = filterValue;
+  }
+
+
+  refresh(): void {
     this.carService.getCars().subscribe(car => {
+        this.changeDetectorRefs.detectChanges();
         console.log(car);
         this.dataSource = new MatTableDataSource(car);
         this.dataSource.filterPredicate = (data, filter) => {
@@ -42,53 +53,48 @@ export class AllCarsComponent implements OnInit {
     );
   }
 
-
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue;
-  }
-
-
-  onCreate() {
-    const dialogRef = this.dialog.open(NewCarComponent, {
-      width: '500px'
-    });
-  }
-
-
-  onRemove(car) {
+  onRemove(car): void {
     const dialogRef = this.dialog.open(RemoveCarComponent, {
-      width: '500px',
+      width: '480px',
+      panelClass: 'icon-outside',
       data: car
     });
     dialogRef.afterClosed().subscribe(result => {
 
       this.car = car;
-
+      this.refresh();
     });
   }
 
-  onEdit(car) {
+  onCreate(): void {
+    const dialogRef = this.dialog.open(NewCarComponent, {
+      width: '480px',
+      panelClass: 'icon-outside',
+    }).afterClosed().subscribe(result => {
+      this.refresh();
+    });
+  }
+
+  onEdit(car): void{
     const dialogRef = this.dialog.open(EditCarComponent, {
-      width: '500px',
+      width: '480px',
+      panelClass: 'icon-outside',
       data: car
-    });
-    console.log(car.vin);
-    dialogRef.afterClosed().subscribe(result => {
-
+    }).afterClosed().subscribe(result => {
+      this.refresh();
       this.car = car;
-
     });
   }
 
-  applyFilterAvailable() {
+  applyFilterAvailable(): void {
     this.dataSource.filter = 'Dostępny';
   }
 
-  applyFilterAll() {
+  applyFilterAll(): void {
     this.dataSource.filter = '';
   }
 
-  applyFilterUnavailable() {
+  applyFilterUnavailable(): void {
     this.dataSource.filter = 'Wynajęty';
   }
 }

@@ -56,10 +56,7 @@ nav {
     li {
       display: inline-block;
 
-      .add {
-        text-align: right;
-        margin-right: 10px;
-      }
+
 
       a {
         cursor: pointer;
@@ -82,7 +79,10 @@ nav {
 
   }
 
-
+  .add {
+    text-align: right;
+    margin-right: 10px;
+  }
 }
 
 .navbar {

@@ -1,80 +1,96 @@
-<div mat-dialog-content>
-  <form #customerForm="ngForm" (ngSubmit)="customerForm.form.valid && onSubmit(car)" class="example-form">
-    <p>
-      <mat-form-field class="full">
-        <mat-label>Numer vin</mat-label>
-        <input type="text" matInput placeholder="Numer vin" [(ngModel)]="car.vin" name="vin" required="true">
+<button mat-mini-fab mat-raised-button class="close-button" [mat-dialog-close]="true">
+  <mat-icon>close</mat-icon>
+</button>
+<div mat-dialog-title>
+  <h1 class="title"> Dodaj samochód</h1>
+  <div class="image">
+    <img [src]="car.imagePath">
+
+  </div>
+
+</div>
+  <div mat-dialog-content>
+    <form #customerForm="ngForm" (ngSubmit)="customerForm.form.valid && onSubmit(car)" class="example-form">
+      <p>
+        <mat-form-field class="full">
+          <mat-label>Numer vin</mat-label>
+          <input type="text" matInput placeholder="Numer vin" [(ngModel)]="car.vin" name="vin" required="true">
+
+        </mat-form-field>
+      </p>
+      <mat-form-field class="element">
+        <mat-label>Marka</mat-label>
+        <input type="text" matInput placeholder="Marka" [(ngModel)]="car.carMarkModel.mark" name="marka"
+               required="true">
+      </mat-form-field>
+
+      <mat-form-field class="element2">
+        <mat-label>Model</mat-label>
+        <input type="text" matInput placeholder="Model" [(ngModel)]="car.carMarkModel.model" name="model">
 
       </mat-form-field>
-    </p>
-    <mat-form-field class="element">
-      <mat-label>Marka</mat-label>
-      <input type="text" matInput placeholder="Marka" [(ngModel)]="car.carMarkModel.mark" name="marka"
-             required="true">
-    </mat-form-field>
+      <mat-form-field class="element">
+        <mat-label>Numer rejestracyjny</mat-label>
+        <input type="text" matInput placeholder="Numer rejestracyjny" [(ngModel)]="car.registrationNumber"
+               name="registrationNumber">
+      </mat-form-field>
+      <mat-form-field class="element2">
+        <mat-label>Pojemność silnika</mat-label>
+        <input type="number" matInput placeholder="Pojemność silnika" [(ngModel)]="car.engineCapacity"
+               name="Pojemność silnika">
 
-    <mat-form-field class="element">
-      <mat-label>Model</mat-label>
-      <input type="text" matInput placeholder="Model" [(ngModel)]="car.carMarkModel.model" name="model">
+      </mat-form-field>
+      <mat-form-field class="element">
+        <mat-label>Kolor</mat-label>
+        <input type="text" matInput placeholder="Kolor" [(ngModel)]="car.color" name="color" required="true">
 
-    </mat-form-field>
-    <mat-form-field class="element">
-      <mat-label>Numer rejestracyjny</mat-label>
-      <input type="text" matInput placeholder="Numer rejestracyjny" [(ngModel)]="car.registrationNumber"
-             name="registrationNumber">
-    </mat-form-field>
-    <mat-form-field class="element">
-      <mat-label>Pojemność silnika</mat-label>
-      <input type="number" matInput placeholder="Pojemność silnika" [(ngModel)]="car.engineCapacity"
-             name="Pojemność silnika">
-    </mat-form-field>
-    <mat-form-field class="element">
-      <mat-label>Kolor</mat-label>
-      <input type="text" matInput placeholder="Kolor" [(ngModel)]="car.color" name="color" required="true">
+      </mat-form-field>
+      <mat-form-field class="element2">
+        <mat-label>Przebieg</mat-label>
+        <input type="number" matInput placeholder="Przebieg" [(ngModel)]="car.mileage" name="Przebieg">
 
-    </mat-form-field>
-    <mat-form-field class="element">
-      <mat-label>Przebieg</mat-label>
-      <input type="number" matInput placeholder="Przebieg" [(ngModel)]="car.mileage" name="Przebieg">
-    </mat-form-field>
-    <mat-form-field class="element">
-      <mat-label>Dostępność</mat-label>
-      <mat-select [(ngModel)]="car.isAvailable" name="isAvailable">
-        <mat-option *ngFor="let available of availables" [value]="available">
-          {{available}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+      </mat-form-field>
+      <mat-form-field class="element">
+        <mat-label>Dostępność</mat-label>
+        <mat-select [(ngModel)]="car.isAvailable" name="isAvailable">
+          <mat-option *ngFor="let available of availables" [value]="available">
+            {{available}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
-    <mat-form-field class="element">
-      <mat-label>Klasa</mat-label>
-      <mat-select [(ngModel)]="car.carMarkModel.carClass.className" name="className">
-        <mat-option *ngFor="let class of classess" [value]="class">
-          {{class}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+      <mat-form-field class="element2">
+        <mat-label>Klasa</mat-label>
+        <mat-select [(ngModel)]="car.carMarkModel.carClass.className" name="className">
+          <mat-option *ngFor="let class of classess" [value]="class">
+            {{class}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
 
-    <mat-form-field class="element">
-      <mat-label>Data produkcji</mat-label>
-      <input [(ngModel)]="car.dateOfProduction" matInput [matDatepicker]="picker" name="dateOfProduction">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
+      <mat-form-field class="element">
+        <mat-label>Data produkcji</mat-label>
+        <input [(ngModel)]="car.dateOfProduction" matInput [matDatepicker]="picker" name="dateOfProduction">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
 
 
-    <mat-form-field class="element">
-      <mat-label>Przegląd</mat-label>
-      <input type="text" matInput placeholder="Przegląd" [(ngModel)]="car.review" name="Przegląd">
-    </mat-form-field>
+      <mat-form-field class="element2">
+        <mat-label>Przegląd</mat-label>
+        <input type="text" matInput placeholder="Przegląd" [(ngModel)]="car.review" name="Przegląd">
+      </mat-form-field>
 
 
-  </form>
-</div>
-<div mat-dialog-actions>
-  <button mat-raised-button class="create" (click)="onSubmit(car)" [disabled]="!customerForm.form.valid">
-    <mat-icon>drive_eta</mat-icon>
-    Dodaj
-  </button>
-</div>
+    </form>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-raised-button class="create" (click)="onSubmit(car)" [disabled]="!customerForm.form.valid">
+      <i class="fa fa-plus"></i>
+      Dodaj
+
+    </button>
+  </div>
+
+

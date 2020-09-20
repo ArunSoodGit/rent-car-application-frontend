@@ -2,7 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {CarService} from '../services/car.service';
 import {Car} from '../models/Car';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {MatCalendarCellCssClasses} from '@angular/material/datepicker';
+import {MatDialogRef} from '@angular/material/dialog';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-new-car',
@@ -13,14 +14,12 @@ export class NewCarComponent implements OnInit {
   car: Car = new Car();
   classess: string[] = ['A', 'B', 'C', 'D'];
   availables: string[] = ['Dostępny', 'Wynajęty'];
+  reviews: string[] = ['Tak', 'Nie'];
 
-  constructor(private carService: CarService, private snackBar: MatSnackBar) {
-
+  constructor(private router: Router, private carService: CarService, private snackBar: MatSnackBar, public dialogRef: MatDialogRef<NewCarComponent>) {
   }
 
-
   ngOnInit(): void {
-
   }
 
   onSubmit(car: Car): void {
@@ -32,8 +31,9 @@ export class NewCarComponent implements OnInit {
         console.log(data);
       }
     );
-    console.log(car);
-    this.snackBar.open('Employee added successful', 'OK', {
+
+    this.dialogRef.close();
+    this.snackBar.open('Dodawanie zakończone pomyślnie', 'OK', {
       duration: 2000,
     });
 

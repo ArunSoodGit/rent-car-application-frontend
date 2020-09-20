@@ -15,7 +15,7 @@ export class RentalService {
 
   getRentals(): Observable<Rental[]> {
 
-    return this.httpClient.get<Rental[]>('http://localhost:8080/rentals');
+    return this.httpClient.get<Rental[]>('https://localhost:444/rentals');
 
   }
 }

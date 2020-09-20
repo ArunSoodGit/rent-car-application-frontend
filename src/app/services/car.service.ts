@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Car} from '../models/Car';
 import {Observable} from 'rxjs';
+import {catchError} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -14,18 +15,25 @@ export class CarService {
 
   getCars(): Observable<Car[]> {
 
-    return this.httpClient.get<Car[]>('http://localhost:8080/cars');
+    return this.httpClient.get<Car[]>('https://localhost:444/cars');
 
   }
 
   getAvailableCars(): Observable<Car[]> {
 
-    return this.httpClient.get<Car[]>('http://localhost:8080/available-cars');
+    return this.httpClient.get<Car[]>('https://localhost:444/available-cars');
 
   }
 
   addCar(car: Car): Observable<Car> {
-    console.log('test');
-    return this.httpClient.post<Car>('http://localhost:8080/add-car', car, {headers: this.headers});
+    return this.httpClient.post<Car>('https://localhost:444/add-car', car, {headers: this.headers});
+  }
+  updateCar(car: Car): Observable<Car> {
+    return this.httpClient.put<Car>('https://localhost:444/update-car', car, {headers: this.headers})
+     ;
+  }
+  deleteCar(vin): Observable<Car> {
+    const url = `https://localhost:444/delete-car/${vin}`; // DELETE api/heroes/42
+    return this.httpClient.delete<Car>(url, {headers: this.headers});
   }
 }

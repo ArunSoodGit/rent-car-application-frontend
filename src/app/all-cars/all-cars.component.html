@@ -2,18 +2,18 @@
   <nav class="navbar ">
     <ul>
       <li>
-        <a  (click)="applyFilterAll()" >Wszystkie</a>
+        <a (click)="applyFilterAll()">Wszystkie</a>
       </li>
       <li>
-        <a (click)="applyFilterAvailable()" >Dostępne</a>
+        <a (click)="applyFilterAvailable()">Dostępne</a>
       </li>
       <li>
-        <a  (click)="applyFilterUnavailable()">Niedostępne</a>
+        <a (click)="applyFilterUnavailable()">Niedostępne</a>
       </li>
 
     </ul>
     <form class="form-inline">
-      <button mat-raised-button class="create" (click)="onCreate()">
+      <button  mat-raised-button class="add" (click)="onCreate()">
         <mat-icon>drive_eta</mat-icon>
       </button>
     </form>
@@ -30,7 +30,8 @@
 
     <ng-container matColumnDef="Zdjęcie">
       <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
-      <td mat-cell *matCellDef="let element"><img [routerLink]="['/car', element.vin]" class="image"  [src]=element.imagePath></td>
+      <td mat-cell *matCellDef="let element"><img [routerLink]="['/car', element.vin]" class="image"
+                                                  [src]=element.imagePath></td>
     </ng-container>
 
     <ng-container matColumnDef="Marka">
@@ -44,19 +45,23 @@
     </ng-container>
     <ng-container matColumnDef="Klasa">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Klasa</th>
-      <td mat-cell *matCellDef="let element" [routerLink]="['/car', element.vin]"> {{element.carMarkModel.carClass.className}} </td>
+      <td mat-cell *matCellDef="let element"
+          [routerLink]="['/car', element.vin]"> {{element.carMarkModel.carClass.className}} </td>
     </ng-container>
     <ng-container matColumnDef="Cena">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Cena</th>
-      <td mat-cell *matCellDef="let element" [routerLink]="['/car', element.vin]"> {{element.carMarkModel.carClass.pricePerNight + " zł"}} </td>
+      <td mat-cell *matCellDef="let element"
+          [routerLink]="['/car', element.vin]"> {{element.carMarkModel.carClass.pricePerNight + " zł"}} </td>
     </ng-container>
     <ng-container matColumnDef="Kaucja">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Kaucja</th>
-      <td mat-cell    *matCellDef="let element " [routerLink]="['/car', element.vin]" > {{element.carMarkModel.carClass.deposit + " zł"}}</td>
+      <td mat-cell *matCellDef="let element "
+          [routerLink]="['/car', element.vin]"> {{element.carMarkModel.carClass.deposit + " zł"}}</td>
     </ng-container>
     <ng-container matColumnDef="Pojemność silnika">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Pojemność silnika</th>
-      <td mat-cell *matCellDef="let element" [routerLink]="['/car', element.vin]"> {{element.engineCapacity + " cm3"}} </td>
+      <td mat-cell *matCellDef="let element"
+          [routerLink]="['/car', element.vin]"> {{element.engineCapacity + " cm3"}} </td>
     </ng-container>
 
 
@@ -65,19 +70,29 @@
       <td mat-cell *matCellDef="let element; let row">
         <button [matMenuTriggerFor]="menu" mat-button matSuffix mat-stroked-button aria-label="search">
 
-          <mat-icon>more_vert</mat-icon>
+           <i class="fa fa-ellipsis-v"></i>
         </button>
 
         <mat-menu #menu="matMenu">
-          <button  (click)="onEdit(element)"mat-menu-item><mat-icon>edit</mat-icon>Edytuj</button>
-          <button (click)="onRemove(element)"mat-menu-item> <mat-icon>delete</mat-icon>Usuń</button>
+          <button (click)="onEdit(element)" mat-menu-item>
+            <i class="fa fa-edit"></i>
+
+
+            Edytuj
+          </button>
+          <button (click)="onRemove(element)" mat-menu-item>
+            <i class="fa fa-trash"></i>
+
+
+            Usuń
+          </button>
         </mat-menu>
     </ng-container>
 
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; let i = index columns: displayedColumns"
-      >
+    >
 
     </tr>
 

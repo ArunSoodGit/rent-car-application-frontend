@@ -40,18 +40,18 @@ export class RentalComponent implements OnInit {
   }
 
 
-  applyFilter(filterValue: string) {
+  applyFilter(filterValue: string): void{
     this.dataSource.filter = filterValue;
   }
 
 
-  onCreate() {
+  onCreate(): void {
     const dialogRef = this.dialog.open(CarTableComponent, {
       width: '500px'
     });
   }
 
-  onUpdate(customer) {
+  onUpdate(customer): void {
     const dialogRef = this.dialog.open(CarTableComponent, {
       width: '500px',
       data: customer
@@ -62,19 +62,19 @@ export class RentalComponent implements OnInit {
     });
   }
 
-  onDelete(customer) {
+  onDelete(customer): void {
     //  this.customerService.deleteCustomer(customer.key, customer);
   }
 
-  applyFilterAvailable() {
+  applyFilterAvailable(): void {
     this.dataSource.filter = 'dostępny';
   }
 
-  applyFilterAll() {
+  applyFilterAll(): void {
     this.dataSource.filter = '';
   }
 
-  applyFilterUnavailable() {
+  applyFilterUnavailable(): void {
     this.dataSource.filter = 'wynajęty';
   }
 
