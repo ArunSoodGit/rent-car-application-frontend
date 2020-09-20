@@ -1,4 +1,7 @@
-
+p{
+  font-size: 15px;
+  margin-bottom: 50px;
+}
 .button{
   margin-right: 30px;
   width: 70px;
@@ -12,8 +15,22 @@
      text-align: center;
      margin-left: auto;
      margin-right: auto;
+      margin-bottom: 80px;
 
      img{
-       width: 70%;
+       width: 100%;
      }
+}
+::ng-deep .icon-outside .close-button{
+  float: right;
+  top:-33px;
+  right:-33px;
+  background-color: white;
+  color: black;
+  outline: 0;
+
+}
+
+::ng-deep .icon-outside .mat-dialog-container {
+  overflow: unset
 }

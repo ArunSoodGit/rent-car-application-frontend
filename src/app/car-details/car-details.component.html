@@ -1,27 +1,20 @@
-<div class="container">
 
-  <div class="row">
-    <div class="col-12">
-      <mat-card class="example-card">
-        <mat-card-header>
-          <div mat-card-avatar><img class="mat-card-avatar-img" [src]=car.imagePath></div>
-          <mat-card-title>{{car.carMarkModel.mark}}</mat-card-title>
-          <mat-card-subtitle>{{car.carMarkModel.model}}</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image [src]=car.imagePath alt="Photo of a Shiba Inu">
-        <mat-card-content>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar><img class="mat-card-avatar-img" [src]=data.imagePath></div>
+      <mat-card-title>{{data.carMarkModel.mark}}</mat-card-title>
+      <mat-card-subtitle>{{data.carMarkModel.model}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]=data.imagePath >
+    <mat-card-content>
 
 
-        </mat-card-content>
+    </mat-card-content>
 
 
-        <mat-card-actions>
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-  </div>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
 
-
-</div>

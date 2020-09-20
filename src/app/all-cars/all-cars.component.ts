@@ -8,6 +8,7 @@ import {NewCarComponent} from '../new-car/new-car.component';
 import {EditCarComponent} from '../edit-car/edit-car.component';
 import {Car} from '../models/Car';
 import {RemoveCarComponent} from '../remove-car/remove-car.component';
+import {CarDetailsComponent} from '../car-details/car-details.component';
 
 @Component({
   selector: 'app-all-cars',
@@ -96,5 +97,16 @@ export class AllCarsComponent implements OnInit {
 
   applyFilterUnavailable(): void {
     this.dataSource.filter = 'Wynajęty';
+  }
+
+  show(element): any {
+    const dialogRef = this.dialog.open(CarDetailsComponent, {
+      width: '800px',
+      panelClass: 'icon-outside',
+      data: element
+    }).afterClosed().subscribe(result => {
+      this.refresh();
+      this.car = element;
+    });
   }
 }
