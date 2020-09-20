@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Usuń samochód</h1>
+  <p>Czy na pewno chcesz usunąć
+    {{data.carMarkModel.mark}}, {{data.carMarkModel.model}} ?  </p>
+  <div class="image">
+    <img [src]="data.imagePath">
+
+
+  </div>
+
+
+  <div class="action">
+    <button type="button" class="btn btn-success button" (click)="onRemove()">Tak</button>
+    <button type="button" class="btn btn-danger button" (click)="dialogRef.close()">Nie</button>
+  </div>
+
+
+</div>
+
+

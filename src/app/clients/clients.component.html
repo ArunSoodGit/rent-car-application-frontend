@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="search-div">
+
+    <button mat-raised-button class="create" (click)="onCreate()">
+      <mat-icon>person_add</mat-icon>
+      Nowy
+    </button>
+
+    <mat-form-field class="search-form-field" floatLabel="never">
+
+      <input matInput [(ngModel)]="searchKey" (keyup)="applyFilter($event)" placeholder="Szukaj" autocomplete="off">
+      <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <table mat-table  [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <ng-container matColumnDef="imię">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Imię</th>
+      <td mat-cell *matCellDef="let element"> {{element.imie}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nazwisko">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Nazwisko</th>
+      <td mat-cell *matCellDef="let element"> {{element.nazwisko}} </td>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+    <ng-container matColumnDef="nrTelefonu">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Nr. telefonu</th>
+      <td mat-cell *matCellDef="let element"> {{element.nrTelefonu}} </td>
+    </ng-container>
+    <ng-container matColumnDef="pesel">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Pesel</th>
+      <td mat-cell *matCellDef="let element"> {{element.pesel}} </td>
+    </ng-container>
+    <ng-container matColumnDef="nrPrawaJazdy">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Nr. Prawa jazdy</th>
+      <td mat-cell *matCellDef="let element"> {{element.nrPrawaJazdy}} </td>
+    </ng-container>
+    <ng-container matColumnDef="kraj">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Kraj</th>
+      <td mat-cell *matCellDef="let element"> {{element.kraj}} </td>
+    </ng-container>
+    <ng-container matColumnDef="miasto">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Miasto</th>
+      <td mat-cell *matCellDef="let element"> {{element.miasto}} </td>
+    </ng-container>
+    <ng-container matColumnDef="ulica">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Ulica</th>
+      <td mat-cell *matCellDef="let element"> {{element.ulica}} </td>
+    </ng-container>
+    <ng-container matColumnDef="nrBudynku">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Nr. budynku</th>
+      <td mat-cell *matCellDef="let element"> {{element.nrBudynku}} </td>
+    </ng-container>
+    <ng-container matColumnDef="nrLokalu">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Nr. lokalu</th>
+      <td mat-cell *matCellDef="let element"> {{element.nrLokalu}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+      <td mat-cell *matCellDef="let element; let row">
+        <mat-icon (click)="onUpdate(element)" class="edit">edit</mat-icon>
+        <mat-icon (click)="onDelete(element)" class="delete">delete</mat-icon>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"
+        class="rows"
+    ></tr>
+
+  </table>
+  <mat-paginator [pageSize]="10"></mat-paginator>
+
+</div>

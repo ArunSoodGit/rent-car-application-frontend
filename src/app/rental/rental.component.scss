@@ -1,0 +1,23 @@
+table {
+  width: 100%;
+
+  img{
+    margin-right: 10px;
+    width:90px;
+    height: 60px;
+    object-fit: contain;
+  }
+  .mat-row:hover{
+    background-color: aliceblue;
+
+  }
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 12.5%;
+}
