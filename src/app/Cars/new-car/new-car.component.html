@@ -26,18 +26,18 @@
 
       <mat-form-field class="element2">
         <mat-label>Model</mat-label>
-        <input type="text" matInput placeholder="Model" [(ngModel)]="car.carMarkModel.model" name="model">
+        <input type="text" matInput placeholder="Model" [(ngModel)]="car.carMarkModel.model" name="model" required="true">
 
       </mat-form-field>
       <mat-form-field class="element">
         <mat-label>Numer rejestracyjny</mat-label>
         <input type="text" matInput placeholder="Numer rejestracyjny" [(ngModel)]="car.registrationNumber"
-               name="registrationNumber">
+               name="registrationNumber" required="true">
       </mat-form-field>
       <mat-form-field class="element2">
         <mat-label>Pojemność silnika</mat-label>
         <input type="number" matInput placeholder="Pojemność silnika" [(ngModel)]="car.engineCapacity"
-               name="Pojemność silnika">
+               name="Pojemność silnika" required="true">
 
       </mat-form-field>
       <mat-form-field class="element">
@@ -47,12 +47,12 @@
       </mat-form-field>
       <mat-form-field class="element2">
         <mat-label>Przebieg</mat-label>
-        <input type="number" matInput placeholder="Przebieg" [(ngModel)]="car.mileage" name="Przebieg">
+        <input type="number" matInput placeholder="Przebieg" [(ngModel)]="car.mileage" name="Przebieg" required="true">
 
       </mat-form-field>
       <mat-form-field class="element">
         <mat-label>Dostępność</mat-label>
-        <mat-select [(ngModel)]="car.isAvailable" name="isAvailable">
+        <mat-select [(ngModel)]="car.isAvailable" name="isAvailable" required="true">
           <mat-option *ngFor="let available of availables" [value]="available">
             {{available}}
           </mat-option>
@@ -61,7 +61,7 @@
 
       <mat-form-field class="element2">
         <mat-label>Klasa</mat-label>
-        <mat-select [(ngModel)]="car.carMarkModel.carClass.className" name="className">
+        <mat-select [(ngModel)]="car.carMarkModel.carClass.className" name="className" required="true">
           <mat-option *ngFor="let class of classess" [value]="class">
             {{class}}
           </mat-option>
@@ -71,7 +71,7 @@
 
       <mat-form-field class="element">
         <mat-label>Data produkcji</mat-label>
-        <input [(ngModel)]="car.dateOfProduction" matInput [matDatepicker]="picker" name="dateOfProduction">
+        <input [(ngModel)]="car.dateOfProduction" matInput [matDatepicker]="picker" name="dateOfProduction" required="true">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
@@ -79,7 +79,7 @@
 
       <mat-form-field class="element2">
         <mat-label>Przegląd</mat-label>
-        <input type="text" matInput placeholder="Przegląd" [(ngModel)]="car.review" name="Przegląd">
+        <input type="text" matInput placeholder="Przegląd" [(ngModel)]="car.review" name="Przegląd" required="true">
       </mat-form-field>
 
 

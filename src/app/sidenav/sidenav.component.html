@@ -1,9 +1,8 @@
 <div class="container">
   <div class="info">
 
-    <button mat-mini-fab class="toolbar-avatar">
-
-    </button>
+    <img  class="image"
+          src="assets/avatar2.png">
     <a class="user">
   Arun Sood
     </a>
@@ -12,19 +11,19 @@
 
   <ul class="listContainer">
     <li>
-      <button routerLink="/osobowe" (click)="onSidenavClose()">
+      <button routerLink="/cars" (click)="onSidenavClose()">
         <mat-icon class="icon">drive_eta</mat-icon>
         <span class="nav-caption">Flota</span>
       </button>
     </li>
     <li>
-      <button routerLink="/lista-klient" (click)="onSidenavClose()">
+      <button routerLink="/customers" (click)="onSidenavClose()">
         <mat-icon class="icon">people</mat-icon>
         <span class="nav-caption">Klienci</span>
       </button>
     </li>
     <li>
-      <button routerLink="/osobowe" (click)="onSidenavClose()">
+      <button routerLink="/rentals" (click)="onSidenavClose()">
         <mat-icon class="icon">view_list</mat-icon>
         <span class="nav-caption">Rezerwacje</span>
       </button>

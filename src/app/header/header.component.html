@@ -1,9 +1,9 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-  <button mat-icon-button (click)="onToggleSidenav()">
+  <button *ngIf="authenticationService.isUserLoggedIn()" mat-icon-button (click)="onToggleSidenav()">
     <mat-icon>menu</mat-icon>
   </button>
 
-  <a class="navbar-brand" href="/home"><i class="fa fa-car brand-icon"></i>CarManagerApp</a>
+  <a class="navbar-brand" href="/home"><img class="brand-image" src="assets/car.png">CarManagerApp</a>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 
@@ -13,7 +13,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" *ngIf="authenticationService.isUserLoggedIn()" href="/clients"><i
+        <a class="nav-link" *ngIf="authenticationService.isUserLoggedIn()" href="/customers"><i
           class="fa fa-user icon"></i></a>
       </li>
       <li class="nav-item">

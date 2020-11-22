@@ -20,7 +20,7 @@ export class AuthenticationService {
   ) {
   }
 
-  authenticate(username, password) {
+  authenticate(username, password): any{
     const headers = new HttpHeaders({Authorization: 'Basic ' + btoa(username + ':' + password)});
     return this.httpClient.get<User>('https://localhost:444/validateLogin', {headers}).pipe(
       map(
@@ -35,13 +35,13 @@ export class AuthenticationService {
   }
 
 
-  isUserLoggedIn() {
+  isUserLoggedIn(): any {
     const user = sessionStorage.getItem('username');
  //   console.log(!(user === null));
     return !(user === null);
   }
 
-  logOut() {
+  logOut(): any {
     sessionStorage.removeItem('username');
   }
 }

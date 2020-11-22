@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {Car} from '../models/Car';
-import {CarService} from '../services/car.service';
+import {Car} from '../../models/Car';
+import {CarService} from '../../services/car.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 

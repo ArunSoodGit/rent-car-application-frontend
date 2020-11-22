@@ -1,0 +1,52 @@
+.element{
+  margin-bottom: 20px;
+  margin-right: 20px;
+
+}
+.element2{
+  margin-bottom: 20px;
+}
+.full{
+
+  margin-bottom: 5px;
+  width: 100%;
+}
+.create {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+mat-dialog-content{
+  margin-right: auto;
+  margin-left: auto;
+}
+mat-form-field{
+  width: 200px;
+
+}
+
+.mat-dialog-title{
+  font-family: DejaVu Sans Mono, monospace;
+}
+
+::ng-deep .icon-outside .close-button{
+  float: right;
+  top:-33px;
+  right:-33px;
+  background-color: white;
+  color: black;
+  outline: 0;
+
+}
+
+::ng-deep .icon-outside .mat-dialog-container {
+  overflow: unset
+}
+.image{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+
+  img{
+    width: 40%;
+  }
+}

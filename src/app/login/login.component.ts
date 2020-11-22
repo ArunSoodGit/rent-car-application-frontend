@@ -22,7 +22,7 @@ export class LoginComponent {
   checkLogin() {
     (this.authService.authenticate(this.username, this.password).subscribe(
         data => {
-          this.router.navigate(['']);
+          this.router.navigate(['cars']);
           this.invalidLogin = false;
         },
         error => {

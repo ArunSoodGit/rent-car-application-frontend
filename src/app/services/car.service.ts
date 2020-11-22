@@ -26,14 +26,14 @@ export class CarService {
   }
 
   addCar(car: Car): Observable<Car> {
-    return this.httpClient.post<Car>('https://localhost:444/add-car', car, {headers: this.headers});
+    return this.httpClient.post<Car>('https://localhost:444/cars', car, {headers: this.headers});
   }
   updateCar(car: Car): Observable<Car> {
-    return this.httpClient.put<Car>('https://localhost:444/update-car', car, {headers: this.headers})
+    return this.httpClient.put<Car>('https://localhost:444/cars', car, {headers: this.headers})
      ;
   }
   deleteCar(vin): Observable<Car> {
-    const url = `https://localhost:444/delete-car/${vin}`; // DELETE api/heroes/42
+    const url = `https://localhost:444/cars/${vin}`; // DELETE api/heroes/42
     return this.httpClient.delete<Car>(url, {headers: this.headers});
   }
 }

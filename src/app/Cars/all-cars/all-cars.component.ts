@@ -1,12 +1,12 @@
 import {ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
 import {MatSort} from '@angular/material/sort';
 import {MatPaginator} from '@angular/material/paginator';
-import {CarService} from '../services/car.service';
+import {CarService} from '../../services/car.service';
 import {MatDialog} from '@angular/material/dialog';
 import {MatTableDataSource} from '@angular/material/table';
 import {NewCarComponent} from '../new-car/new-car.component';
 import {EditCarComponent} from '../edit-car/edit-car.component';
-import {Car} from '../models/Car';
+import {Car} from '../../models/Car';
 import {RemoveCarComponent} from '../remove-car/remove-car.component';
 import {CarDetailsComponent} from '../car-details/car-details.component';
 
@@ -32,6 +32,7 @@ export class AllCarsComponent implements OnInit {
 
   ngOnInit(): void {
     this.refresh();
+
   }
 
 
@@ -69,7 +70,7 @@ export class AllCarsComponent implements OnInit {
 
   onCreate(): void {
     const dialogRef = this.dialog.open(NewCarComponent, {
-      width: '480px',
+      width: '500px',
       panelClass: 'icon-outside',
     }).afterClosed().subscribe(result => {
       this.refresh();
@@ -78,7 +79,7 @@ export class AllCarsComponent implements OnInit {
 
   onEdit(car): void{
     const dialogRef = this.dialog.open(EditCarComponent, {
-      width: '480px',
+      width: '500px',
       panelClass: 'icon-outside',
       data: car
     }).afterClosed().subscribe(result => {

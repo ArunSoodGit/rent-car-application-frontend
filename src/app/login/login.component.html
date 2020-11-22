@@ -3,19 +3,19 @@
     <div class="col-sm-9 col-md-7 col-lg-4 mx-auto">
       <div class="card card-signin my-5">
         <div class="card-body">
-          <h5 class="card-title text-center">Sign In</h5>
+          <h5 class="card-title text-center">Zaloguj się</h5>
           <form #form="ngForm" (ngSubmit)="checkLogin()">
             <div class="form-group">
 
-              <input  type="text" name="username"[(ngModel)]="username"  class="form-control" id="username" placeholder="Login">
+              <input  type="text" name="username"[(ngModel)]="username"  class="form-control" id="username" placeholder="Identyfikator">
 
             </div>
             <div class="form-group">
 
-              <input name="password" [(ngModel)]="password"  type="password" class="form-control" id="password" placeholder="Password">
+              <input name="password" [(ngModel)]="password"  type="password" class="form-control" id="password" placeholder="Hasło">
             </div>
 
-            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Zaloguj się</button>
           </form>
         </div>
 

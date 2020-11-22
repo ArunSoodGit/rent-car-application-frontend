@@ -9,10 +9,10 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {HttpInterceptorService} from './services/http-interceptor.service';
 import {HeaderComponent} from './header/header.component';
 import {FormsModule} from '@angular/forms';
-import { CarTableComponent } from './car-table/car-table.component';
+import { CarTableComponent } from './Cars/car-table/car-table.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { ClientsComponent } from './clients/clients.component';
-import { NewClientComponent } from './new-client/new-client.component';
+import { AllCustomersComponent } from './all-customers/all-customers.component';
+import { NewCustomerComponent } from './new-customer/new-customer.component';
 import { ClientDetailsComponent } from './client-details/client-details.component';
 import { EditClientComponent } from './edit-client/edit-client.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -27,20 +27,22 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatNativeDateModule, MatOptionModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
-import { CarDetailsComponent } from './car-details/car-details.component';
+import { CarDetailsComponent } from './Cars/car-details/car-details.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { HomeComponent } from './home/home.component';
-import { AllCarsComponent } from './all-cars/all-cars.component';
+import { AllCarsComponent } from './Cars/all-cars/all-cars.component';
 
 import {MatTabsModule} from '@angular/material/tabs';
 import { RentalComponent } from './rental/rental.component';
-import { NewCarComponent } from './new-car/new-car.component';
+import { NewCarComponent } from './Cars/new-car/new-car.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatMenuModule} from '@angular/material/menu';
-import { EditCarComponent } from './edit-car/edit-car.component';
-import { RemoveCarComponent } from './remove-car/remove-car.component';
+import { EditCarComponent } from './Cars/edit-car/edit-car.component';
+import { RemoveCarComponent } from './Cars/remove-car/remove-car.component';
+import { CustomersTableComponent } from './customers-table/customers-table.component';
+import { AgreementComponent } from './agreement/agreement.component';
 
 @NgModule({
   declarations: [
@@ -49,8 +51,8 @@ import { RemoveCarComponent } from './remove-car/remove-car.component';
     LoginComponent,
     LogoutComponent,
     CarTableComponent,
-    ClientsComponent,
-    NewClientComponent,
+    AllCustomersComponent,
+    NewCustomerComponent,
     ClientDetailsComponent,
     EditClientComponent,
     CarDetailsComponent,
@@ -64,7 +66,11 @@ import { RemoveCarComponent } from './remove-car/remove-car.component';
 
     EditCarComponent,
 
-    RemoveCarComponent
+    RemoveCarComponent,
+
+    CustomersTableComponent,
+
+    AgreementComponent
   ],
   imports: [
     BrowserModule,

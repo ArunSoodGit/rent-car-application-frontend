@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {CarService} from '../services/car.service';
+import {CarService} from '../../services/car.service';
 import {MatSort} from '@angular/material/sort';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';

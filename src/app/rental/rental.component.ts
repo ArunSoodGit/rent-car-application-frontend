@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatSort} from '@angular/material/sort';
 import {MatDialog} from '@angular/material/dialog';
-import {CarTableComponent} from '../car-table/car-table.component';
+import {CarTableComponent} from '../Cars/car-table/car-table.component';
 import {CarService} from '../services/car.service';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';

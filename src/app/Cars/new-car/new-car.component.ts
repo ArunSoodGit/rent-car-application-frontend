@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {CarService} from '../services/car.service';
-import {Car} from '../models/Car';
+import {CarService} from '../../services/car.service';
+import {Car} from '../../models/Car';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {MatDialogRef} from '@angular/material/dialog';
 import {Router} from '@angular/router';
@@ -29,8 +29,7 @@ export class NewCarComponent implements OnInit {
     this.carService.addCar(car).subscribe(
       data => {
         console.log(data);
-      }
-    );
+      });
 
     this.dialogRef.close();
     this.snackBar.open('Dodawanie zakończone pomyślnie', 'OK', {
