@@ -53,7 +53,7 @@
       <mat-form-field class="element">
         <mat-label>Dostępność</mat-label>
         <mat-select [(ngModel)]="car.isAvailable" name="isAvailable" required="true">
-          <mat-option *ngFor="let available of availables" [value]="available">
+          <mat-option *ngFor="let available of available" [value]="available">
             {{available}}
           </mat-option>
         </mat-select>
@@ -62,7 +62,7 @@
       <mat-form-field class="element2">
         <mat-label>Klasa</mat-label>
         <mat-select [(ngModel)]="car.carMarkModel.carClass.className" name="className" required="true">
-          <mat-option *ngFor="let class of classess" [value]="class">
+          <mat-option *ngFor="let class of classes" [value]="class">
             {{class}}
           </mat-option>
         </mat-select>
@@ -87,8 +87,8 @@
   </div>
   <div mat-dialog-actions>
     <button mat-raised-button class="create" (click)="onSubmit(car)" [disabled]="!customerForm.form.valid">
-      <i class="fa fa-plus"></i>
-      Dodaj
+
+      Zapisz
 
     </button>
   </div>

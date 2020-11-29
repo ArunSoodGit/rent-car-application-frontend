@@ -12,11 +12,12 @@ import {Router} from '@angular/router';
 })
 export class NewCarComponent implements OnInit {
   car: Car = new Car();
-  classess: string[] = ['A', 'B', 'C', 'D'];
-  availables: string[] = ['Dostępny', 'Wynajęty'];
+  classes: string[] = ['A', 'B', 'C', 'D', 'E', 'F', 'S', 'J', 'M'];
+  available: string[] = ['Dostępny', 'Wynajęty'];
   reviews: string[] = ['Tak', 'Nie'];
 
-  constructor(private router: Router, private carService: CarService, private snackBar: MatSnackBar, public dialogRef: MatDialogRef<NewCarComponent>) {
+  constructor(private router: Router, private carService: CarService, private snackBar: MatSnackBar,
+              public dialogRef: MatDialogRef<NewCarComponent>) {
   }
 
   ngOnInit(): void {
@@ -28,7 +29,7 @@ export class NewCarComponent implements OnInit {
 
     this.carService.addCar(car).subscribe(
       data => {
-        console.log(data);
+        this.router.navigate(['/cars']);
       });
 
     this.dialogRef.close();

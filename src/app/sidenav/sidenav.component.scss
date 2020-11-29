@@ -52,6 +52,9 @@ img {
   li{
     list-style-type: none;
     margin-bottom: 15px;
+    .nav-link{
+      padding: 0;
+    }
     button{
       color: black;
       outline: 0;
@@ -72,4 +75,10 @@ img {
 .container{
   height: 100%;
 
+}
+.logout{
+  position: absolute;
+  bottom: 0;
+  background-color: red;
+  margin-bottom: 30px!important;
 }

@@ -9,7 +9,6 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {HttpInterceptorService} from './services/http-interceptor.service';
 import {HeaderComponent} from './header/header.component';
 import {FormsModule} from '@angular/forms';
-import { CarTableComponent } from './Cars/car-table/car-table.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AllCustomersComponent } from './all-customers/all-customers.component';
 import { NewCustomerComponent } from './new-customer/new-customer.component';
@@ -41,8 +40,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatMenuModule} from '@angular/material/menu';
 import { EditCarComponent } from './Cars/edit-car/edit-car.component';
 import { RemoveCarComponent } from './Cars/remove-car/remove-car.component';
-import { CustomersTableComponent } from './customers-table/customers-table.component';
 import { AgreementComponent } from './agreement/agreement.component';
+import { NewRentalComponent } from './new-rental/new-rental.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +49,6 @@ import { AgreementComponent } from './agreement/agreement.component';
     HeaderComponent,
     LoginComponent,
     LogoutComponent,
-    CarTableComponent,
     AllCustomersComponent,
     NewCustomerComponent,
     ClientDetailsComponent,
@@ -59,18 +57,12 @@ import { AgreementComponent } from './agreement/agreement.component';
     SidenavComponent,
     HomeComponent,
     AllCarsComponent,
-
     RentalComponent,
-
     NewCarComponent,
-
     EditCarComponent,
-
     RemoveCarComponent,
-
-    CustomersTableComponent,
-
-    AgreementComponent
+    AgreementComponent,
+    NewRentalComponent
   ],
   imports: [
     BrowserModule,

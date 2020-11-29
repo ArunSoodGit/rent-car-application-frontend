@@ -1,14 +1,10 @@
-
-
-
-
 <button mat-mini-fab mat-raised-button class="close-button" [mat-dialog-close]="true">
   <mat-icon>close</mat-icon>
 </button>
 <div mat-dialog-title>
   <h1 class="title"> Dodaj klienta</h1>
   <div class="image">
-<!--    <img [src]="car.imagePath">-->
+    <!--    <img [src]="car.imagePath">-->
 
   </div>
 
@@ -16,11 +12,12 @@
 <div mat-dialog-content>
   <form #customerForm="ngForm" (ngSubmit)="customerForm.form.valid && onSubmit(customer)" class="example-form">
 
-      <mat-form-field class="element">
-        <mat-label>Imię</mat-label>
-        <input type="text" matInput placeholder="Numer vin" [(ngModel)]="customer.customerName" name="vin" required="true">
+    <mat-form-field class="element">
+      <mat-label>Imię</mat-label>
+      <input type="text" matInput placeholder="Numer vin" [(ngModel)]="customer.customerName" name="vin"
+             required="true">
 
-      </mat-form-field>
+    </mat-form-field>
 
     <mat-form-field class="element2">
       <mat-label>Nazwisko</mat-label>
@@ -55,19 +52,17 @@
     </mat-form-field>
     <mat-form-field class="element2">
       <mat-label>Numer telefonu</mat-label>
-      <input type="number" matInput placeholder="Przebieg" [(ngModel)]="customer.phoneNumber" name="Przebieg" required="true">
+      <input type="number" matInput placeholder="Przebieg" [(ngModel)]="customer.phoneNumber" name="Przebieg"
+             required="true">
 
     </mat-form-field>
-
 
 
   </form>
 </div>
 <div mat-dialog-actions>
   <button mat-raised-button class="create" (click)="onSubmit(customer)" [disabled]="!customerForm.form.valid">
-    <i class="fa fa-plus"></i>
-    Dodaj
-
+    Zapisz
   </button>
 </div>
 

@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild} from '@angular/core';
 import {MatSort} from '@angular/material/sort';
 import {MatPaginator} from '@angular/material/paginator';
 import {CarService} from '../../services/car.service';
@@ -15,7 +15,7 @@ import {CarDetailsComponent} from '../car-details/car-details.component';
   templateUrl: './all-cars.component.html',
   styleUrls: ['./all-cars.component.scss']
 })
-export class AllCarsComponent implements OnInit {
+export class AllCarsComponent implements OnInit , AfterViewInit {
 
   displayedColumns: string[] = ['Zdjęcie', 'Marka', 'Model', 'Klasa', 'Cena', 'Kaucja', 'Pojemność silnika', 'edit'];
   car: Car;
@@ -24,15 +24,15 @@ export class AllCarsComponent implements OnInit {
   searchKey: string;
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private carService: CarService, private dialog: MatDialog, private changeDetectorRefs: ChangeDetectorRef) {
   }
-
+  ngAfterViewInit(): void {
+  }
 
   ngOnInit(): void {
     this.refresh();
-
   }
 
 
@@ -46,6 +46,8 @@ export class AllCarsComponent implements OnInit {
         this.changeDetectorRefs.detectChanges();
         console.log(car);
         this.dataSource = new MatTableDataSource(car);
+        this.dataSource.paginator = this.paginator;
+
         this.dataSource.filterPredicate = (data, filter) => {
           const dataStr = data.engineCapacity + data.carMarkModel.mark + data.carMarkModel.model + data.carMarkModel.carClass.className +
             data.carMarkModel.carClass.pricePerNight + data.isAvailable;
@@ -77,7 +79,7 @@ export class AllCarsComponent implements OnInit {
     });
   }
 
-  onEdit(car): void{
+  onEdit(car): void {
     const dialogRef = this.dialog.open(EditCarComponent, {
       width: '500px',
       panelClass: 'icon-outside',
@@ -110,4 +112,6 @@ export class AllCarsComponent implements OnInit {
       this.car = element;
     });
   }
+
+
 }

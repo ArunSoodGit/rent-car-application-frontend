@@ -1,11 +1,11 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatSort} from '@angular/material/sort';
 import {MatDialog} from '@angular/material/dialog';
-import {CarTableComponent} from '../Cars/car-table/car-table.component';
 import {CarService} from '../services/car.service';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {RentalService} from '../services/rental.service';
+import {AllCarsComponent} from '../Cars/all-cars/all-cars.component';
 
 @Component({
   selector: 'app-rental',
@@ -46,13 +46,13 @@ export class RentalComponent implements OnInit {
 
 
   onCreate(): void {
-    const dialogRef = this.dialog.open(CarTableComponent, {
+    const dialogRef = this.dialog.open(AllCarsComponent, {
       width: '500px'
     });
   }
 
   onUpdate(customer): void {
-    const dialogRef = this.dialog.open(CarTableComponent, {
+    const dialogRef = this.dialog.open(AllCarsComponent, {
       width: '500px',
       data: customer
     });

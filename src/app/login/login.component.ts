@@ -18,8 +18,7 @@ export class LoginComponent {
   }
 
 
-
-  checkLogin() {
+  checkLogin(): void {
     (this.authService.authenticate(this.username, this.password).subscribe(
         data => {
           this.router.navigate(['cars']);

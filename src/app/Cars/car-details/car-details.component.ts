@@ -3,6 +3,7 @@ import {Car} from '../../models/Car';
 import {CarService} from '../../services/car.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-car-details',
@@ -13,7 +14,7 @@ export class CarDetailsComponent implements OnInit {
 
 
   constructor(private carService: CarService, private snackBar: MatSnackBar, public dialogRef: MatDialogRef<CarDetailsComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: Car) {
+              @Inject(MAT_DIALOG_DATA) public data: Car, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -21,4 +22,9 @@ export class CarDetailsComponent implements OnInit {
   }
 
 
-}
+  reserve(data): void {
+    this.dialogRef.close();
+    this.router.navigate(['/rental',  this.data.vin]);
+
+  }
+  }

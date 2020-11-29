@@ -1,30 +1,32 @@
+
+<div class="navbar navbar-logo"></div>
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
   <button *ngIf="authenticationService.isUserLoggedIn()" mat-icon-button (click)="onToggleSidenav()">
     <mat-icon>menu</mat-icon>
   </button>
 
-  <a class="navbar-brand" href="/home"><img class="brand-image" src="assets/car.png">CarManagerApp</a>
+  <a class="navbar-brand" href="/home">CarManagerApp</a>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item ">
-        <a class="nav-link" *ngIf="authenticationService.isUserLoggedIn()" href="/cars"> <i class="fa fa-car icon"></i>
+        <a class="nav-link" *ngIf="authenticationService.isUserLoggedIn()" href="/cars"> <i class="fa fa-car icon "></i>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" *ngIf="authenticationService.isUserLoggedIn()" href="/customers"><i
-          class="fa fa-user icon"></i></a>
+          class="fa fa-user icon "></i></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" *ngIf="authenticationService.isUserLoggedIn()" href="/rentals"><i
-          class="fa fa-address-book icon"></i></a>
+          class="fa fa-address-book icon "></i></a>
       </li>
     </ul>
 
     <a class="nav-link" *ngIf="authenticationService.isUserLoggedIn()" href="/logout">
 
-      <i class="fa fa fa-sign-out icon"></i>
+      <i class="fa fa-sign-out icon "></i>
     </a>
 
   </div>

@@ -1,4 +1,4 @@
-<div class="container">
+<div  *ngIf="authenticationService.isUserLoggedIn()" class="container">
   <div class="info">
 
     <img  class="image"
@@ -29,12 +29,16 @@
       </button>
     </li>
 
-    <li>
-      <button routerLink="/login" (click)="onSidenavClose()">
-        <mat-icon class="icon">account_balance</mat-icon>
-        <span class="nav-caption">Logowanie</span>
-      </button>
+    <li class="logout">
+      <a class="nav-link" *ngIf="authenticationService.isUserLoggedIn()" href="/logout">
+        <button  *ngIf="authenticationService.isUserLoggedIn()" href="/logout">
+          <i class="fa fa-sign-out icon "></i>
+          <span class="nav-caption">Wylogowanie</span>
+        </button>
+      </a>
     </li>
+
+
   </ul>
 
 </div>
