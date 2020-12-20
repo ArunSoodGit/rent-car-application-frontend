@@ -1,0 +1,67 @@
+<button mat-mini-fab mat-raised-button class="close-button" [mat-dialog-close]="true">
+  <mat-icon>close</mat-icon>
+</button>
+<div mat-dialog-title>
+  <h1 class="title"> Dodaj klienta</h1>
+  <div class="image">
+    <img  class="image"
+          src="../../../assets/avatar.png">
+
+  </div>
+
+</div>
+<div mat-dialog-content>
+  <form #customerForm="ngForm" (ngSubmit)="customerForm.form.valid && onSubmit(customer)" class="example-form">
+
+    <mat-form-field class="element">
+      <mat-label>Imię</mat-label>
+      <input type="text" matInput placeholder="Imię" [(ngModel)]="customer.customerName" name="name"
+             required="true">
+
+    </mat-form-field>
+
+    <mat-form-field class="element2">
+      <mat-label>Nazwisko</mat-label>
+      <input type="text" matInput placeholder="Nazwisko" [(ngModel)]="customer.customerSurname" name="surname"
+             required="true">
+    </mat-form-field>
+    <mat-form-field class="element">
+      <mat-label>Kraj</mat-label>
+      <input type="text" matInput placeholder="Kraj" [(ngModel)]="customer.country" name="country" required="true">
+
+    </mat-form-field>
+    <mat-form-field class="element2">
+      <mat-label>Miasto</mat-label>
+      <input type="text" matInput placeholder="Miasto" [(ngModel)]="customer.cityName" name="city" required="true">
+
+    </mat-form-field>
+    <mat-form-field class="element">
+      <mat-label>Adres</mat-label>
+      <input type="text" matInput placeholder="Adres" [(ngModel)]="customer.address"
+             name="address" required="true">
+    </mat-form-field>
+    <mat-form-field class="element2">
+      <mat-label>Numer prawa jazdy</mat-label>
+      <input type="number" matInput placeholder="Numer prawa jazdy" [(ngModel)]="customer.driverLicenseNumber"
+             name="Numer prawa jazdy" required="true">
+
+    </mat-form-field>
+    <mat-form-field class="element">
+      <mat-label>Email</mat-label>
+      <input type="text" matInput placeholder="Email" [(ngModel)]="customer.email" name="email" required="true">
+
+    </mat-form-field>
+    <mat-form-field class="element2">
+      <mat-label>Numer telefonu</mat-label>
+      <input type="number" matInput placeholder="Numer telefonu" [(ngModel)]="customer.phoneNumber" name="Numer telefonu"
+             required="true">
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button class="create" (click)="onSubmit(customer)" [disabled]="!customerForm.form.valid">
+    Zapisz
+  </button>
+</div>
+
+

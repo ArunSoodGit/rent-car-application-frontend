@@ -4,7 +4,7 @@
 <div mat-dialog-title>
   <h1 class="title"> Edytuj samochód</h1>
   <div class="image">
-    <img [src]="data.imagePath">
+    <img [src]="car.imagePath">
 
 
   </div>
@@ -12,48 +12,48 @@
 </div>
 
 <div mat-dialog-content>
-  <form #customerForm="ngForm" (ngSubmit)="customerForm.form.valid && onSubmit(data)" class="example-form">
+  <form #customerForm="ngForm" (ngSubmit)="customerForm.form.valid && onSubmit(car)" class="example-form">
     <p>
       <mat-form-field class="full">
         <mat-label>Numer vin</mat-label>
-        <input type="text" matInput placeholder="Numer vin" [(ngModel)]="data.vin" name="vin" required="true"
+        <input type="text" matInput placeholder="Numer vin" [(ngModel)]="car.vin" name="vin" required="true"
                disabled="true">
 
       </mat-form-field>
     </p>
     <mat-form-field class="element">
       <mat-label>Marka</mat-label>
-      <input type="text" matInput placeholder="Marka" [(ngModel)]="data.carMarkModel.mark" name="marka"
+      <input type="text" matInput placeholder="Marka" [(ngModel)]="car.carMarkModel.mark" name="marka"
              required="true">
     </mat-form-field>
 
     <mat-form-field class="element2">
       <mat-label>Model</mat-label>
-      <input type="text" matInput placeholder="Model" [(ngModel)]="data.carMarkModel.model" name="model">
+      <input type="text" matInput placeholder="Model" [(ngModel)]="car.carMarkModel.model" name="model">
 
     </mat-form-field>
     <mat-form-field class="element">
       <mat-label>Numer rejestracyjny</mat-label>
-      <input type="text" matInput placeholder="Numer rejestracyjny" [(ngModel)]="data.registrationNumber"
+      <input type="text" matInput placeholder="Numer rejestracyjny" [(ngModel)]="car.registrationNumber"
              name="registrationNumber">
     </mat-form-field>
     <mat-form-field class="element2">
       <mat-label>Pojemność silnika</mat-label>
-      <input type="number" matInput placeholder="Pojemność silnika" [(ngModel)]="data.engineCapacity"
+      <input type="number" matInput placeholder="Pojemność silnika" [(ngModel)]="car.engineCapacity"
              name="Pojemność silnika">
     </mat-form-field>
     <mat-form-field class="element">
       <mat-label>Kolor</mat-label>
-      <input type="text" matInput placeholder="Kolor" [(ngModel)]="data.color" name="color" required="true">
+      <input type="text" matInput placeholder="Kolor" [(ngModel)]="car.color" name="color" required="true">
 
     </mat-form-field>
     <mat-form-field class="element2">
       <mat-label>Przebieg</mat-label>
-      <input type="number" matInput placeholder="Przebieg" [(ngModel)]="data.mileage" name="Przebieg">
+      <input type="number" matInput placeholder="Przebieg" [(ngModel)]="car.mileage" name="Przebieg">
     </mat-form-field>
     <mat-form-field class="element">
       <mat-label>Dostępność</mat-label>
-      <mat-select [(ngModel)]="data.isAvailable" name="isAvailable">
+      <mat-select [(ngModel)]="car.isAvailable" name="isAvailable">
         <mat-option *ngFor="let available of available" [value]="available">
           {{available}}
         </mat-option>
@@ -62,7 +62,7 @@
 
     <mat-form-field class="element2">
       <mat-label>Klasa</mat-label>
-      <mat-select [(ngModel)]="data.carMarkModel.carClass.className" name="className">
+      <mat-select [(ngModel)]="car.carMarkModel.carClass.className" name="className">
         <mat-option *ngFor="let class of classes" [value]="class">
           {{class}}
         </mat-option>
@@ -72,7 +72,7 @@
 
     <mat-form-field class="element">
       <mat-label>Data produkcji</mat-label>
-      <input [(ngModel)]="data.dateOfProduction" matInput [matDatepicker]="picker" name="dateOfProduction">
+      <input [(ngModel)]="car.dateOfProduction" matInput [matDatepicker]="picker" name="dateOfProduction">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
@@ -80,22 +80,17 @@
 
     <mat-form-field class="element2">
       <mat-label>Przegląd</mat-label>
-      <mat-select [(ngModel)]="data.review" name="review">
+      <mat-select [(ngModel)]="car.review" name="review">
         <mat-option *ngFor="let review of reviews" [value]="review">
           {{review}}
         </mat-option>
       </mat-select>
     </mat-form-field>
-
-
   </form>
 </div>
 <div mat-dialog-actions>
-  <button mat-raised-button class="edit" (click)="onSubmit(data)" [disabled]="!customerForm.form.valid">
+  <button mat-raised-button class="edit" (click)="onSubmit(car)" [disabled]="!customerForm.form.valid">
     <i class="fa fa-edit"></i>
     Edytuj
-
-
-
   </button>
 </div>

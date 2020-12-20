@@ -1,20 +1,38 @@
-
-  <mat-card class="">
+<div *ngIf="car" class="container">
+  <mat-card >
     <mat-card-header>
-      <div mat-card-avatar><img class="mat-card-avatar-img" [src]=data.imagePath></div>
-      <mat-card-title>{{data.carMarkModel.mark}}</mat-card-title>
-      <mat-card-subtitle>{{data.carMarkModel.model}}</mat-card-subtitle>
+      <div mat-card-avatar><img class="mat-card-avatar-img" [src]=car.imagePath></div>
+      <mat-card-title>{{car.carMarkModel.mark}}</mat-card-title>
+      <mat-card-subtitle>{{car.carMarkModel.model}}</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image [src]=data.imagePath >
+    <img mat-card-image [src]=car.imagePath>
     <mat-card-content>
 
 
+      <ul class="list-group list-group-horizontal-md">
+        <li class="list-group-item">Numer vin: <span class="property"> {{car.vin}}</span></li>
+        <li class="list-group-item">Marka: <span class="property">{{car.carMarkModel.mark}}</span></li>
+        <li class="list-group-item">Model: <span class="property">{{car.carMarkModel.model}}</span></li>
+
+      </ul>
+      <ul class="list-group list-group-horizontal-md">
+        <li class="list-group-item">Numer rejestracyjny: <span class="property">{{car.registrationNumber}}</span></li>
+        <li class="list-group-item">Kolor: <span class="property">{{car.color}}</span></li>
+        <li class="list-group-item">Przebieg: <span class="property">{{car.mileage}} km</span></li>
+
+      </ul>
+      <ul class="list-group list-group-horizontal-md">
+        <li class="list-group-item">Data produkcji: <span class="property">{{car.dateOfProduction}}</span></li>
+        <li class="list-group-item">Dostępność: <span class="property">{{car.isAvailable}}</span></li>
+        <li class="list-group-item">Pojemność silnika: <span class="property">{{car.engineCapacity}} cm3</span></li>
+
+      </ul>
     </mat-card-content>
-
-
     <mat-card-actions>
-      <button  (click)="reserve(data)" mat-button>Rezerwuj</button>
-      <button mat-button>SHARE</button>
+      <button (click)="reserve(car)" mat-button>Utwórz rezerwację</button>
     </mat-card-actions>
   </mat-card>
+
+</div>
+
 

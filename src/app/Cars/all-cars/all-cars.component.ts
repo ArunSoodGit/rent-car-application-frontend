@@ -9,6 +9,7 @@ import {EditCarComponent} from '../edit-car/edit-car.component';
 import {Car} from '../../models/Car';
 import {RemoveCarComponent} from '../remove-car/remove-car.component';
 import {CarDetailsComponent} from '../car-details/car-details.component';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-all-cars',
@@ -26,7 +27,8 @@ export class AllCarsComponent implements OnInit , AfterViewInit {
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private carService: CarService, private dialog: MatDialog, private changeDetectorRefs: ChangeDetectorRef) {
+  constructor(private router: Router, private carService: CarService, private dialog: MatDialog,
+              private changeDetectorRefs: ChangeDetectorRef) {
   }
   ngAfterViewInit(): void {
   }
@@ -90,27 +92,8 @@ export class AllCarsComponent implements OnInit , AfterViewInit {
     });
   }
 
-  applyFilterAvailable(): void {
-    this.dataSource.filter = 'Dostępny';
-  }
-
-  applyFilterAll(): void {
-    this.dataSource.filter = '';
-  }
-
-  applyFilterUnavailable(): void {
-    this.dataSource.filter = 'Wynajęty';
-  }
-
   show(element): any {
-    const dialogRef = this.dialog.open(CarDetailsComponent, {
-      width: '800px',
-      panelClass: 'icon-outside',
-      data: element
-    }).afterClosed().subscribe(result => {
-      this.refresh();
-      this.car = element;
-    });
+    this.router.navigate(['/car', element.vin]);
   }
 
 

@@ -10,10 +10,9 @@ import {HttpInterceptorService} from './services/http-interceptor.service';
 import {HeaderComponent} from './header/header.component';
 import {FormsModule} from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { AllCustomersComponent } from './all-customers/all-customers.component';
-import { NewCustomerComponent } from './new-customer/new-customer.component';
-import { ClientDetailsComponent } from './client-details/client-details.component';
-import { EditClientComponent } from './edit-client/edit-client.component';
+import { AllCustomersComponent } from './customers/all-customers/all-customers.component';
+import { NewCustomerComponent } from './customers/new-customer/new-customer.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSortModule} from '@angular/material/sort';
@@ -34,14 +33,19 @@ import { HomeComponent } from './home/home.component';
 import { AllCarsComponent } from './Cars/all-cars/all-cars.component';
 
 import {MatTabsModule} from '@angular/material/tabs';
-import { RentalComponent } from './rental/rental.component';
+import { AllRentalsComponent } from './rentals/all-rentals/all-rentals.component';
 import { NewCarComponent } from './Cars/new-car/new-car.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatMenuModule} from '@angular/material/menu';
 import { EditCarComponent } from './Cars/edit-car/edit-car.component';
 import { RemoveCarComponent } from './Cars/remove-car/remove-car.component';
 import { AgreementComponent } from './agreement/agreement.component';
-import { NewRentalComponent } from './new-rental/new-rental.component';
+import { NewRentalComponent } from './rentals/new-rental/new-rental.component';
+import { EditCustomerComponent } from './customers/edit-customer/edit-customer.component';
+import { CustomerDetailsComponent } from './customers/customer-details/customer-details.component';
+import { RemoveCustomerComponent } from './customers/remove-customer/remove-customer.component';
+import {MatListModule} from '@angular/material/list';
+import { EditRentalComponent } from './rentals/edit-rental/edit-rental.component';
 
 @NgModule({
   declarations: [
@@ -51,18 +55,20 @@ import { NewRentalComponent } from './new-rental/new-rental.component';
     LogoutComponent,
     AllCustomersComponent,
     NewCustomerComponent,
-    ClientDetailsComponent,
-    EditClientComponent,
     CarDetailsComponent,
     SidenavComponent,
     HomeComponent,
     AllCarsComponent,
-    RentalComponent,
+    AllRentalsComponent,
     NewCarComponent,
     EditCarComponent,
     RemoveCarComponent,
     AgreementComponent,
-    NewRentalComponent
+    NewRentalComponent,
+    EditCustomerComponent,
+    CustomerDetailsComponent,
+    RemoveCustomerComponent,
+    EditRentalComponent
   ],
   imports: [
     BrowserModule,
@@ -88,6 +94,7 @@ import { NewRentalComponent } from './new-rental/new-rental.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatMenuModule,
+    MatListModule,
 
   ],
  providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}],

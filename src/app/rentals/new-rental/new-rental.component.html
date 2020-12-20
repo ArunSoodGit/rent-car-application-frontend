@@ -1,0 +1,59 @@
+<button mat-mini-fab mat-raised-button class="close-button" [mat-dialog-close]="true">
+  <mat-icon>close</mat-icon>
+</button>
+<div mat-dialog-title>
+  <h1 class="title"> Nowa rezerwacja</h1>
+
+
+</div>
+<div mat-dialog-content>
+  <form #customerForm="ngForm" (ngSubmit)="customerForm.form.valid && onSubmit(rental)" class="example-form">
+    <mat-form-field class="element">
+      <mat-label>Samochód</mat-label>
+      <mat-select [(ngModel)]="car" name="isAvailable" required="true">
+        <mat-option *ngFor="let car of cars" [value]="car">
+          <img [src]="car.imagePath" width="50px" height="30px">
+          {{car.carMarkModel.mark}}
+          {{car.carMarkModel.model}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="element2">
+      <mat-label>Klient</mat-label>
+      <mat-select [(ngModel)]="customer" name="className" required="true">
+        <mat-option *ngFor="let customer of customers" [value]="customer">
+          {{customer.customerName}}
+          {{customer.customerSurname}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="element">
+      <mat-label>Data wypożyczenia</mat-label>
+      <input [(ngModel)]="rental.rentalDate" matInput [matDatepicker]="picker1" name="dateOfProduction" required="true">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="element">
+      <mat-label>Data zwrotu</mat-label>
+      <input [(ngModel)]="rental.returnDate" matInput [matDatepicker]="picker2" name="dateOfProduction" required="true">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+
+
+
+
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button class="create" (click)="onSubmit(rental)" [disabled]="!customerForm.form.valid">
+
+    Zapisz
+
+  </button>
+</div>
+
+

@@ -27,6 +27,25 @@ mat-form-field{
   font-family: DejaVu Sans Mono, monospace;
 }
 
-.container{
-  margin-top:20pxy;
+::ng-deep .icon-outside .close-button{
+  float: right;
+  top:-33px;
+  right:-33px;
+  background-color: white;
+  color: black;
+  outline: 0;
+
+}
+
+::ng-deep .icon-outside .mat-dialog-container {
+  overflow: unset
+}
+.image{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+
+  img{
+    width: 40%;
+  }
 }

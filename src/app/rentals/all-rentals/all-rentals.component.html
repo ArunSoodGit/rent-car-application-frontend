@@ -1,17 +1,14 @@
 <div class="container">
-
+  <div class="form-inline">
+    <button mat-raised-button class="add" (click)="onCreate()">
+      Utwórz rezerwację
+    </button>
+  </div>
   <div class="search-div">
-
     <mat-form-field class="search-form-field" floatLabel="never">
-
       <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Szukaj" autocomplete="off">
-
     </mat-form-field>
-    <div class="form-inline">
-      <button  mat-raised-button class="add" (click)="onCreate()">
-        <mat-icon>drive_eta</mat-icon>
-      </button>
-    </div>
+
   </div>
   <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 

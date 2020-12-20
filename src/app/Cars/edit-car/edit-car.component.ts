@@ -3,6 +3,7 @@ import {Car} from '../../models/Car';
 import {CarService} from '../../services/car.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-edit-car',
@@ -15,8 +16,8 @@ export class EditCarComponent {
   available: string[] = ['Dostępny', 'Wynajęty'];
   reviews: string[] = ['Tak', 'Nie'];
 
-  constructor(private carService: CarService, private snackBar: MatSnackBar, public dialogRef: MatDialogRef<EditCarComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: Car) {
+  constructor(private router: Router, private carService: CarService, private snackBar: MatSnackBar, public dialogRef: MatDialogRef<EditCarComponent>,
+              @Inject(MAT_DIALOG_DATA) public car: Car) {
   }
 
 
@@ -24,7 +25,7 @@ export class EditCarComponent {
     console.log(car);
     this.carService.updateCar(car).subscribe(
       data => {
-        console.log(data);
+        this.router.navigate(['/cars']);
       }
     );
     this.dialogRef.close();

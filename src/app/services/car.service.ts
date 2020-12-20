@@ -14,15 +14,11 @@ export class CarService {
   }
 
   getCars(): Observable<Car[]> {
-
     return this.httpClient.get<Car[]>('https://localhost:444/cars');
-
   }
-
-  getAvailableCars(): Observable<Car[]> {
-
-    return this.httpClient.get<Car[]>('https://localhost:444/available-cars');
-
+  getCarByVin(vin): Observable<Car> {
+    const url = `https://localhost:444/cars/${vin}`;
+    return this.httpClient.get<Car>(url);
   }
 
   addCar(car: Car): Observable<Car> {

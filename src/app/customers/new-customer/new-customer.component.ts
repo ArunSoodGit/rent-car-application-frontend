@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {CustomerService} from '../services/customer.service';
-import {Customer} from '../models/Customer';
+import {CustomerService} from '../../services/customer.service';
+import {Customer} from '../../models/Customer';
+import {MatDialogRef} from '@angular/material/dialog';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -12,7 +14,7 @@ import {Customer} from '../models/Customer';
 export class NewCustomerComponent implements OnInit {
   customer = new Customer();
 
-  constructor(private service: CustomerService, private snackBar: MatSnackBar) {
+  constructor(private router: Router, private service: CustomerService, private snackBar: MatSnackBar, public dialogRef: MatDialogRef<NewCustomerComponent>) {
   }
 
   ngOnInit(): any {
@@ -22,9 +24,10 @@ export class NewCustomerComponent implements OnInit {
 
     this.service.addCustomer(customer).subscribe(
       data => {
-        console.log(data);
+        this.router.navigate(['/customers']);
       });
-    this.snackBar.open('Employee added successful', 'OK', {
+    this.dialogRef.close();
+    this.snackBar.open('Poprawnie dodano klienta', 'OK', {
       duration: 2000,
     });
   }

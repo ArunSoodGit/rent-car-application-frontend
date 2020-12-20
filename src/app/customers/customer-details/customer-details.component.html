@@ -1,0 +1,33 @@
+<div *ngIf="customer" class="container">
+  <mat-card>
+    <mat-card-header>
+      <div mat-card-avatar><img class="mat-card-avatar-img" src="../../../assets/avatar.png"></div>
+      <mat-card-title>{{customer.customerName}}</mat-card-title>
+      <mat-card-subtitle>{{customer.customerSurname}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+
+
+      <ul class="list-group list-group-horizontal-md">
+        <li class="list-group-item">Numer prawa jazdy: <span class="property"> {{customer.driverLicenseNumber}}</span></li>
+        <li class="list-group-item">Imię: <span class="property">{{customer.customerName}}</span></li>
+        <li class="list-group-item">Nazwisko: <span class="property">{{customer.customerSurname}}</span></li>
+
+      </ul>
+      <ul class="list-group list-group-horizontal-md">
+        <li class="list-group-item">Kraj: <span class="property">{{customer.country}}</span></li>
+        <li class="list-group-item">Miasto: <span class="property">{{customer.cityName}}</span></li>
+        <li class="list-group-item">Adres: <span class="property">{{customer.address}}</span></li>
+
+      </ul>
+    </mat-card-content>
+    <mat-card-actions>
+      <button (click)="reserve(customer)" mat-button>Rezerwuj</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+
+</div>
+
+

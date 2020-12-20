@@ -1,9 +1,8 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Car} from '../../models/Car';
 import {CarService} from '../../services/car.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-car-details',
@@ -11,20 +10,21 @@ import {Router} from '@angular/router';
   styleUrls: ['./car-details.component.scss']
 })
 export class CarDetailsComponent implements OnInit {
+  car: Car;
 
-
-  constructor(private carService: CarService, private snackBar: MatSnackBar, public dialogRef: MatDialogRef<CarDetailsComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: Car, private router: Router) {
-  }
+  constructor(private route: ActivatedRoute, private carService: CarService) {}
 
   ngOnInit(): void {
-
+    this.getCar();
   }
 
+  getCar(): void {
+
+    this.carService.getCarByVin(this.route.snapshot.paramMap.get('id'))
+      .subscribe(car => this.car = car);
+  }
 
   reserve(data): void {
-    this.dialogRef.close();
-    this.router.navigate(['/rental',  this.data.vin]);
 
   }
-  }
+}
