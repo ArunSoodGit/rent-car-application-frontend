@@ -10,6 +10,7 @@ import {AllRentalsComponent} from './rentals/all-rentals/all-rentals.component';
 import {AgreementComponent} from './agreement/agreement.component';
 import {NewRentalComponent} from './rentals/new-rental/new-rental.component';
 import {CustomerDetailsComponent} from './customers/customer-details/customer-details.component';
+import {RentalDetailsComponent} from './rentals/rental-details/rental-details.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -20,7 +21,7 @@ const routes: Routes = [
   {path: 'car/:id', component: CarDetailsComponent, canActivate: [AuthGaurdService] },
   {path: 'cars', component: AllCarsComponent, canActivate: [AuthGaurdService] },
   {path: 'agreement', component: AgreementComponent, canActivate: [AuthGaurdService] },
-  {path: 'all-rentals/:id', component: NewRentalComponent, canActivate: [AuthGaurdService] },
+  {path: 'rentals/:id', component: RentalDetailsComponent, canActivate: [AuthGaurdService] },
   {path: 'rentals', component: AllRentalsComponent, canActivate: [AuthGaurdService] },
 ];
 

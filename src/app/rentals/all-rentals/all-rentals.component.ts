@@ -97,7 +97,7 @@ export class AllRentalsComponent implements OnInit {
   }
 
   show(element): any {
-    this.router.navigate(['/car', element.vin]);
+    this.router.navigate(['/rentals', element.id]);
   }
 
 

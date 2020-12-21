@@ -1,0 +1,69 @@
+<div *ngIf="rental" class="container">
+  <mat-card>
+
+
+    <mat-card-content>
+      <div class="row">
+        <div class="col-md-12 col-xl-6">
+          <span class="property">Dane pojazdu</span>
+          <div class="image">
+            <img [src]="rental.car.imagePath">
+          </div>
+
+          <ul class="list-group ">
+            <li class="list-group-item">Numer vin: <span class="property"> {{rental.car.vin}}</span></li>
+            <li class="list-group-item">Marka: <span class="property">{{rental.car.carMarkModel.mark}}</span></li>
+            <li class="list-group-item">Model: <span class="property">{{rental.car.carMarkModel.model}}</span></li>
+            <li class="list-group-item">Klasa: <span
+              class="property">{{rental.car.carMarkModel.carClass.className}}</span></li>
+            <li class="list-group-item">Kaucja: <span class="property">{{rental.car.carMarkModel.carClass.deposit}}
+              zł</span></li>
+            <li class="list-group-item">Cena za dobę: <span
+              class="property">{{rental.car.carMarkModel.carClass.pricePerNight}} zł</span></li>
+            <li class="list-group-item">Pojemność silnika: <span class="property">{{rental.car.engineCapacity}}
+              cm3</span></li>
+            <li class="list-group-item">Numer rejestracyjny: <span
+              class="property">{{rental.car.registrationNumber}}</span></li>
+            <li class="list-group-item">Rok produkcji: <span class="property">{{rental.car.dateOfProduction}}</span>
+            </li>
+            <li class="list-group-item">Przebieg: <span class="property">{{rental.car.mileage}} km</span></li>
+            <li class="list-group-item">Kolor: <span class="property">{{rental.car.color}}</span></li>
+            <li class="list-group-item">Przegląd: <span class="property">{{rental.car.review}}</span></li>
+          </ul>
+        </div>
+        <div class="col-md-12 col-xl-6">
+          <span class="property">Dane wypożyczającego</span>
+          <ul class="list-group customer ">
+            <li class="list-group-item">Numer prawa jazdy: <span
+              class="property"> {{rental.customer.driverLicenseNumber}}</span></li>
+            <li class="list-group-item">Imię: <span class="property">{{rental.customer.customerName}}</span></li>
+            <li class="list-group-item">Nazwisko: <span class="property">{{rental.customer.customerSurname}}</span></li>
+            <li class="list-group-item">Kraj: <span class="property">{{rental.customer.country}}</span></li>
+            <li class="list-group-item">Miasto: <span class="property">{{rental.customer.cityName}}</span></li>
+            <li class="list-group-item">Adres: <span class="property">{{rental.customer.address}}</span></li>
+            <li class="list-group-item">Adres email: <span class="property">{{rental.customer.email}}</span></li>
+            <li class="list-group-item">Numer telefonu: <span class="property">{{rental.customer.phoneNumber}}</span>
+            </li>
+          </ul>
+          <span class="property">Okres wynajmu</span>
+          <ul class="list-group rental">
+            <li class="list-group-item">Data wypożyczenia: <span class="property"> {{rental.rentalDate |date}}</span>
+            </li>
+            <li class="list-group-item">Data zwrotu: <span class="property">{{rental.returnDate|date}}</span></li>
+
+          </ul>
+        </div>
+
+
+      </div>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button (click)="reserve(rental)" mat-button>Rezerwuj</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+
+</div>
+
+
