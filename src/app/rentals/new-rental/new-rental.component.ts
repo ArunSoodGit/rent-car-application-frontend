@@ -50,7 +50,7 @@ export class NewRentalComponent implements OnInit {
 
     this.rentalService.addRental(rental).subscribe(
       data => {
-        // this.router.navigate(['/rentals']);
+        this.router.navigate(['/rentals']);
       });
 
     this.dialogRef.close();

@@ -52,7 +52,7 @@ export class AllCustomersComponent implements OnInit {
 
   onRemove(car): void {
     const dialogRef = this.dialog.open(RemoveCustomerComponent, {
-      width: '500px',
+      width: '400px',
       panelClass: 'icon-outside',
       data: car
     });

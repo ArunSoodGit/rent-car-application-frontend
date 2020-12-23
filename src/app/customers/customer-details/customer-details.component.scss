@@ -4,7 +4,8 @@
   margin-left: auto;
   margin-right: auto;
   max-width: 1000px;
-  .mat-card-content{
+
+  .mat-card-content {
     margin-top: 20px;
   }
 
@@ -16,30 +17,43 @@
 
 }
 
+.list-group {
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
 .mat-card-avatar-img {
   width: 50px;
   height: 50px;
   object-fit: contain;
 }
 
-.mat-dialog-container{
-  padding: 0!important;
+.mat-dialog-container {
+  padding: 0 !important;
 }
-//.parametr{
-//  font-size: 17px;
-//  font-weight: 500;
-//  text-align: left;
-//}
-.card{
-  text-align: left!important;
+
+.card {
+  text-align: left !important;
 }
-.list-group-item{
+
+.list-group-item {
   width: 100%;
   text-align: left;
 
 }
-.property{
+
+.property {
   font-weight: 500;
   font-size: 15px;
   margin-left: 5px;
+}
+
+.rentals {
+  padding: 0;
+}
+
+.rentals:hover {
+  box-shadow: 0 0.5rem 2rem 0 rgba(0, 0, 0, 0.2);
+
+  cursor: pointer;
 }

@@ -47,6 +47,7 @@ import { RemoveCustomerComponent } from './customers/remove-customer/remove-cust
 import {MatListModule} from '@angular/material/list';
 import { EditRentalComponent } from './rentals/edit-rental/edit-rental.component';
 import { RentalDetailsComponent } from './rentals/rental-details/rental-details.component';
+import { RemoveRentalComponent } from './remove-rental/remove-rental.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { RentalDetailsComponent } from './rentals/rental-details/rental-details.
     CustomerDetailsComponent,
     RemoveCustomerComponent,
     EditRentalComponent,
-    RentalDetailsComponent
+    RentalDetailsComponent,
+    RemoveRentalComponent
   ],
   imports: [
     BrowserModule,

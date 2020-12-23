@@ -1,1 +1,38 @@
-<p>remove-customer works!</p>
+<button mat-mini-fab mat-raised-button class="close-button" [mat-dialog-close]="true">
+  <mat-icon>close</mat-icon>
+</button>
+<div mat-dialog-title>
+
+
+  <div class="container">
+    <h1 class="title"> Usuń Klienta</h1>
+    <p>Czy na pewno chcesz usunąć
+      {{data.customerName}} {{data.customerSurname}} ? </p>
+    <div class="image">
+      <img class="mat-card-avatar-img image" src="../../../assets/avatar.png">
+    </div>
+    <ul class="list-group ">
+      <li class="list-group-item">Numer prawa jazdy: <span
+        class="property"> {{data.driverLicenseNumber}}</span></li>
+      <li class="list-group-item">Imię: <span class="property">{{data.customerName}}</span></li>
+      <li class="list-group-item">Nazwisko: <span class="property">{{data.customerSurname}}</span></li>
+      <li class="list-group-item">Kraj: <span class="property">{{data.country}}</span></li>
+      <li class="list-group-item">Adres: <span class="property">{{data.cityName}} ul.{{data.address}}</span></li>
+    </ul>
+
+
+    <div class="action">
+      <div class="row">
+        <div class="col ">
+          <button type="button" class="btn btn-success button pull-left" (click)="onRemove()">Tak</button>
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-danger button pull-right" (click)="dialogRef.close()">Nie</button>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+

@@ -18,7 +18,7 @@ export class RemoveCarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onRemove() {
+  onRemove(): void {
     console.log(this.data.vin);
     this.carService.deleteCar(this.data.vin).subscribe();
 

@@ -1,26 +1,49 @@
 <div *ngIf="customer" class="container">
   <mat-card>
     <mat-card-header>
-      <div mat-card-avatar><img class="mat-card-avatar-img" src="../../../assets/avatar.png"></div>
+      <div mat-card-avatar><img class="mat-card-avatar-img image" src="../../../assets/avatar.png"></div>
       <mat-card-title>{{customer.customerName}}</mat-card-title>
       <mat-card-subtitle>{{customer.customerSurname}}</mat-card-subtitle>
     </mat-card-header>
 
     <mat-card-content>
 
+      <div class="row">
+        <div class="col">
+          <span class="property">Dane osobowe</span>
+          <ul class="list-group ">
+            <li class="list-group-item">Numer prawa jazdy: <span
+              class="property"> {{customer.driverLicenseNumber}}</span></li>
+            <li class="list-group-item">Imię: <span class="property">{{customer.customerName}}</span></li>
+            <li class="list-group-item">Nazwisko: <span class="property">{{customer.customerSurname}}</span></li>
+            <li class="list-group-item">Kraj: <span class="property">{{customer.country}}</span></li>
+            <li class="list-group-item">Miasto: <span class="property">{{customer.cityName}}</span></li>
+            <li class="list-group-item">Adres: <span class="property">{{customer.address}}</span></li>
+          </ul>
 
-      <ul class="list-group list-group-horizontal-md">
-        <li class="list-group-item">Numer prawa jazdy: <span class="property"> {{customer.driverLicenseNumber}}</span></li>
-        <li class="list-group-item">Imię: <span class="property">{{customer.customerName}}</span></li>
-        <li class="list-group-item">Nazwisko: <span class="property">{{customer.customerSurname}}</span></li>
+        </div>
+        <div class="col">
 
-      </ul>
-      <ul class="list-group list-group-horizontal-md">
-        <li class="list-group-item">Kraj: <span class="property">{{customer.country}}</span></li>
-        <li class="list-group-item">Miasto: <span class="property">{{customer.cityName}}</span></li>
-        <li class="list-group-item">Adres: <span class="property">{{customer.address}}</span></li>
 
-      </ul>
+          <button (click)="getRentalsForCustomer(customer)"><span class="property">Historia wypożyczeń</span></button>
+
+          <ul *ngFor="let rental of rentals" class="list-group ">
+            <li  class="list-group-item rentals" (click)="show()">
+
+                <ul  class="list-group ">
+                  <li class="list-group-item">Numer rezerwacji: <span
+                    class="property"> {{rental.id}}</span></li>
+                  <li class="list-group-item">Data wypożyczenia: <span class="property">{{rental.rentalDate |date}}</span></li>
+                  <li class="list-group-item">Data zwrotu: <span class="property">{{rental.returnDate |date}}</span></li>
+                  <li class="list-group-item">Samochód: <span class="property">{{rental.car.carMarkModel.mark}} {{rental.car.carMarkModel.model}}</span></li>
+                  <li class="list-group-item">Suma kosztów: <span class="property">{{rental.rentalCost}} zł</span></li>
+                </ul>
+
+            </li>
+          </ul>
+        </div>
+      </div>
+
     </mat-card-content>
     <mat-card-actions>
       <button (click)="reserve(customer)" mat-button>Rezerwuj</button>

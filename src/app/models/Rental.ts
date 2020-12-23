@@ -9,4 +9,5 @@ export class Rental{
   car: Car;
   employee: Employee;
   customer: Customer;
+  rentalCost: number;
 }

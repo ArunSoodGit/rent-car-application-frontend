@@ -36,4 +36,5 @@ export class CustomerService {
     const url = `https://localhost:444/customers/${driverLicenseNumber}`;
     return this.httpClient.get<Customer>(url);
   }
+
 }

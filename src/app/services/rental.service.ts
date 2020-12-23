@@ -15,9 +15,11 @@ export class RentalService {
 
   getRentals(): Observable<Rental[]> {
     return this.httpClient.get<Rental[]>('https://localhost:444/rentals');
+  }
+  getRentalsForCustomer(customer): Observable<Rental[]> {
+    return this.httpClient.post<Rental[]>('https://localhost:444/customers/rentals', customer, {headers: this.headers});
 
   }
-
   addRental(rental: Rental): Observable<Rental> {
     return this.httpClient.post<Rental>('https://localhost:444/rentals', rental, {headers: this.headers});
   }
