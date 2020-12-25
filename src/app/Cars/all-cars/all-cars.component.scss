@@ -1,8 +1,8 @@
 
-button{
+button {
   outline: 0;
 
-  .mat-icon{
+  .mat-icon {
     color: black;
   }
 }
@@ -10,7 +10,6 @@ button{
 
 table {
   width: 100%;
-
 
 
   img {
@@ -42,48 +41,62 @@ td, th {
 
 }
 
-nav {
 
+@media screen and (max-width: 720px) {
 
-  margin: 0 auto;
-  padding: 60px 0 0 0;
-
-  ul {
-    margin: 0;
-    padding: 2px;
-    text-align: left;
-
-    li {
-      display: inline-block;
-
-
-
-      a {
-        cursor: pointer;
-        padding: 14px;
-       // font-family: "Open Sans";
-        text-transform: uppercase;
-        color: rgba(0, 0, 0, 0.7);
-
-        font-size: 14px;
-        text-decoration: none;
-        display: block;
-      }
-
-      a:hover {
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
-        background: rgba(255, 255, 255, 0.1);
-        color: rgba(0, 0, 0, 1);
-      }
-    }
+  .mat-row:hover {
+    box-shadow: 0 0.5rem 2rem 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 
   }
 
-  .add {
+
+
+  table th {
+
+    border: 10px solid;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+
+
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 1em;
     text-align: right;
-    margin-right: 10px;
+    font-weight: bold;
+    height: 20px;
+    width: 100%;
+    padding: 5% 24px;
+  }
+  .imageTd {
+    margin-bottom: 40px!important;
+    border: none !important;
+    text-align: center!important;
+    img{
+      width: 110px;
+      height: 80px;
+    }
+  }
+
+  table td:before {
+    content: attr(data-label);
+    float: left;
+    text-transform: uppercase;
+    font-weight: normal;
+
+    font-size: .85em;
+  }
+  table td:last-child {
+    border-bottom: 0;
+  }
+  table .td:first-child {
+    margin-top: 2%;
   }
 }
-
-
-

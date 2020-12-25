@@ -15,34 +15,34 @@
 
     <ng-container  matColumnDef="Zdjęcie">
       <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
-      <td mat-cell *matCellDef="let element" (click)="show(element)" >
+      <td mat-cell class="imageTd" *matCellDef="let element" (click)="show(element)"  >
         <img class="image" [src]=element.imagePath></td>
     </ng-container>
 
     <ng-container matColumnDef="Marka">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Marka</th>
-      <td mat-cell *matCellDef="let element" (click)="show(element)"> {{element.carMarkModel.mark}} </td>
+      <td mat-cell *matCellDef="let element" (click)="show(element)" data-label="Marka"> {{element.carMarkModel.mark}} </td>
     </ng-container>
 
     <ng-container matColumnDef="Model">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Model</th>
-      <td mat-cell *matCellDef="let element" (click)="show(element)"> {{element.carMarkModel.model}} </td>
+      <td mat-cell *matCellDef="let element" (click)="show(element)" data-label="Model"> {{element.carMarkModel.model}} </td>
     </ng-container>
     <ng-container matColumnDef="Klasa">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Klasa</th>
-      <td mat-cell *matCellDef="let element" (click)="show(element)"> {{element.carMarkModel.carClass.className}} </td>
+      <td mat-cell *matCellDef="let element" (click)="show(element)" data-label="Klasa"> {{element.carMarkModel.carClass.className}} </td>
     </ng-container>
     <ng-container matColumnDef="Cena">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Cena</th>
-      <td mat-cell *matCellDef="let element" (click)="show(element)"> {{element.carMarkModel.carClass.pricePerNight + " zł"}} </td>
+      <td mat-cell *matCellDef="let element" (click)="show(element)" data-label="Cena"> {{element.carMarkModel.carClass.pricePerNight + " zł"}} </td>
     </ng-container>
     <ng-container matColumnDef="Kaucja">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Kaucja</th>
-      <td mat-cell *matCellDef="let element" (click)="show(element)"> {{element.carMarkModel.carClass.deposit + " zł"}}</td>
+      <td mat-cell *matCellDef="let element" (click)="show(element)" data-label="Kaucja"> {{element.carMarkModel.carClass.deposit + " zł"}}</td>
     </ng-container>
     <ng-container matColumnDef="Pojemność silnika">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Pojemność silnika</th>
-      <td mat-cell *matCellDef="let element" (click)="show(element)"> {{element.engineCapacity + " cm3"}} </td>
+      <td mat-cell *matCellDef="let element" (click)="show(element)" data-label="Pojemność silnika"> {{element.engineCapacity + " cm3"}} </td>
     </ng-container>
 
     <ng-container matColumnDef="edit">

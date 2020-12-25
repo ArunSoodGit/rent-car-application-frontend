@@ -17,7 +17,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./all-rentals.component.scss']
 })
 export class AllRentalsComponent implements OnInit {
-  displayedColumns: string[] = ['Imię', 'Nazwisko', 'Marka', 'Model', 'Data wypożyczenia', 'Data zwrotu'];
+  displayedColumns: string[] = ['Nr. rezerwacji', 'Imię', 'Nazwisko', 'Marka', 'Model', 'Data wypożyczenia', 'Data zwrotu'];
   car: Car;
   dataSource;
   customer;
@@ -44,7 +44,7 @@ export class AllRentalsComponent implements OnInit {
   }
 
 
-  applyFilter(filterValue: string): void{
+  applyFilter(filterValue: string): void {
     this.dataSource.filter = filterValue;
   }
 
@@ -63,6 +63,7 @@ export class AllRentalsComponent implements OnInit {
       }
     );
   }
+
   onRemove(car): void {
     const dialogRef = this.dialog.open(RemoveCarComponent, {
       width: '480px',
@@ -99,7 +100,6 @@ export class AllRentalsComponent implements OnInit {
   show(element): any {
     this.router.navigate(['/rentals', element.id]);
   }
-
 
 
 }

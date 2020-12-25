@@ -20,12 +20,13 @@
             <li class="list-group-item">Miasto: <span class="property">{{customer.cityName}}</span></li>
             <li class="list-group-item">Adres: <span class="property">{{customer.address}}</span></li>
           </ul>
-
         </div>
+        <div class="col">s+test</div>
+      </div>
         <div class="col">
 
 
-          <button (click)="getRentalsForCustomer(customer)"><span class="property">Historia wypożyczeń</span></button>
+          <button (click)="getRentalsForCustomer(customer)"><span class="property">Wyświetl historię wypożyczeń</span></button>
 
           <ul *ngFor="let rental of rentals" class="list-group ">
             <li  class="list-group-item rentals" (click)="show()">
@@ -42,7 +43,7 @@
             </li>
           </ul>
         </div>
-      </div>
+
 
     </mat-card-content>
     <mat-card-actions>

@@ -19,6 +19,7 @@ export class NewRentalComponent implements OnInit {
   car: Car = new Car();
   rental: Rental = new Rental();
 
+
   cars: Car[];
   customers: Customer[];
 
@@ -33,15 +34,6 @@ export class NewRentalComponent implements OnInit {
     this.customerService.getCustomers().subscribe(customer => this.customers = customer);
   }
 
-  getCarByVin(vin): any {
-     this.carService.getCarByVin(vin).subscribe(car => this.car = car);
-    console.log(this.car);
-
-  }
-
-  getCustomerByDriverLicenseNumber(driverLicenseNumber): any {
-    return this.customerService.getCustomerByDriverLicenceNumber(driverLicenseNumber);
-  }
 
   onSubmit(rental: Rental): void {
     rental.car = this.car;
@@ -60,4 +52,12 @@ export class NewRentalComponent implements OnInit {
 
   }
 
+  getRentalCost(): void {
+
+    if (this.rental.returnDate != null && this.rental.rentalDate != null  && this.car.carMarkModel.carClass.pricePerNight != null) {
+      const numberOdDay = (this.rental.returnDate.getTime() - this.rental.rentalDate.getTime()) / (1000 * 60 * 60 * 24);
+      this.rental.rentalCost = numberOdDay * this.car.carMarkModel.carClass.pricePerNight;
+    }
+
+  }
 }

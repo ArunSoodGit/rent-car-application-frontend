@@ -11,32 +11,35 @@
 
   </div>
   <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-
+    <ng-container matColumnDef="Nr. rezerwacji">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nr. rezerwacji</th>
+      <td mat-cell *matCellDef="let element" data-label=" Nr. rezerwacji">{{element.id}}</td>
+    </ng-container>
     <ng-container matColumnDef="Imię">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Imię</th>
-      <td mat-cell *matCellDef="let element">{{element.customer.customerName}}</td>
+      <td mat-cell *matCellDef="let element" data-label="Imię">{{element.customer.customerName}}</td>
     </ng-container>
 
     <ng-container matColumnDef="Nazwisko">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Nazwisko</th>
-      <td mat-cell *matCellDef="let element"> {{element.customer.customerSurname}} </td>
+      <td mat-cell *matCellDef="let element" data-label="Nazwisko"> {{element.customer.customerSurname}} </td>
     </ng-container>
 
     <ng-container matColumnDef="Marka">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Marka</th>
-      <td mat-cell *matCellDef="let element"> {{element.car.carMarkModel.mark}} </td>
+      <td mat-cell *matCellDef="let element" data-label="Marka"> {{element.car.carMarkModel.mark}} </td>
     </ng-container>
     <ng-container matColumnDef="Model">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Model</th>
-      <td mat-cell *matCellDef="let element"> {{element.car.carMarkModel.model}} </td>
+      <td mat-cell *matCellDef="let element" data-label="Model"> {{element.car.carMarkModel.model}} </td>
     </ng-container>
     <ng-container matColumnDef="Data wypożyczenia">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Data wypożyczenia</th>
-      <td mat-cell *matCellDef="let element"> {{element.rentalDate  |date}} </td>
+      <td mat-cell *matCellDef="let element" data-label="Data wypożyczenia"> {{element.rentalDate  |date}} </td>
     </ng-container>
     <ng-container matColumnDef="Data zwrotu">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Data zwrotu</th>
-      <td mat-cell *matCellDef="let element"> {{element.returnDate |date}} </td>
+      <td mat-cell *matCellDef="let element" data-label="Data zwrotu"> {{element.returnDate |date}} </td>
     </ng-container>
 
     <ng-container matColumnDef="edit">
