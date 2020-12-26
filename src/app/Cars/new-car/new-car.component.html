@@ -3,11 +3,6 @@
 </button>
 <div mat-dialog-title>
   <h1 class="title"> Dodaj samochód</h1>
-  <div class="image">
-    <img [src]="car.imagePath">
-
-  </div>
-
 </div>
   <div mat-dialog-content>
     <form #customerForm="ngForm" (ngSubmit)="customerForm.form.valid && onSubmit(car)" class="example-form">
@@ -85,12 +80,10 @@
 
     </form>
   </div>
-  <div mat-dialog-actions>
+
     <button mat-raised-button class="create" (click)="onSubmit(car)" [disabled]="!customerForm.form.valid">
-
       Zapisz
-
     </button>
-  </div>
+
 
 

@@ -1,20 +1,14 @@
 .element{
-  margin-bottom: 20px;
+  margin-bottom: 2px;
   margin-right: 20px;
 
 }
-.element2{
-  margin-bottom: 20px;
-}
+
 .full{
 
-  margin-bottom: 5px;
   width: 100%;
 }
-.create {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
+
 mat-dialog-content{
   margin-right: auto;
   margin-left: auto;
@@ -48,5 +42,16 @@ mat-form-field{
 
   img{
     width: 40%;
+  }
+}
+@media screen and (max-width: 720px) {
+
+  .element{
+    margin-bottom: 0px;
+
+
+  }
+  .mat-dialog-container{
+    height: 300px!important;
   }
 }

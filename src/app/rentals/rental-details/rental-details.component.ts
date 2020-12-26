@@ -30,12 +30,12 @@ export class RentalDetailsComponent implements OnInit {
   }
 
   showCar(): void {
-    this.router.navigate(['/car', this.rental.car.vin]);
+    this.router.navigate(['/cars', this.rental.car.vin]);
 
   }
 
   showCustomer(): void {
-    this.router.navigate(['/customer', this.rental.customer.driverLicenseNumber]);
+    this.router.navigate(['/customers', this.rental.customer.driverLicenseNumber]);
 
   }
 }

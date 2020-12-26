@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {CustomerService} from '../../services/customer.service';
 import {Customer} from '../../models/Customer';
 import {RentalService} from '../../services/rental.service';
@@ -14,7 +14,7 @@ export class CustomerDetailsComponent {
   customer: Customer;
   rentals: Rental[];
 
-  constructor(private route: ActivatedRoute, private customerService: CustomerService, private rentalService: RentalService) {
+  constructor(private router: Router, private route: ActivatedRoute, private customerService: CustomerService, private rentalService: RentalService) {
     this.getCustomer();
 
   }
@@ -37,8 +37,8 @@ export class CustomerDetailsComponent {
     console.log(this.customer);
   }
 
-  show(): void {
-    console.log('test');
+  showRental(rental): void {
+    this.router.navigate(['/rentals', rental.id]);
   }
 
 }

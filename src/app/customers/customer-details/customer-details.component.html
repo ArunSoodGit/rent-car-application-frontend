@@ -9,7 +9,7 @@
     <mat-card-content>
 
       <div class="row">
-        <div class="col">
+        <div class="col-md-12 col-xl-6">
           <span class="property">Dane osobowe</span>
           <ul class="list-group ">
             <li class="list-group-item">Numer prawa jazdy: <span
@@ -23,26 +23,28 @@
         </div>
         <div class="col">s+test</div>
       </div>
-        <div class="col">
+      <div class="col-md-12 col-xl-6">
 
+        <button (click)="getRentalsForCustomer(customer)"><span class="property">Wyświetl historię wypożyczeń</span>
+        </button>
 
-          <button (click)="getRentalsForCustomer(customer)"><span class="property">Wyświetl historię wypożyczeń</span></button>
+        <ul *ngFor="let rental of rentals" class="list-group" (click)="showRental(rental)">
+          <li class="list-group-item rentals">
 
-          <ul *ngFor="let rental of rentals" class="list-group ">
-            <li  class="list-group-item rentals" (click)="show()">
+            <ul class="list-group ">
+              <li class="list-group-item">Numer rezerwacji: <span
+                class="property"> {{rental.id}}</span></li>
+              <li class="list-group-item">Data wypożyczenia: <span class="property">{{rental.rentalDate |date}}</span>
+              </li>
+              <li class="list-group-item">Data zwrotu: <span class="property">{{rental.returnDate |date}}</span></li>
+              <li class="list-group-item">Samochód: <span
+                class="property">{{rental.car.carMarkModel.mark}} {{rental.car.carMarkModel.model}}</span></li>
+              <li class="list-group-item">Suma kosztów: <span class="property">{{rental.rentalCost}} zł</span></li>
+            </ul>
 
-                <ul  class="list-group ">
-                  <li class="list-group-item">Numer rezerwacji: <span
-                    class="property"> {{rental.id}}</span></li>
-                  <li class="list-group-item">Data wypożyczenia: <span class="property">{{rental.rentalDate |date}}</span></li>
-                  <li class="list-group-item">Data zwrotu: <span class="property">{{rental.returnDate |date}}</span></li>
-                  <li class="list-group-item">Samochód: <span class="property">{{rental.car.carMarkModel.mark}} {{rental.car.carMarkModel.model}}</span></li>
-                  <li class="list-group-item">Suma kosztów: <span class="property">{{rental.rentalCost}} zł</span></li>
-                </ul>
-
-            </li>
-          </ul>
-        </div>
+          </li>
+        </ul>
+      </div>
 
 
     </mat-card-content>

@@ -3,15 +3,14 @@
 </button>
 <div mat-dialog-title>
   <h1 class="title"> Edytuj samochód</h1>
+</div>
+
+<div mat-dialog-content class="mat-typography">
   <div class="image">
     <img [src]="car.imagePath">
 
 
   </div>
-
-</div>
-
-<div mat-dialog-content>
   <form #customerForm="ngForm" (ngSubmit)="customerForm.form.valid && onSubmit(car)" class="example-form">
     <p>
       <mat-form-field class="full">
@@ -88,9 +87,9 @@
     </mat-form-field>
   </form>
 </div>
-<div mat-dialog-actions>
+<mat-dialog-actions>
   <button mat-raised-button class="edit" (click)="onSubmit(car)" [disabled]="!customerForm.form.valid">
     <i class="fa fa-edit"></i>
     Edytuj
   </button>
-</div>
+</mat-dialog-actions>

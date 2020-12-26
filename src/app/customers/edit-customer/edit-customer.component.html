@@ -3,14 +3,15 @@
 </button>
 <div mat-dialog-title>
   <h1 class="title"> Dodaj klienta</h1>
+
+
+</div>
+<div mat-dialog-content>
   <div class="image">
     <img  class="image"
           src="../../../assets/avatar.png">
 
   </div>
-
-</div>
-<div mat-dialog-content>
   <form #customerForm="ngForm" (ngSubmit)="customerForm.form.valid && onSubmit(customer)" class="example-form">
 
     <mat-form-field class="element">

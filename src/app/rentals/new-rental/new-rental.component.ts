@@ -36,6 +36,7 @@ export class NewRentalComponent implements OnInit {
 
 
   onSubmit(rental: Rental): void {
+    this.car.isAvailable = false;
     rental.car = this.car;
     rental.customer = this.customer;
     console.log(rental);

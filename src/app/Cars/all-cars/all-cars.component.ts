@@ -74,8 +74,8 @@ export class AllCarsComponent implements OnInit , AfterViewInit {
 
   onCreate(): void {
     const dialogRef = this.dialog.open(NewCarComponent, {
-      width: '800px',
-      maxHeight: '500px',
+      width: '500px',
+      height: 'auto',
       panelClass: 'icon-outside',
     }).afterClosed().subscribe(result => {
       this.refresh();
@@ -94,7 +94,7 @@ export class AllCarsComponent implements OnInit , AfterViewInit {
   }
 
   show(element): any {
-    this.router.navigate(['/car', element.vin]);
+    this.router.navigate(['/cars', element.vin]);
   }
 
 

@@ -7,7 +7,7 @@ export class Car {
   color: string;
   engineCapacity: number;
   review: string;
-  isAvailable: string;
+  isAvailable: boolean;
   imagePath: string;
   dateOfProduction: Date;
   carMarkModel: CarMarkModel = new CarMarkModel();

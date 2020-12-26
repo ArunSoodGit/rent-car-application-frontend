@@ -84,7 +84,7 @@ export class AllCustomersComponent implements OnInit {
   }
 
   show(customer): any {
-    this.router.navigate(['/customer', customer.driverLicenseNumber]);
+    this.router.navigate(['/customers', customer.driverLicenseNumber]);
 
   }
 }
