@@ -50,7 +50,10 @@ td, th {
 
   }
 
+  table .mat-row{
+    border-bottom: 7px solid #ddd !important;
 
+  }
 
   table th {
 
@@ -73,7 +76,7 @@ td, th {
     font-weight: bold;
     height: 20px;
     width: 100%;
-    padding: 5% 24px;
+    padding: 7% 24px;
   }
   .imageTd {
     margin-bottom: 40px!important;
@@ -84,7 +87,16 @@ td, th {
       height: 80px;
     }
   }
+.buttonTd{
+  padding: 0!important;
+  margin-bottom: 20px!important;
+  margin-top: 5px!important;
+  text-align: center!important;
+  button{
+    width: 50%;
 
+  }
+}
   table td:before {
     content: attr(data-label);
     float: left;

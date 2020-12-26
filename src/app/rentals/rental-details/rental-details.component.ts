@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {Customer} from '../../models/Customer';
-import {ActivatedRoute} from '@angular/router';
-import {CustomerService} from '../../services/customer.service';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 import {RentalService} from '../../services/rental.service';
 import {Rental} from '../../models/Rental';
 
@@ -14,19 +12,30 @@ export class RentalDetailsComponent implements OnInit {
 
   rental: Rental;
 
-  constructor(private route: ActivatedRoute, private rentalService: RentalService) {
+  constructor(private router: Router, private route: ActivatedRoute, private rentalService: RentalService) {
     this.getCustomer();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   getCustomer(): void {
 
     this.rentalService.getRentalById(this.route.snapshot.paramMap.get('id'))
       .subscribe(rental => this.rental = rental);
   }
+
   reserve(data): void {
 
   }
 
+  showCar(): void {
+    this.router.navigate(['/car', this.rental.car.vin]);
+
+  }
+
+  showCustomer(): void {
+    this.router.navigate(['/customer', this.rental.customer.driverLicenseNumber]);
+
+  }
 }

@@ -74,7 +74,8 @@ export class AllCarsComponent implements OnInit , AfterViewInit {
 
   onCreate(): void {
     const dialogRef = this.dialog.open(NewCarComponent, {
-      width: '500px',
+      width: '800px',
+      maxHeight: '500px',
       panelClass: 'icon-outside',
     }).afterClosed().subscribe(result => {
       this.refresh();

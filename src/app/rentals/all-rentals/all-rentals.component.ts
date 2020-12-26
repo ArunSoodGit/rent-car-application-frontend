@@ -17,7 +17,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./all-rentals.component.scss']
 })
 export class AllRentalsComponent implements OnInit {
-  displayedColumns: string[] = ['Nr. rezerwacji', 'Imię', 'Nazwisko', 'Marka', 'Model', 'Data wypożyczenia', 'Data zwrotu'];
+  displayedColumns: string[] = ['Nr. rezerwacji', 'Imię', 'Nazwisko', 'Marka', 'Model', 'Data wypożyczenia', 'Data zwrotu', 'Edytuj'];
   car: Car;
   dataSource;
   customer;

@@ -54,10 +54,10 @@
     </ng-container>
     <ng-container matColumnDef="Edytuj">
       <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
-      <td mat-cell *matCellDef="let element; let row" >
-        <button [matMenuTriggerFor]="menu" mat-button matSuffix mat-stroked-button aria-label="search">
-          <i class="fa fa-ellipsis-v"></i>
-        </button>
+      <td class="buttonTd" mat-cell *matCellDef="let element; let row" >
+        <a [matMenuTriggerFor]="menu" mat-button matSuffix mat-stroked-button aria-label="search">
+          <i class="fa fa-bars"></i>
+        </a>
 
         <mat-menu #menu="matMenu">
           <button (click)="onEdit(element)" mat-menu-item>
@@ -69,6 +69,7 @@
             Usuń
           </button>
         </mat-menu>
+      </td>
     </ng-container>
 
 

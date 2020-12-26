@@ -7,11 +7,11 @@
       <mat-card-subtitle>{{rental.car.carMarkModel.mark}} {{rental.car.carMarkModel.model}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      <div class="row">
-        <div class="col-md-12 col-xl-6">
+      <div class="row" >
+        <div class="col-md-12 col-xl-6" (click)="showCar()">
           <span class="property">Dane pojazdu</span>
 
-          <ul class="list-group ">
+          <ul class="list-group rentals " >
             <li class="list-group-item">Numer vin: <span class="property"> {{rental.car.vin}}</span></li>
             <li class="list-group-item">Marka: <span class="property">{{rental.car.carMarkModel.mark}}</span></li>
             <li class="list-group-item">Model: <span class="property">{{rental.car.carMarkModel.model}}</span></li>
@@ -32,9 +32,9 @@
             <li class="list-group-item">Przegląd: <span class="property">{{rental.car.review}}</span></li>
           </ul>
         </div>
-        <div class="col-md-12 col-xl-6">
+        <div class="col-md-12 col-xl-6" (click)="showCustomer()">
           <span class="property">Dane osobowe</span>
-          <ul class="list-group">
+          <ul class="list-group rentals">
             <li class="list-group-item">Numer prawa jazdy: <span
               class="property"> {{rental.customer.driverLicenseNumber}}</span></li>
             <li class="list-group-item">Imię: <span class="property">{{rental.customer.customerName}}</span></li>

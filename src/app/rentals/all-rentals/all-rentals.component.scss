@@ -20,6 +20,8 @@ table {
 
 td, th {
   width: 12.5%;
+  cursor: pointer;
+  outline: 0;
 }
 @media screen and (max-width: 960px) {
 
@@ -46,7 +48,16 @@ table .mat-row{
   border-bottom: 7px solid #ddd !important;
 
 }
+  .buttonTd{
+    padding: 0!important;
+    margin-bottom: 20px!important;
+    margin-top: 5px!important;
+    text-align: center!important;
+    button{
+      width: 50%;
 
+    }
+  }
   table td {
     border-bottom: 1px solid #ddd;
     display: block;
@@ -55,7 +66,7 @@ table .mat-row{
     font-weight: bold;
     height: 20px;
     width: 100%;
-    padding: 5% 24px;
+    padding: 7% 24px;
   }
   .imageTd {
     margin-bottom: 40px!important;
@@ -78,5 +89,8 @@ table .mat-row{
 
   table .td:first-child {
     margin-top: 2%;
+  }
+  table td:last-child {
+    border-bottom: 0;
   }
 }
