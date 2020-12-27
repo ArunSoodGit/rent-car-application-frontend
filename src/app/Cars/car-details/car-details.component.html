@@ -4,6 +4,9 @@
       <div mat-card-avatar><img class="mat-card-avatar-img" [src]=car.imagePath></div>
       <mat-card-title>{{car.carMarkModel.mark}}</mat-card-title>
       <mat-card-subtitle>{{car.carMarkModel.model}}</mat-card-subtitle>
+      <span >
+            <mat-icon [ngStyle]="{'color':car.isAvailable === false ? 'red' : 'rgb(0, 247, 0)'}"  class="diod">fiber_manual_record</mat-icon>
+        </span>
     </mat-card-header>
     <img mat-card-image [src]=car.imagePath>
     <mat-card-content>
@@ -23,13 +26,18 @@
       </ul>
       <ul class="list-group list-group-horizontal-md">
         <li class="list-group-item">Data produkcji: <span class="property">{{car.dateOfProduction}}</span></li>
-        <li class="list-group-item">Dostępność: <span class="property">{{car.isAvailable}}</span></li>
+        <li class="list-group-item">Przegląd: <span class="property">{{car.review}}</span></li>
         <li class="list-group-item">Pojemność silnika: <span class="property">{{car.engineCapacity}} cm3</span></li>
 
       </ul>
+      <ul class="list-group list-group-horizontal-md">
+
+        <li *ngIf="car.isAvailable == true" class="list-group-item">Dostępność: <span class="property">Dostępny</span></li>
+        <li *ngIf="car.isAvailable == false" class="list-group-item">Dostępność: <span class="property">Niedostępny</span></li>
+      </ul>
     </mat-card-content>
     <mat-card-actions>
-      <button (click)="reserve(car)" mat-button>Utwórz rezerwację</button>
+      <button *ngIf="car.isAvailable==true" (click)="reserve(car)" mat-button>Utwórz rezerwację</button>
     </mat-card-actions>
   </mat-card>
 

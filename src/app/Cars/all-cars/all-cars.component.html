@@ -1,10 +1,10 @@
 <div class="container">
 
-    <div class="form-inline">
-      <button mat-raised-button class="add" (click)="onCreate()">
-        Dodaj samochód
-      </button>
-    </div>
+  <div class="form-inline">
+    <button mat-raised-button class="add" (click)="onCreate()">
+      Dodaj samochód
+    </button>
+  </div>
 
   <div class="search-div">
     <mat-form-field class="search-form-field" floatLabel="never">
@@ -13,44 +13,53 @@
   </div>
   <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
-    <ng-container  matColumnDef="Zdjęcie">
+    <ng-container matColumnDef="Zdjęcie">
       <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
-      <td mat-cell class="imageTd" *matCellDef="let element" (click)="show(element)"  >
+      <td mat-cell class="imageTd" *matCellDef="let element" (click)="show(element)">
         <img class="image" [src]=element.imagePath></td>
     </ng-container>
 
     <ng-container matColumnDef="Marka">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Marka</th>
-      <td mat-cell *matCellDef="let element" (click)="show(element)" data-label="Marka"> {{element.carMarkModel.mark}} </td>
+      <td mat-cell *matCellDef="let element" (click)="show(element)"
+          data-label="Marka"> {{element.carMarkModel.mark}} </td>
     </ng-container>
 
     <ng-container matColumnDef="Model">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Model</th>
-      <td mat-cell *matCellDef="let element" (click)="show(element)" data-label="Model"> {{element.carMarkModel.model}} </td>
+      <td mat-cell *matCellDef="let element" (click)="show(element)"
+          data-label="Model"> {{element.carMarkModel.model}} </td>
     </ng-container>
     <ng-container matColumnDef="Klasa">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Klasa</th>
-      <td mat-cell *matCellDef="let element" (click)="show(element)" data-label="Klasa"> {{element.carMarkModel.carClass.className}} </td>
+      <td mat-cell *matCellDef="let element" (click)="show(element)"
+          data-label="Klasa"> {{element.carMarkModel.carClass.className}} </td>
     </ng-container>
     <ng-container matColumnDef="Cena">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Cena</th>
-      <td mat-cell *matCellDef="let element" (click)="show(element)" data-label="Cena"> {{element.carMarkModel.carClass.pricePerNight + " zł"}} </td>
+      <td mat-cell *matCellDef="let element" (click)="show(element)"
+          data-label="Cena"> {{element.carMarkModel.carClass.pricePerNight + " zł"}} </td>
     </ng-container>
     <ng-container matColumnDef="Kaucja">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Kaucja</th>
-      <td mat-cell *matCellDef="let element" (click)="show(element)" data-label="Kaucja"> {{element.carMarkModel.carClass.deposit + " zł"}}</td>
+      <td mat-cell *matCellDef="let element" (click)="show(element)"
+          data-label="Kaucja"> {{element.carMarkModel.carClass.deposit + " zł"}}</td>
     </ng-container>
     <ng-container matColumnDef="Pojemność silnika">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Pojemność silnika</th>
-      <td mat-cell *matCellDef="let element" (click)="show(element)" data-label="Pojemność silnika"> {{element.engineCapacity + " cm3"}} </td>
+      <td mat-cell *matCellDef="let element" (click)="show(element)"
+          data-label="Pojemność silnika"> {{element.engineCapacity + " cm3"}} </td>
     </ng-container>
 
     <ng-container matColumnDef="edit">
       <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
-      <td class="buttonTd"  mat-cell *matCellDef="let element; let row">
+      <td class="buttonTd" mat-cell *matCellDef="let element; let row">
         <a [matMenuTriggerFor]="menu" mat-button matSuffix mat-stroked-button aria-label="search">
           <i class="fa fa-bars"></i>
         </a>
+        <span >
+            <mat-icon [ngStyle]="{'color':row.isAvailable === false ? 'red' : 'rgb(0, 247, 0)'}"  class="diod">fiber_manual_record</mat-icon>
+        </span>
         <mat-menu #menu="matMenu">
           <button (click)="onEdit(element)" mat-menu-item>
             <i class="fa fa-edit"></i>
@@ -66,7 +75,7 @@
 
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; let i = index columns: displayedColumns" ></tr>
+    <tr mat-row *matRowDef="let row; let i = index columns: displayedColumns"></tr>
 
   </table>
   <mat-paginator [pageSizeOptions]="[5, 10, 20,50,100]" showFirstLastButtons></mat-paginator>

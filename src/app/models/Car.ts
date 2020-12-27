@@ -6,7 +6,7 @@ export class Car {
   mileage: number;
   color: string;
   engineCapacity: number;
-  review: string;
+  review: Date;
   isAvailable: boolean;
   imagePath: string;
   dateOfProduction: Date;

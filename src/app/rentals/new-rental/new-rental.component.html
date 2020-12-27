@@ -11,7 +11,7 @@
     <mat-form-field class="element">
       <mat-label>Samochód</mat-label>
       <mat-select [(ngModel)]="car" name="isAvailable" required="true">
-        <mat-option *ngFor="let car of cars" [value]="car">
+        <mat-option  *ngFor="let car of cars" [value]="car">
           <img [src]="car.imagePath" width="50px" height="30px">
           {{car.carMarkModel.mark}}
           {{car.carMarkModel.model}}

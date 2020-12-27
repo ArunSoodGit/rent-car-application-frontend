@@ -50,7 +50,7 @@ td, th {
 
   }
 
-  table .mat-row{
+  table .mat-row {
     border-bottom: 7px solid #ddd !important;
 
   }
@@ -67,7 +67,6 @@ td, th {
   }
 
 
-
   table td {
     border-bottom: 1px solid #ddd;
     display: block;
@@ -79,24 +78,26 @@ td, th {
     padding: 7% 24px;
   }
   .imageTd {
-    margin-bottom: 40px!important;
+    margin-bottom: 40px !important;
     border: none !important;
-    text-align: center!important;
-    img{
+    text-align: center !important;
+
+    img {
       width: 110px;
       height: 80px;
     }
   }
-.buttonTd{
-  padding: 0!important;
-  margin-bottom: 20px!important;
-  margin-top: 5px!important;
-  text-align: center!important;
-  button{
-    width: 50%;
+  .buttonTd {
+    padding: 0 !important;
+    margin-bottom: 20px !important;
+    margin-top: 5px !important;
+    text-align: center !important;
 
+    button {
+      width: 50%;
+
+    }
   }
-}
   table td:before {
     content: attr(data-label);
     float: left;
@@ -111,4 +112,9 @@ td, th {
   table .td:first-child {
     margin-top: 2%;
   }
+}
+
+.diod {
+  font-size: 10px;
+  text-align: right;
 }

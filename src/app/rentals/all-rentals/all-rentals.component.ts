@@ -10,6 +10,7 @@ import {EditRentalComponent} from '../edit-rental/edit-rental.component';
 import {RemoveCarComponent} from '../../Cars/remove-car/remove-car.component';
 import {Car} from '../../models/Car';
 import {Router} from '@angular/router';
+import {RemoveRentalComponent} from '../remove-rental/remove-rental.component';
 
 @Component({
   selector: 'app-rental',
@@ -65,7 +66,7 @@ export class AllRentalsComponent implements OnInit {
   }
 
   onRemove(car): void {
-    const dialogRef = this.dialog.open(RemoveCarComponent, {
+    const dialogRef = this.dialog.open(RemoveRentalComponent, {
       width: '480px',
       panelClass: 'icon-outside',
       data: car

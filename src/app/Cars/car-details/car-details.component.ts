@@ -12,6 +12,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class CarDetailsComponent implements OnInit {
   car: Car;
 
+
   constructor(private route: ActivatedRoute, private carService: CarService) {}
 
   ngOnInit(): void {

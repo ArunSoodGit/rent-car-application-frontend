@@ -26,6 +26,7 @@ export class AllCarsComponent implements OnInit , AfterViewInit {
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  color: 'black';
 
   constructor(private router: Router, private carService: CarService, private dialog: MatDialog,
               private changeDetectorRefs: ChangeDetectorRef) {
