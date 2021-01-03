@@ -8,7 +8,7 @@
 </div>
 <div mat-dialog-content>
   <form #customerForm="ngForm" (ngSubmit)="customerForm.form.valid && onSubmit(rental) " class="example-form">
-    <mat-form-field class="element">
+    <mat-form-field  *ngIf="!data"class="element">
       <mat-label>Samochód</mat-label>
       <mat-select [(ngModel)]="car" name="isAvailable" required="true">
         <mat-option  *ngFor="let car of cars" [value]="car">
@@ -18,13 +18,23 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-
+    <mat-form-field  *ngIf="data"class="element">
+      <mat-label>Samochód</mat-label>
+      <mat-select [(ngModel)]="data" name="isAvailable" required="true">
+        <mat-option  [value]="data">
+          <img [src]="data.imagePath" width="50px" height="30px">
+          {{data.carMarkModel.mark}}
+          {{data.carMarkModel.model}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
     <mat-form-field class="element2">
       <mat-label>Klient</mat-label>
       <mat-select [(ngModel)]="customer" name="className" required="true">
         <mat-option *ngFor="let customer of customers" [value]="customer">
           {{customer.customerName}}
           {{customer.customerSurname}}
+          ({{customer.driverLicenseNumber}})
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -46,15 +56,20 @@
     <mat-form-field class="element">
       <mat-label>Koszt wynajmu</mat-label>
       <input matInput [(ngModel)]="rental.rentalCost" disabled name="rentalCost" required="true">
-
+      <span matSuffix>zł</span>
     </mat-form-field>
 
-    <mat-form-field class="element">
+    <mat-form-field  *ngIf="!data" class="element">
       <mat-label>Kaucja</mat-label>
       <input matInput [(ngModel)]="car.carMarkModel.carClass.deposit" disabled name="rentalDeposit" required="true">
-
+      <span matSuffix>zł</span>
     </mat-form-field>
 
+    <mat-form-field  *ngIf="data" class="element">
+      <mat-label>Kaucja</mat-label>
+      <input matInput [(ngModel)]="data.carMarkModel.carClass.deposit" disabled name="rentalDeposit" required="true">
+      <span matSuffix>zł</span>
+    </mat-form-field>
 
   </form>
 </div>

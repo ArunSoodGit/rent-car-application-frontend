@@ -27,7 +27,8 @@ export class AllRentalsComponent implements OnInit {
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  constructor(private router: Router, private rentalService: RentalService, private carService: CarService, private dialog: MatDialog, private changeDetectorRefs: ChangeDetectorRef) {
+  constructor(private router: Router, private rentalService: RentalService,
+              private carService: CarService, private dialog: MatDialog, private changeDetectorRefs: ChangeDetectorRef) {
   }
 
 

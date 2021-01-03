@@ -1,8 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {Car} from '../../models/Car';
 import {CarService} from '../../services/car.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {ActivatedRoute, Router} from '@angular/router';
+import {NewRentalComponent} from '../../rentals/new-rental/new-rental.component';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-car-details',
@@ -13,7 +15,7 @@ export class CarDetailsComponent implements OnInit {
   car: Car;
 
 
-  constructor(private route: ActivatedRoute, private carService: CarService) {}
+  constructor(private route: ActivatedRoute, private carService: CarService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.getCar();
@@ -25,7 +27,11 @@ export class CarDetailsComponent implements OnInit {
       .subscribe(car => this.car = car);
   }
 
-  reserve(data): void {
-
+  reserve(car): void {
+      const dialogRef = this.dialog.open(NewRentalComponent, {
+        width: '500px',
+        panelClass: 'icon-outside',
+        data: car
+      });
   }
 }

@@ -46,19 +46,19 @@
             <li class="list-group-item">Numer telefonu: <span class="property">{{rental.customer.phoneNumber}}</span>
             </li>
           </ul>
-          <span class="property">Okres wynajmu</span>
+          <span class="property">Szczegóły wynajmu</span>
           <ul class="list-group rental">
-            <li class="list-group-item">Data wypożyczenia: <span class="property"> {{rental.rentalDate |date}}</span>
-            </li>
+            <li class="list-group-item">Data wypożyczenia: <span class="property"> {{rental.rentalDate |date}}</span></li>
             <li class="list-group-item">Data zwrotu: <span class="property">{{rental.returnDate|date}}</span></li>
+            <li class="list-group-item">Suma kosztów: <span class="property">{{rental.rentalCost}} zł</span></li>
           </ul>
         </div>
       </div>
 
     </mat-card-content>
     <mat-card-actions>
-      <button (click)="reserve(rental)" mat-button>Rezerwuj</button>
-      <button mat-button>SHARE</button>
+      <button (click)="approve(rental)" mat-button>Rezerwuj</button>
+      <button (click)="generateDocuments(rental)" mat-button>Generuj dokumenty</button>
     </mat-card-actions>
   </mat-card>
 

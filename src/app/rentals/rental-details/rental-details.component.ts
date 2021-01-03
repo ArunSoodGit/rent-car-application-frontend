@@ -25,9 +25,6 @@ export class RentalDetailsComponent implements OnInit {
       .subscribe(rental => this.rental = rental);
   }
 
-  reserve(data): void {
-
-  }
 
   showCar(): void {
     this.router.navigate(['/cars', this.rental.car.vin]);
@@ -36,6 +33,14 @@ export class RentalDetailsComponent implements OnInit {
 
   showCustomer(): void {
     this.router.navigate(['/customers', this.rental.customer.driverLicenseNumber]);
+
+  }
+
+  approve(rental: Rental): void {
+
+  }
+
+  generateDocuments(rental: Rental): void {
 
   }
 }
