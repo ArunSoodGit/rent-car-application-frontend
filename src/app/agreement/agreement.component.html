@@ -1,5 +1,5 @@
-<div class="container">
-<div class="col-10">
+<div  class="container" >
+<div class="col-10" id="htmlData" #htmlData>
   <p align="CENTER"><span style="font-family: TimesNewRomanPS-BoldMT, 'Times New Roman', serif;"><span style="font-size: large;"><strong>UMOWA NAJMU POJAZDU</strong></span></span></p>
   <p align="CENTER">&nbsp;</p>
   <p align="CENTER">&nbsp;</p>
@@ -75,3 +75,8 @@
 </div>
 
 </div>
+<button (click)="convertToPDF()"
+        class="btn btn-primary d-flex align-items-center justify-content-center">
+  <i class="material-icons">
+    picture_as_pdf
+  </i> <span>Open PDF</span></button>
