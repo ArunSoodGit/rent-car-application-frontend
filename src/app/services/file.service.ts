@@ -16,5 +16,8 @@ export class FileService {
 
     return this.httpClient.post<File>('https://localhost:444/files', formData);
   }
+  getFiles(): Observable<any> {
 
+    return this.httpClient.get<File[]>('https://localhost:444/files');
+  }
 }

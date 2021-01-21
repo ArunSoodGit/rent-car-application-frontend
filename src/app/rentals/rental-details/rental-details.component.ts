@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {RentalService} from '../../services/rental.service';
 import {Rental} from '../../models/Rental';
+import {FileService} from '../../services/file.service';
+import {File} from '../../models/File';
 
 @Component({
   selector: 'app-rental-details',
@@ -11,12 +13,17 @@ import {Rental} from '../../models/Rental';
 export class RentalDetailsComponent implements OnInit {
 
   rental: Rental;
+  files: File[];
 
-  constructor(private router: Router, private route: ActivatedRoute, private rentalService: RentalService) {
+  constructor(private router: Router, private route: ActivatedRoute, private rentalService: RentalService, private fileService: FileService) {
     this.getCustomer();
   }
 
   ngOnInit(): void {
+    this.fileService.getFiles().subscribe(file => {
+      this.files = file;
+      console.log(file);
+    });
   }
 
   getCustomer(): void {
