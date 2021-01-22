@@ -53,18 +53,22 @@
             <li class="list-group-item">Suma kosztów: <span class="property">{{rental.rentalCost}} zł</span></li>
           </ul>
         </div>
-        test
-        test
-        <ul *ngFor="let file of files" >
-          <li class="list-group-item">{{file.name}}</li>
-        </ul>
+        <div class="col-md-12 col-xl-6" >
+          <span class="property">Pliki</span>
+
+          <ul class="list-group rentals " *ngFor="let file of files" >
+            <li class="list-group-item"><i class="fa fa-file-pdf-o fa-2x"></i> {{file.name}}<a href="https://localhost:444/files/{{file.id}}" target="_blank" ><i class="fa fa-download  fa-2x"></i><i class="fa fa-file  fa-2x"></i></a> </li>
+
+
+          </ul>
+        </div>
+
       </div>
 
 
     </mat-card-content>
     <mat-card-actions>
-      <button (click)="approve(rental)" mat-button>Rezerwuj</button>
-      <button (click)="generateDocuments(rental)" mat-button>Generuj dokumenty</button>
+      <button class="btn-pdf" (click)="generateDocuments()" mat-button>Generuj dokumenty</button>
     </mat-card-actions>
   </mat-card>
 

@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {File} from '../models/File';
+import {Car} from '../models/Car';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +13,19 @@ export class FileService {
   constructor(private httpClient: HttpClient) {
   }
 
-  postFile(formData: FormData): Observable<any> {
+  postFile(formData: FormData): Observable<File> {
 
     return this.httpClient.post<File>('https://localhost:444/files', formData);
   }
-  getFiles(): Observable<any> {
+
+  getFiles(): Observable<File[]> {
 
     return this.httpClient.get<File[]>('https://localhost:444/files');
   }
+
+  getFile(id: string): Observable<any> {
+    const url = `https://localhost:444/files/${id}`;
+    return this.httpClient.get(url,  {responseType: 'text'});
+  }
+
 }

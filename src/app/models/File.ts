@@ -1,5 +1,5 @@
 export class File {
-  id: number;
+  id: string;
   name: string;
   type: string;
   data: Blob;

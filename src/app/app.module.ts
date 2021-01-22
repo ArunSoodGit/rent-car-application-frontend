@@ -39,7 +39,6 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatMenuModule} from '@angular/material/menu';
 import { EditCarComponent } from './Cars/edit-car/edit-car.component';
 import { RemoveCarComponent } from './Cars/remove-car/remove-car.component';
-import { AgreementComponent } from './agreement/agreement.component';
 import { NewRentalComponent } from './rentals/new-rental/new-rental.component';
 import { EditCustomerComponent } from './customers/edit-customer/edit-customer.component';
 import { CustomerDetailsComponent } from './customers/customer-details/customer-details.component';
@@ -65,7 +64,6 @@ import { RemoveRentalComponent } from './rentals/remove-rental/remove-rental.com
     NewCarComponent,
     EditCarComponent,
     RemoveCarComponent,
-    AgreementComponent,
     NewRentalComponent,
     EditCustomerComponent,
     CustomerDetailsComponent,
