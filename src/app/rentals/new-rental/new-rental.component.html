@@ -10,8 +10,8 @@
   <form #customerForm="ngForm" (ngSubmit)="customerForm.form.valid && onSubmit(rental) " class="example-form">
     <mat-form-field  *ngIf="!data"class="element">
       <mat-label>Samochód</mat-label>
-      <mat-select [(ngModel)]="car" name="isAvailable" required="true">
-        <mat-option  *ngFor="let car of cars" [value]="car">
+      <mat-select (ngModelChange)="onChangeCar($event)"  [(ngModel)]="car" name="isAvailable" required="true">
+        <mat-option    *ngFor="let car of cars" [value]="car">
           <img [src]="car.imagePath" width="50px" height="30px">
           {{car.carMarkModel.mark}}
           {{car.carMarkModel.model}}
@@ -39,18 +39,14 @@
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field class="element">
-      <mat-label>Data wypożyczenia</mat-label>
-      <input (dateChange)="getRentalCost()" [(ngModel)]="rental.rentalDate" matInput [matDatepicker]="picker1" name="dateOfProduction" required="true">
-      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-      <mat-datepicker #picker1></mat-datepicker>
-    </mat-form-field>
-
-    <mat-form-field class="element">
-      <mat-label>Data zwrotu</mat-label>
-      <input (dateChange)="getRentalCost()" [(ngModel)]="rental.returnDate" matInput [matDatepicker]="picker2" name="dateOfProduction" required="true">
-      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-      <mat-datepicker #picker2></mat-datepicker>
+    <mat-form-field class="element" >
+      <mat-label>Okres wypożczyenia</mat-label>
+      <mat-date-range-input [rangePicker]="picker" [dateFilter]="rangeFilter">
+        <input (dateChange)="getRentalCost()" [(ngModel)]="rental.rentalDate" matStartDate placeholder="Start date" name="dateOfProduction">
+        <input (dateChange)="getRentalCost()" [(ngModel)]="rental.returnDate" matEndDate placeholder="End date" name="dateOfProduction">
+      </mat-date-range-input>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
     </mat-form-field>
 
     <mat-form-field class="element">

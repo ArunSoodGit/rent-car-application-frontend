@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Car} from '../models/Car';
 import {Observable} from 'rxjs';
 import {catchError} from 'rxjs/operators';
+import {Rental} from '../models/Rental';
 
 @Injectable({
   providedIn: 'root'
@@ -31,5 +32,9 @@ export class CarService {
   deleteCar(vin): Observable<Car> {
     const url = `https://localhost:444/cars/${vin}`; // DELETE api/heroes/42
     return this.httpClient.delete<Car>(url, {headers: this.headers});
+  }
+  getRentalByCar(vin: string): Observable<Rental>  {
+    const url = `https://localhost:444/rentals/${vin}`;
+    return this.httpClient.get<Rental>(url);
   }
 }

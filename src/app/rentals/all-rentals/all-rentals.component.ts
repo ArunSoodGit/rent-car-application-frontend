@@ -11,6 +11,7 @@ import {RemoveCarComponent} from '../../Cars/remove-car/remove-car.component';
 import {Car} from '../../models/Car';
 import {Router} from '@angular/router';
 import {RemoveRentalComponent} from '../remove-rental/remove-rental.component';
+import {Rental} from '../../models/Rental';
 
 @Component({
   selector: 'app-rental',
@@ -19,7 +20,7 @@ import {RemoveRentalComponent} from '../remove-rental/remove-rental.component';
 })
 export class AllRentalsComponent implements OnInit {
   displayedColumns: string[] = ['Nr. rezerwacji', 'Imię', 'Nazwisko', 'Marka', 'Model', 'Data wypożyczenia', 'Data zwrotu', 'Edytuj'];
-  car: Car;
+  rental: Rental;
   dataSource;
   customer;
   searchKey: string;
@@ -66,15 +67,15 @@ export class AllRentalsComponent implements OnInit {
     );
   }
 
-  onRemove(car): void {
+  onRemove(rental): void {
     const dialogRef = this.dialog.open(RemoveRentalComponent, {
       width: '480px',
       panelClass: 'icon-outside',
-      data: car
+      data: rental
     });
     dialogRef.afterClosed().subscribe(result => {
 
-      this.car = car;
+      this.rental = rental;
       this.refresh();
     });
   }
@@ -88,14 +89,14 @@ export class AllRentalsComponent implements OnInit {
     });
   }
 
-  onEdit(car): void {
+  onEdit(rental): void {
     const dialogRef = this.dialog.open(EditRentalComponent, {
       width: '500px',
       panelClass: 'icon-outside',
-      data: car
-    }).afterClosed().subscribe(result => {
+      data: rental
+    }).afterClosed().subscribe(rental => {
       this.refresh();
-      this.car = car;
+      this.rental = rental;
     });
   }
 

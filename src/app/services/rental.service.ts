@@ -21,6 +21,10 @@ export class RentalService {
     return this.httpClient.post<Rental[]>('https://localhost:444/customers/rentals', customer, {headers: this.headers});
 
   }
+  getRentalByCar(car): Observable<Rental[]>  {
+
+    return this.httpClient.post<Rental[]>('https://localhost:444/cars/rentals', car, {headers: this.headers});
+  }
 
   addRental(rental: Rental): Observable<Rental> {
     return this.httpClient.post<Rental>('https://localhost:444/rentals', rental, {headers: this.headers});
@@ -35,6 +39,5 @@ export class RentalService {
     const url = `https://localhost:444/rentals/${id}`;
     return this.httpClient.delete<Rental>(url, {headers: this.headers});
   }
-
 
 }

@@ -61,9 +61,11 @@ export class RentalDetailsComponent implements OnInit {
     pdfDocGenerator.getBuffer((buffer) => {
       blob = new Blob([buffer]);
       console.log(blob);
-      formData.append('file', blob, 'umowa_najmu');
+      formData.append('file', blob, this.rental.id.toString());
+
 
       console.log(formData.get('file'));
+      console.log(formData.get('rentals'));
       this.fileService.postFile(formData).subscribe((response => {
         console.log(response);
 

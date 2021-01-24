@@ -1,8 +1,9 @@
 import {Car} from './Car';
 import {Employee} from './Employee';
 import {Customer} from './Customer';
+import {File} from './File';
 
-export class Rental{
+export class Rental {
   id: number;
   rentalDate: Date;
   returnDate: Date;

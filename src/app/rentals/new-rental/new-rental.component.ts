@@ -15,14 +15,15 @@ import {RentalService} from '../../services/rental.service';
   styleUrls: ['./new-rental.component.scss']
 })
 export class NewRentalComponent implements OnInit {
+
+
   customer = new Customer();
   car: Car = new Car();
   rental: Rental = new Rental();
-
-
   cars: Car[];
   customers: Customer[];
-
+  reservation: Rental[];
+  dates: Date[] = [];
 
   constructor(private router: Router, private customerService: CustomerService,
               private carService: CarService, private rentalService: RentalService,
@@ -31,8 +32,9 @@ export class NewRentalComponent implements OnInit {
   }
 
   ngOnInit(): any {
-    this.carService.getCars().subscribe(car => this.cars = car.filter(c => c.isAvailable));
+    this.carService.getCars().subscribe(car => this.cars = car);
     this.customerService.getCustomers().subscribe(customer => this.customers = customer);
+
   }
 
 
@@ -55,12 +57,51 @@ export class NewRentalComponent implements OnInit {
 
   getRentalCost(): void {
     let pricePerNight = 0;
-    this.data ? pricePerNight = this.data.carMarkModel.carClass.pricePerNight : pricePerNight = this.car.carMarkModel.carClass.pricePerNight;
+    this.data ? pricePerNight = this.data.carMarkModel.carClass.pricePerNight
+      : pricePerNight = this.car.carMarkModel.carClass.pricePerNight;
     console.log(pricePerNight);
     if (this.rental.returnDate != null && this.rental.rentalDate != null && pricePerNight != null) {
       const numberOdDay = (this.rental.returnDate.getTime() - this.rental.rentalDate.getTime()) / (1000 * 60 * 60 * 24);
       this.rental.rentalCost = numberOdDay * pricePerNight;
     }
+
+  }
+
+  onChangeCar(car: Car): void {
+    console.log(car);
+
+    this.dates = [];
+    this.rentalService.getRentalByCar(car).subscribe(reservation => {
+      this.reservation = reservation;
+      this.prepareDate(reservation);
+    });
+
+  }
+
+  rangeFilter = (d: Date): boolean => {
+    const time = d.getTime();
+    return !this.dates.find(x => x.getTime() === time);
+  };
+
+  getDatesBetweenDates(startDate, endDate): Date[] {
+    const theDate = new Date(startDate);
+    while (theDate <= endDate) {
+      this.dates.push(new Date(theDate));
+      theDate.setDate(theDate.getDate() + 1);
+    }
+    return this.dates;
+  }
+
+  prepareDate(rental: Rental[]): void {
+    this.dates = [];
+    return  rental.forEach(r => {
+      if (r !== undefined && r !== null) {
+        return this.getDatesBetweenDates(new Date(r.rentalDate), new Date(r.returnDate));
+      } else {
+        this.dates = [];
+        return null;
+      }
+    });
 
   }
 }
