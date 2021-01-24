@@ -14,9 +14,9 @@ export class FileService {
   constructor(private httpClient: HttpClient) {
   }
 
-  postFile(formData: FormData): Observable<FormData> {
+  postFile(formData: FormData): Observable<File> {
 
-    return this.httpClient.post<FormData>('https://localhost:444/files', formData );
+    return this.httpClient.post<File>('https://localhost:444/files', formData );
   }
 
   getFiles(): Observable<File[]> {

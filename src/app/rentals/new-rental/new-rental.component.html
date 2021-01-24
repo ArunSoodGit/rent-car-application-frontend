@@ -3,14 +3,12 @@
 </button>
 <div mat-dialog-title>
   <h1 class="title"> Nowa rezerwacja</h1>
-
-
 </div>
 <div mat-dialog-content>
-  <form #customerForm="ngForm" (ngSubmit)="customerForm.form.valid && onSubmit(rental) " class="example-form">
+  <form #rentalForm="ngForm" (ngSubmit)="rentalForm.form.valid && onSubmit(rental) " class="example-form">
     <mat-form-field  *ngIf="!data"class="element">
       <mat-label>Samochód</mat-label>
-      <mat-select (ngModelChange)="onChangeCar($event)"  [(ngModel)]="car" name="isAvailable" required="true">
+      <mat-select (ngModelChange)="onChangeCar($event)"  [(ngModel)]="car" name="car" required="true">
         <mat-option    *ngFor="let car of cars" [value]="car">
           <img [src]="car.imagePath" width="50px" height="30px">
           {{car.carMarkModel.mark}}
@@ -20,7 +18,7 @@
     </mat-form-field>
     <mat-form-field  *ngIf="data"class="element">
       <mat-label>Samochód</mat-label>
-      <mat-select [(ngModel)]="data" name="isAvailable" required="true">
+      <mat-select [(ngModel)]="data" name="car" required="true">
         <mat-option  [value]="data">
           <img [src]="data.imagePath" width="50px" height="30px">
           {{data.carMarkModel.mark}}
@@ -31,7 +29,7 @@
     <mat-form-field class="element2">
       <mat-label>Klient</mat-label>
       <mat-select [(ngModel)]="customer" name="className" required="true">
-        <mat-option *ngFor="let customer of customers" [value]="customer">
+        <mat-option *ngFor="let customer of customers" [value]="customer" >
           {{customer.customerName}}
           {{customer.customerSurname}}
           ({{customer.driverLicenseNumber}})
@@ -42,8 +40,8 @@
     <mat-form-field class="element" >
       <mat-label>Okres wypożczyenia</mat-label>
       <mat-date-range-input [rangePicker]="picker" [dateFilter]="rangeFilter">
-        <input (dateChange)="getRentalCost()" [(ngModel)]="rental.rentalDate" matStartDate placeholder="Start date" name="dateOfProduction">
-        <input (dateChange)="getRentalCost()" [(ngModel)]="rental.returnDate" matEndDate placeholder="End date" name="dateOfProduction">
+        <input (dateChange)="getRentalCost()" [(ngModel)]="rental.rentalDate" matStartDate placeholder="Start date" name="dateOfProduction"  required="true">
+        <input (dateChange)="getRentalCost()" [(ngModel)]="rental.returnDate" matEndDate placeholder="End date" name="dateOfProduction"  required="true">
       </mat-date-range-input>
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-date-range-picker #picker></mat-date-range-picker>
@@ -69,12 +67,12 @@
 
   </form>
 </div>
-<div mat-dialog-actions>
-  <button mat-raised-button class="create" (click)="onSubmit(rental)" [disabled]="!customerForm.form.valid">
+
+  <button mat-raised-button class="create" (click)="onSubmit(rental)" [disabled]="!rentalForm.form.valid">
 
     Zapisz
 
   </button>
-</div>
+
 
 

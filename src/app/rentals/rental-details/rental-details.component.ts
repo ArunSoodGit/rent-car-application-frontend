@@ -27,6 +27,10 @@ export class RentalDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    return this.getFiles();
+  }
+
+  getFiles(): void {
     this.fileService.getFiles().subscribe(file => {
       this.files = file;
       console.log(file);
@@ -71,7 +75,7 @@ export class RentalDetailsComponent implements OnInit {
 
       }));
     });
-
+    this.refresh();
   }
 
   getDocumentDefinition(): any {
@@ -125,9 +129,13 @@ export class RentalDetailsComponent implements OnInit {
     };
   }
 
-  download(id: string): void {
-    this.fileService.getFile(id).subscribe(f => {
-      this.file = f;
-    });
+  // download(id: string): void {
+  //   this.fileService.getFile(id).subscribe(f => {
+  //     this.file = f;
+  //   });
+  // }
+
+  refresh(): void {
+    this.getFiles();
   }
 }

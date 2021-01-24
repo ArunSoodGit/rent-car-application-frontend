@@ -7,6 +7,7 @@ export class Rental {
   id: number;
   rentalDate: Date;
   returnDate: Date;
+  status: string;
   car: Car;
   employee: Employee;
   customer: Customer;

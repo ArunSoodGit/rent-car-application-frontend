@@ -68,6 +68,8 @@
 
     </mat-card-content>
     <mat-card-actions>
+      <button *ngIf="rental.status =='Zaplanowana'" class="btn-pdf" (click)="generateDocuments()" mat-button>Zatwierdź</button>
+      <button *ngIf="rental.status =='W trakcie'" class="btn-pdf" (click)="generateDocuments()" mat-button>Zakończ i zatwierdź</button>
       <button class="btn-pdf" (click)="generateDocuments()" mat-button>Generuj dokumenty</button>
     </mat-card-actions>
   </mat-card>

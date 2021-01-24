@@ -41,7 +41,10 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Data zwrotu</th>
       <td mat-cell *matCellDef="let element" data-label="Data zwrotu" (click)="show(element)"> {{element.returnDate |date}} </td>
     </ng-container>
-
+    <ng-container matColumnDef="Status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+      <td mat-cell *matCellDef="let element" data-label="Status" (click)="show(element)"> <span class="btn btn-success" [ngStyle]="{'background-color':element.status === 'Zaplanowana' ? 'green' : 'orange' }">{{element.status}}</span> </td>
+    </ng-container>
     <ng-container matColumnDef="Edytuj">
       <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
       <td class="buttonTd" mat-cell *matCellDef="let element; let row" >

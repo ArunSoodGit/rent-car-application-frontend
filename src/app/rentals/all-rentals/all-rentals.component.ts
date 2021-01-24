@@ -7,8 +7,6 @@ import {MatTableDataSource} from '@angular/material/table';
 import {RentalService} from '../../services/rental.service';
 import {NewRentalComponent} from '../new-rental/new-rental.component';
 import {EditRentalComponent} from '../edit-rental/edit-rental.component';
-import {RemoveCarComponent} from '../../Cars/remove-car/remove-car.component';
-import {Car} from '../../models/Car';
 import {Router} from '@angular/router';
 import {RemoveRentalComponent} from '../remove-rental/remove-rental.component';
 import {Rental} from '../../models/Rental';
@@ -19,7 +17,7 @@ import {Rental} from '../../models/Rental';
   styleUrls: ['./all-rentals.component.scss']
 })
 export class AllRentalsComponent implements OnInit {
-  displayedColumns: string[] = ['Nr. rezerwacji', 'Imię', 'Nazwisko', 'Marka', 'Model', 'Data wypożyczenia', 'Data zwrotu', 'Edytuj'];
+  displayedColumns: string[] = ['Nr. rezerwacji', 'Imię', 'Nazwisko', 'Marka', 'Model', 'Data wypożyczenia', 'Data zwrotu', 'Status', 'Edytuj'];
   rental: Rental;
   dataSource;
   customer;
@@ -27,6 +25,7 @@ export class AllRentalsComponent implements OnInit {
 
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  statusColor: 'backgroundColor: green';
 
   constructor(private router: Router, private rentalService: RentalService,
               private carService: CarService, private dialog: MatDialog, private changeDetectorRefs: ChangeDetectorRef) {

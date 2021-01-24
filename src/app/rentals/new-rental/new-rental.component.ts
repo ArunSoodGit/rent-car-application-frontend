@@ -8,6 +8,7 @@ import {Router} from '@angular/router';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {Rental} from '../../models/Rental';
 import {RentalService} from '../../services/rental.service';
+import {Status} from '../../Status';
 
 @Component({
   selector: 'app-new-rental',
@@ -42,6 +43,7 @@ export class NewRentalComponent implements OnInit {
     this.data ? rental.car = this.data : rental.car = this.car;
     console.log(rental.car);
     rental.customer = this.customer;
+    rental.status = Status.RESERVED;
     console.log(rental);
     this.rentalService.addRental(rental).subscribe(
       data => {
@@ -94,7 +96,7 @@ export class NewRentalComponent implements OnInit {
 
   prepareDate(rental: Rental[]): void {
     this.dates = [];
-    return  rental.forEach(r => {
+    return rental.forEach(r => {
       if (r !== undefined && r !== null) {
         return this.getDatesBetweenDates(new Date(r.rentalDate), new Date(r.returnDate));
       } else {

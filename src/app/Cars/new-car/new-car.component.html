@@ -5,7 +5,7 @@
   <h1 class="title"> Dodaj samochód</h1>
 </div>
   <div mat-dialog-content>
-    <form #customerForm="ngForm" (ngSubmit)="customerForm.form.valid && onSubmit(car)" class="example-form">
+    <form #carForm="ngForm" (ngSubmit)="carForm.form.valid && onSubmit(car)" class="example-form">
       <p>
         <mat-form-field class="full">
           <mat-label>Numer vin</mat-label>
@@ -83,7 +83,7 @@
     </form>
   </div>
 
-    <button mat-raised-button class="create" (click)="onSubmit(car)" [disabled]="!customerForm.form.valid">
+    <button mat-raised-button class="create" (click)="onSubmit(car)" [disabled]="!carForm.form.valid">
       Zapisz
     </button>
 
