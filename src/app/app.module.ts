@@ -47,6 +47,7 @@ import {MatListModule} from '@angular/material/list';
 import { EditRentalComponent } from './rentals/edit-rental/edit-rental.component';
 import { RentalDetailsComponent } from './rentals/rental-details/rental-details.component';
 import { RemoveRentalComponent } from './rentals/remove-rental/remove-rental.component';
+import {DatePipe} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -99,7 +100,7 @@ import { RemoveRentalComponent } from './rentals/remove-rental/remove-rental.com
     MatListModule,
 
   ],
- providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}],
+ providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true}, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule {

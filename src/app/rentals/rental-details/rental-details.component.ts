@@ -6,6 +6,7 @@ import {FileService} from '../../services/file.service';
 import {File} from '../../models/File';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
+import {DatePipe} from '@angular/common';
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
@@ -19,19 +20,23 @@ export class RentalDetailsComponent implements OnInit {
   rental: Rental;
   files: File[];
   file: File;
+  rentalDate;
+  returnDate;
 
   constructor(private router: Router, private route: ActivatedRoute,
               private rentalService: RentalService,
-              private fileService: FileService) {
+              private fileService: FileService, public datePipe: DatePipe) {
     this.getCustomer();
+
   }
 
   ngOnInit(): void {
     return this.getFiles();
+
   }
 
   getFiles(): void {
-    this.fileService.getFiles().subscribe(file => {
+    this.fileService.getFilesForRental(this.route.snapshot.paramMap.get('id')).subscribe(file => {
       this.files = file;
       console.log(file);
     });
@@ -79,44 +84,126 @@ export class RentalDetailsComponent implements OnInit {
   }
 
   getDocumentDefinition(): any {
+
     return {
       content: [
         {
           text: 'UMOWA NAJMU SAMOCHODU',
           style: 'header'
         },
+        {
+          text: 'Zawarta w dniu ' + new Date().toLocaleDateString() + ' w Katowicach, pomiędzy firmą  \n',
+          style: 'text'
+        },
+        {
+          text: '"RentCar123" Arun Sood \n\n ' +
+            '40-879 Katowice, ul.Ulica 78 \n\n' +
+            ' NIP: 980-267-21-34\n\n' +
+            ' REGON: 890392876\n\n' +
+            ' Test Bank 89 2039 8883 8888 2399 1321 8884\n\n',
+          style: 'company'
+        },
+        {
+          text: 'zwanym w daleszej częsci umowy WYNAJMUJĄCYM, \n',
+          style: 'text'
+        },
+        {
+          text: 'a\n\n ' + this.rental.customer.customerName.toUpperCase() + ' ' + this.rental.customer.customerSurname.toUpperCase() + '  '
+            + 'zamieszkałym w ' + this.rental.customer.cityName.toUpperCase() + ', przy ul.' + this.rental.customer.address.toUpperCase() + ',\n' +
+            'legitymującym się prawem jazdy seria i nr: '
+            + this.rental.customer.driverLicenseNumber + '  zwanym w daleszej cześci umowy NAJEMCĄ.\n',
+          style: 'text'
+        },
 
-        'Zawarta w dniu ……………… w ………………………………. pomiędzy:…………………………………………………………zwanym dalej WYNAJMUJĄCYM, a …………………………………………………………………………………….…. ' +
-        'zamieszkałym w "………………………………………………………………………………. zwanym dalej NAJEMCĄ.',
         {
-          text: '§1',
+          text: '§1\n\n',
           style: 'subheader'
         },
-        'Wynajmujacy oddaje w najem Najemcy samochód marki ……………………….., koloru………………..., rok produkcji ………………,' +
-        'o nr rejestracyjnych ……………………., nr silinka …………………………….., nr nadwozia ………………………………………………wynajmujacy oświadcza, że jest jedynym właścicielem samochodu.',
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Confectum ponit legam, perferendis nomine miserum, animi. Moveat nesciunt triari naturam posset, eveniunt specie deorsus efficiat sermone instituendarum fuisse veniat, eademque mutat debeo. Delectet plerique protervi diogenem dixerit logikh levius probabo adipiscuntur afficitur, factis magistra inprobitatem aliquo andriam obiecta, religionis, imitarentur studiis quam, clamat intereant vulgo admonitionem operis iudex stabilitas vacillare scriptum nixam, reperiri inveniri maestitiam istius eaque dissentias idcirco gravis, refert suscipiet recte sapiens oportet ipsam terentianus, perpauca sedatio aliena video.\n\n',
         {
-          text: '§2',
+          text: 'Przedmiotem najmu jest samochód marki ' + this.rental.car.carMarkModel.mark.toUpperCase() + ' ' + this.rental.car.carMarkModel.model.toUpperCase() + '\n'
+            + ' o numerze rejestracyjnym ' + this.rental.car.registrationNumber.toUpperCase() + '\n',
+          style: 'text',
+        },
+        {
+          text: '§2\n\n',
           style: 'subheader'
         },
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Confectum ponit legam, perferendis nomine miserum, animi. Moveat nesciunt triari naturam posset, eveniunt specie deorsus efficiat sermone instituendarum fuisse veniat, eademque mutat debeo. Delectet plerique protervi diogenem dixerit logikh levius probabo adipiscuntur afficitur, factis magistra inprobitatem aliquo andriam obiecta, religionis, imitarentur studiis quam, clamat intereant vulgo admonitionem operis iudex stabilitas vacillare scriptum nixam, reperiri inveniri maestitiam istius eaque dissentias idcirco gravis, refert suscipiet recte sapiens oportet ipsam terentianus, perpauca sedatio aliena video.',
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Confectum ponit legam, perferendis nomine miserum, animi. Moveat nesciunt triari naturam posset, eveniunt specie deorsus efficiat sermone instituendarum fuisse veniat, eademque mutat debeo. Delectet plerique protervi diogenem dixerit logikh levius probabo adipiscuntur afficitur, factis magistra inprobitatem aliquo andriam obiecta, religionis, imitarentur studiis quam, clamat intereant vulgo admonitionem operis iudex stabilitas vacillare scriptum nixam, reperiri inveniri maestitiam istius eaque dissentias idcirco gravis, refert suscipiet recte sapiens oportet ipsam terentianus, perpauca sedatio aliena video.\n\n',
         {
-          text: 'It is possible to apply multiple styles, by passing an array. This paragraph uses two styles: quote and small. When multiple styles are provided, they are evaluated in the specified order which is important in case they define the same properties',
+          text: 'Wynajmujący oddaje w najem Najemcy opisany w §1 samochód na okres:\n'
+            + 'Od dnia ' + this.datePipe.transform(this.rental.rentalDate, 'MM/dd/yyyy') + ' godzina 8:00' + '\n' +
+            'Do dnia' + this.datePipe.transform(this.rental.returnDate, 'MM/dd/yyyy') + ' godzina 9:00',
+          style: 'text'
+        },
+        {
+          text: '§3\n\n',
+          style: 'subheader'
+        },
+        {
+          text: 'Strony najmu ustalają, że czynsz najmu wynosi ' + this.rental.car.carMarkModel.carClass.pricePerNight + ' zł za każdą dobę najmu ' +
+            'i za okres najmu samochodu wyniesie ' + this.rental.rentalCost + ' zł.',
+          style: 'text'
+        },
+        {
+          text: 'Kaucja zwrotna: ' + this.rental.car.carMarkModel.carClass.deposit + ' zł.',
+          style: 'text'
+        },
+        {
+          text: '§4\n\n',
+          style: 'subheader'
+        },
+        {
+          text: 'Wynajmujący oświadcza, iż zapoznał się z Regulaminem wypożyczalni oraz akceptuje jego warunki.\n\n',
+          style: 'text'
+        },
+
+        {
+          text: '...................................                                      ...................................',
+          style: 'accept'
+        },
+        {
+          text: '         Podpis Najemcy                                              Podpis Wynajmującego\n\n\n',
+          style: 'accept'
+        },
+        {
+          text: '"RentCar123" Arun Sood  ' +
+            '40-879 Katowice, ul.Ulica 78 ' +
+            ' NIP: 980-267-21-34 ' +
+            ' REGON: 890392876 ' +
+            ' Test Bank 89 2039 8883 8888 2399 1321 8884 ',
           style: ['quote', 'small']
         }
       ],
       styles: {
         header: {
           alignment: 'center',
-          fontSize: 18,
+          fontSize: 16,
           bold: true,
           marginBottom: 20
         },
+        company: {
+          alignment: 'left',
+          fontSize: 11,
+          bold: true,
+          marginBottom: 5,
+          marginTop: 5
+        },
         subheader: {
           alignment: 'center',
-          fontSize: 12,
-          bold: true
+          fontSize: 11,
+          bold: false
+        },
+        text: {
+          alignment: 'left',
+          fontSize: 11,
+          bold: false,
+          marginBottom: 10,
+          lineHeight: 1.5
+        },
+        accept: {
+          alignment: 'left',
+          fontSize: 11,
+          bold: false,
+          lineHeight: 1.5
         },
         quote: {
           italics: true

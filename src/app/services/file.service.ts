@@ -24,9 +24,9 @@ export class FileService {
     return this.httpClient.get<File[]>('https://localhost:444/files');
   }
 
-  getFile(id: string): Observable<any> {
-    const url = `https://localhost:444/files/${id}`;
-    return this.httpClient.get(url, {responseType: 'text'});
+  getFilesForRental(id: string): Observable<File[]> {
+    const url = `https://localhost:444/rentals/${id}/files`;
+    return this.httpClient.get<File[]>(url, );
   }
 
 }
