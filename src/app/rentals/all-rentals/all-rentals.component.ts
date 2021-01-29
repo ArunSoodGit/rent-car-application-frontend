@@ -68,7 +68,7 @@ export class AllRentalsComponent implements OnInit {
 
   onRemove(rental): void {
     const dialogRef = this.dialog.open(RemoveRentalComponent, {
-      width: '480px',
+      width: '400px',
       panelClass: 'icon-outside',
       data: rental
     });

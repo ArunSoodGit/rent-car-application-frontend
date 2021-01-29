@@ -5,7 +5,7 @@
     <mat-icon>menu</mat-icon>
   </button>
 
-  <a class="navbar-brand" href="/home">CarManagerApp</a>
+  <a class="navbar-brand" href="/home">Car Manager App</a>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 
@@ -16,17 +16,17 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" *ngIf="authenticationService.isUserLoggedIn()" href="/customers"><i
-          class="fa fa-user icon "></i></a>
+          class="fa fa-user icon2 "></i></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" *ngIf="authenticationService.isUserLoggedIn()" href="/rentals"><i
-          class="fa fa-address-book icon "></i></a>
+          class="fa fa-address-book icon3 "></i></a>
       </li>
     </ul>
 
     <a class="nav-link" *ngIf="authenticationService.isUserLoggedIn()" href="/logout">
 
-      <i class="fa fa-sign-out icon "></i>
+      <i class="fa fa-sign-out iconLogout "></i>
     </a>
 
   </div>

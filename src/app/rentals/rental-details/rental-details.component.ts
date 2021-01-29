@@ -7,6 +7,7 @@ import {File} from '../../models/File';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import {DatePipe} from '@angular/common';
+import {Status} from '../../Status';
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
@@ -33,6 +34,22 @@ export class RentalDetailsComponent implements OnInit {
   ngOnInit(): void {
     return this.getFiles();
 
+  }
+
+  accept(): void {
+    this.rental.status = Status.IN_PROGRESS;
+    this.rentalService.addRental(this.rental).subscribe(
+      data => {
+        this.router.navigate(['/rentals']);
+      });
+  }
+
+  acceptAndConfirm(): void {
+    this.rental.status = Status.FINISHED;
+    this.rentalService.addRental(this.rental).subscribe(
+      data => {
+        this.router.navigate(['/rentals']);
+      });
   }
 
   getFiles(): void {
@@ -120,7 +137,8 @@ export class RentalDetailsComponent implements OnInit {
           style: 'subheader'
         },
         {
-          text: 'Przedmiotem najmu jest samochód marki ' + this.rental.car.carMarkModel.mark.toUpperCase() + ' ' + this.rental.car.carMarkModel.model.toUpperCase() + '\n'
+          text: 'Przedmiotem najmu jest samochód marki ' + this.rental.car.carMarkModel.mark.toUpperCase() +
+            ' ' + this.rental.car.carMarkModel.model.toUpperCase() + '\n'
             + ' o numerze rejestracyjnym ' + this.rental.car.registrationNumber.toUpperCase() + '\n',
           style: 'text',
         },
@@ -216,11 +234,6 @@ export class RentalDetailsComponent implements OnInit {
     };
   }
 
-  // download(id: string): void {
-  //   this.fileService.getFile(id).subscribe(f => {
-  //     this.file = f;
-  //   });
-  // }
 
   refresh(): void {
     this.getFiles();

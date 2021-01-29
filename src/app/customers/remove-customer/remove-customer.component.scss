@@ -1,10 +1,10 @@
 p{
   font-size: 15px;
-  margin-bottom: 1px;
+  margin-bottom: 5px;
 }
 .button{
+  margin-right: 30px;
   width: 70px;
-  padding: 0 ;
 }
 .action{
   margin-top: 20px;
@@ -15,7 +15,7 @@ p{
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-
+  margin-bottom: 5px;
   img{
     width: 30%;
   }
@@ -43,4 +43,5 @@ li{
 }
 .list-group-item{
   padding: 1px;
+  border: none!important;
 }

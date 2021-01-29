@@ -1,5 +1,5 @@
 export enum Status {
-  RESERVED = 'Zaplanowana',
-  UNDER = 'W trakcie',
+  PLANING = 'Zaplanowana',
+  IN_PROGRESS = 'W trakcie',
   FINISHED = 'Zakończona',
 }

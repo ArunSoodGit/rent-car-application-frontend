@@ -43,7 +43,7 @@ export class NewRentalComponent implements OnInit {
     this.data ? rental.car = this.data : rental.car = this.car;
     console.log(rental.car);
     rental.customer = this.customer;
-    rental.status = Status.RESERVED;
+    rental.status = Status.PLANING;
     console.log(rental);
     this.rentalService.addRental(rental).subscribe(
       data => {

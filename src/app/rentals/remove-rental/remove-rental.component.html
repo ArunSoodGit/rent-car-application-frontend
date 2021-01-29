@@ -10,25 +10,29 @@
       {{data.id}} ? </p>
 
     <ul class="list-group ">
+      <li class="list-group-item">Imię: <span class="property">{{data.customer.customerName}}</span></li>
+      <li class="list-group-item">Nazwisko: <span class="property">{{data.customer.customerSurname}}</span></li>
+      <li class="list-group-item">Marka: <span class="property">{{data.car.carMarkModel.mark}}</span></li>
+      <li class="list-group-item">Model: <span class="property">{{data.car.carMarkModel.model}}</span></li>
       <li class="list-group-item">Data wypożyczenia: <span
         class="property"> {{data.rentalDate  | date}}</span></li>
       <li class="list-group-item">Data zwrotu: <span class="property">{{data.returnDate | date}}</span></li>
+      <li class="list-group-item">Suma kosztów: <span class="property">{{data.rentalCost}} zł</span></li>
+      <li class="list-group-item">Status: <span class="property">{{data.status}}</span></li>
+
 
     </ul>
 
 
     <div class="action">
-      <div class="row">
-        <div class="col ">
-          <button type="button" class="btn btn-success button pull-left" (click)="onRemove()">Tak</button>
-        </div>
-        <div class="col">
-          <button type="button" class="btn btn-danger button pull-right" (click)="dialogRef.close()">Nie</button>
-        </div>
-      </div>
+
+          <button type="button" class="btn btn-success button" (click)="onRemove()">Tak</button>
+
+          <button type="button" class="btn btn-danger button " (click)="dialogRef.close()">Nie</button>
+
     </div>
 
 
   </div>
 
-
+</div>

@@ -29,7 +29,6 @@ import { CarDetailsComponent } from './Cars/car-details/car-details.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { SidenavComponent } from './sidenav/sidenav.component';
-import { HomeComponent } from './home/home.component';
 import { AllCarsComponent } from './Cars/all-cars/all-cars.component';
 
 import {MatTabsModule} from '@angular/material/tabs';
@@ -59,7 +58,6 @@ import {DatePipe} from '@angular/common';
     NewCustomerComponent,
     CarDetailsComponent,
     SidenavComponent,
-    HomeComponent,
     AllCarsComponent,
     AllRentalsComponent,
     NewCarComponent,

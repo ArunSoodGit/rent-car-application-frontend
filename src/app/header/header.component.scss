@@ -7,10 +7,10 @@ button{
 }
 
 .navbar-logo{
-  height: 120px;
-background-image: url("./../../assets/banner.jpg");
+  height:90px;
+background-image: url("./../../assets/banner4.png");
   background-size: cover;
-  background-position: bottom ;
+  background-position: center ;
   background-repeat: no-repeat;
 }
 .nav-link{
@@ -18,6 +18,23 @@ background-image: url("./../../assets/banner.jpg");
   margin-left: 20px;
 
 }
-.navbar{
-  margin-bottom: 10px;
+
+.icon{
+  font-size: 18px;
+  color: #07e3c9;
+}
+.icon2{
+  font-size: 18px;
+  color: darkgray;
+}
+.icon3{
+  font-size: 18px;
+  color: #2a3cea;
+}
+.iconLogout{
+  font-size: 22px;
+  color: #000a2d;
+}
+.navbar-brand{
+  letter-spacing: 4px;
 }
