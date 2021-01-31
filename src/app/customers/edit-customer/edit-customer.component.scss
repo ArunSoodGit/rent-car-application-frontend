@@ -48,9 +48,13 @@ mat-form-field{
   margin-bottom: 10px;
 
   img{
-    width: 30%;
+    width: 25%;
   }
 }
 .mat-icon{
   color: rgb(0,24,48);
+}
+.mat-dialog-content{
+  max-height: 67vh;
+
 }

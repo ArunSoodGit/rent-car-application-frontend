@@ -1,7 +1,7 @@
 import {Rental} from './Rental';
 
 export class File {
-  id: string;
+  id: number;
   name: string;
   type: string;
   data: Blob;

@@ -78,7 +78,18 @@ export class AllRentalsComponent implements OnInit {
       this.refresh();
     });
   }
+  onEdit(rental): void {
+    const dialogRef = this.dialog.open(EditRentalComponent, {
+      width: '500px',
+      panelClass: 'icon-outside',
+      data: rental
+    });
+    dialogRef.afterClosed().subscribe(r => {
 
+      this.rental = rental;
+      this.refresh();
+    });
+  }
   onCreate(): void {
     const dialogRef = this.dialog.open(NewRentalComponent, {
       width: '500px',
@@ -88,16 +99,7 @@ export class AllRentalsComponent implements OnInit {
     });
   }
 
-  onEdit(rental): void {
-    const dialogRef = this.dialog.open(EditRentalComponent, {
-      width: '500px',
-      panelClass: 'icon-outside',
-      data: rental
-    }).afterClosed().subscribe(r => {
-      this.refresh();
-      this.rental = r;
-    });
-  }
+
 
   show(element): any {
     this.router.navigate(['/rentals', element.id]);

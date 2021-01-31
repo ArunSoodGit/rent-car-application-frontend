@@ -78,13 +78,18 @@
 
 }
 .bin{
+  margin-top: 20px;
   height: 20px;
   width: 20px;
   background-image: url("./../../../assets/bin.png");
   background-repeat: no-repeat;
   background-size: cover;
   display: inline-block;
-  right: 0;
+
+}
+.bin:hover {
+
+  cursor: pointer;
 }
 .mat-card-actions{
   margin-bottom: 20px!important;

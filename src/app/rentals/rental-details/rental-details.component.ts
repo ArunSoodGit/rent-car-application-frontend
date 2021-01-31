@@ -21,7 +21,7 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 export class RentalDetailsComponent implements OnInit {
 
   rental: Rental;
-  files: File[];
+  files: File[] = [];
   file: File;
   rentalDate;
   returnDate;
@@ -248,10 +248,10 @@ export class RentalDetailsComponent implements OnInit {
       panelClass: 'icon-outside',
       data: file
     });
-    // dialogRef.afterClosed().subscribe(result => {
-    //
-    //   this.file = file;
-    //   this.refresh();
-    // });
+    dialogRef.afterClosed().subscribe(result => {
+
+      this.file = file;
+      this.refresh();
+    });
   }
 }

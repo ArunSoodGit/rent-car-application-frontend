@@ -9,9 +9,9 @@
   width: 100%;
 }
 
-mat-dialog-content{
-  margin-right: auto;
-  margin-left: auto;
+.mat-dialog-content{
+  max-height: 69vh;
+
 }
 mat-form-field{
   width: 200px;
@@ -51,9 +51,7 @@ mat-form-field{
 
 
   }
-  .mat-dialog-container{
-    height: 300px!important;
-  }
+
 }
 .mat-icon{
   color: rgb(0,24,48);

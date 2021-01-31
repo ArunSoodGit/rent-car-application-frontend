@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Rental} from '../models/Rental';
+import {Car} from '../models/Car';
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +30,9 @@ export class RentalService {
   addRental(rental: Rental): Observable<Rental> {
     return this.httpClient.post<Rental>('https://localhost:444/rentals', rental, {headers: this.headers});
   }
-
+  updateRental(rental: Rental): Observable<Rental> {
+    return this.httpClient.put<Rental>('https://localhost:444/rentals', rental, {headers: this.headers});
+  }
   getRentalById(id: string): Observable<Rental> {
     const url = `https://localhost:444/rentals/${id}`;
     return this.httpClient.get<Rental>(url);

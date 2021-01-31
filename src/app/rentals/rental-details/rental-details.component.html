@@ -64,7 +64,7 @@
                 <div class="document"></div>
                 {{file.name}}
                 </a>
-                <div (click)="onRemove(file)" class="bin"></div>
+                <div (click)="onRemove(file)" class="bin pull-right "></div>
               </li>
 
 
@@ -76,11 +76,11 @@
 
     </mat-card-content>
     <mat-card-actions>
-      <button class="btn-pdf" (click)="generateDocuments()" mat-raised-button>Generuj dokumenty</button>
-      <button *ngIf="rental.status =='Zaplanowana' && files > 0" class="btn-pdf" (click)="accept()" mat-button>
+      <button *ngIf="files.length === 0" class="btn-pdf" (click)="generateDocuments()" mat-raised-button>Generuj dokumenty</button>
+      <button *ngIf="rental.status =='Zaplanowana' && files.length > 0" class="btn-pdf" (click)="accept()" mat-raised-button>
         Zatwierdź
       </button>
-      <button *ngIf="rental.status =='W trakcie'" class="btn-pdf" (click)="acceptAndConfirm()" mat-button>Zatwierdź i
+      <button *ngIf="rental.status =='W trakcie'" class="btn-pdf" (click)="acceptAndConfirm()" mat-raised-button>Zatwierdź i
         zakończ wynajem
       </button>
 

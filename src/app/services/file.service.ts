@@ -29,7 +29,7 @@ export class FileService {
     return this.httpClient.get<File[]>(url);
   }
 
-  deleteFile(id: string): Observable<File>{
+  deleteFile(id: number): Observable<File>{
     const url = `https://localhost:444/files/${id}`;
     return this.httpClient.delete<File>(url);
   }

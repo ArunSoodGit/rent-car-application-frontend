@@ -85,7 +85,7 @@ export class AllCarsComponent implements OnInit , AfterViewInit {
 
   onEdit(car): void {
     const dialogRef = this.dialog.open(EditCarComponent, {
-      width: '480px',
+      width: '500px',
       panelClass: 'icon-outside',
       data: car
     }).afterClosed().subscribe(result => {
