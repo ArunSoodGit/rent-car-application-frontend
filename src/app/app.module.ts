@@ -47,6 +47,8 @@ import { EditRentalComponent } from './rentals/edit-rental/edit-rental.component
 import { RentalDetailsComponent } from './rentals/rental-details/rental-details.component';
 import { RemoveRentalComponent } from './rentals/remove-rental/remove-rental.component';
 import {DatePipe} from '@angular/common';
+import { FooterComponent } from './footer/footer.component';
+import { DeleteFileComponent } from './delete-file/delete-file.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +71,9 @@ import {DatePipe} from '@angular/common';
     RemoveCustomerComponent,
     EditRentalComponent,
     RentalDetailsComponent,
-    RemoveRentalComponent
+    RemoveRentalComponent,
+    FooterComponent,
+    DeleteFileComponent
   ],
   imports: [
     BrowserModule,

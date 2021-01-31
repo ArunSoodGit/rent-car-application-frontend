@@ -1,8 +1,17 @@
 .mat-sidenav-container{
   height: 100%;
+  background-color: #ffffff;
 
 
 }
 button{
   outline: 0;
+}
+.sticky-top{
+  position: fixed;
+
+  width: 100%;
+}
+.mat-drawer-side{
+
 }

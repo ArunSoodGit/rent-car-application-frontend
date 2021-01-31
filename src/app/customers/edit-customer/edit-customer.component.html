@@ -25,37 +25,47 @@
       <mat-label>Nazwisko</mat-label>
       <input type="text" matInput placeholder="Nazwisko" [(ngModel)]="customer.customerSurname" name="surname"
              required="true">
+      <mat-icon matSuffix>account_box</mat-icon>
+
     </mat-form-field>
     <mat-form-field class="element">
       <mat-label>Kraj</mat-label>
       <input type="text" matInput placeholder="Kraj" [(ngModel)]="customer.country" name="country" required="true">
+      <mat-icon matSuffix>public</mat-icon>
 
     </mat-form-field>
     <mat-form-field class="element2">
       <mat-label>Miasto</mat-label>
       <input type="text" matInput placeholder="Miasto" [(ngModel)]="customer.cityName" name="city" required="true">
+      <mat-icon matSuffix>location_city</mat-icon>
 
     </mat-form-field>
     <mat-form-field class="element">
       <mat-label>Adres</mat-label>
       <input type="text" matInput placeholder="Adres" [(ngModel)]="customer.address"
              name="address" required="true">
+      <mat-icon matSuffix>room</mat-icon>
+
     </mat-form-field>
     <mat-form-field class="element2">
       <mat-label>Numer prawa jazdy</mat-label>
       <input type="number" matInput placeholder="Numer prawa jazdy" [(ngModel)]="customer.driverLicenseNumber"
              name="Numer prawa jazdy" required="true">
+      <mat-icon matSuffix>chrome_reader_mode</mat-icon>
 
     </mat-form-field>
     <mat-form-field class="element">
       <mat-label>Email</mat-label>
       <input type="text" matInput placeholder="Email" [(ngModel)]="customer.email" name="email" required="true">
+      <mat-icon matSuffix>email</mat-icon>
 
     </mat-form-field>
     <mat-form-field class="element2">
       <mat-label>Numer telefonu</mat-label>
       <input type="number" matInput placeholder="Numer telefonu" [(ngModel)]="customer.phoneNumber" name="Numer telefonu"
              required="true">
+      <mat-icon matSuffix>call</mat-icon>
+
     </mat-form-field>
   </form>
 </div>

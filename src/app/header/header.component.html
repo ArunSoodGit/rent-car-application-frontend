@@ -1,12 +1,10 @@
 
-<div class="navbar navbar-logo"></div>
-<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+<div class="navbar sticky-top2 navbar-logo"> <a class="navbar-brand" href="/home">Car Manager App</a>
+</div>
+<nav *ngIf="authenticationService.isUserLoggedIn()" class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
   <button *ngIf="authenticationService.isUserLoggedIn()" mat-icon-button (click)="onToggleSidenav()">
-    <mat-icon>menu</mat-icon>
+    <mat-icon class="menu">menu</mat-icon>
   </button>
-
-  <a class="navbar-brand" href="/home">Car Manager App</a>
-
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">

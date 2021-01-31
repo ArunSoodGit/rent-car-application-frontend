@@ -8,6 +8,8 @@ import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import {DatePipe} from '@angular/common';
 import {Status} from '../../Status';
+import {DeleteFileComponent} from '../../delete-file/delete-file.component';
+import {MatDialog} from '@angular/material/dialog';
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
@@ -26,7 +28,8 @@ export class RentalDetailsComponent implements OnInit {
 
   constructor(private router: Router, private route: ActivatedRoute,
               private rentalService: RentalService,
-              private fileService: FileService, public datePipe: DatePipe) {
+              private fileService: FileService, public datePipe: DatePipe,
+              private dialog: MatDialog) {
     this.getCustomer();
 
   }
@@ -93,11 +96,11 @@ export class RentalDetailsComponent implements OnInit {
       console.log(formData.get('file'));
       console.log(formData.get('rentals'));
       this.fileService.postFile(formData).subscribe((response => {
-        console.log(response);
+        this.refresh();
 
       }));
     });
-    this.refresh();
+
   }
 
   getDocumentDefinition(): any {
@@ -237,5 +240,18 @@ export class RentalDetailsComponent implements OnInit {
 
   refresh(): void {
     this.getFiles();
+  }
+
+  onRemove(file): void {
+    const dialogRef = this.dialog.open(DeleteFileComponent, {
+      width: '400px',
+      panelClass: 'icon-outside',
+      data: file
+    });
+    // dialogRef.afterClosed().subscribe(result => {
+    //
+    //   this.file = file;
+    //   this.refresh();
+    // });
   }
 }

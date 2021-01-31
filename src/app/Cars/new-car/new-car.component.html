@@ -10,6 +10,7 @@
         <mat-form-field class="full">
           <mat-label>Numer vin</mat-label>
           <input type="text" matInput placeholder="Numer vin" [(ngModel)]="car.vin" name="vin" required="true">
+          <mat-icon matSuffix>verified_user</mat-icon>
 
         </mat-form-field>
       </p>
@@ -22,28 +23,33 @@
       <mat-form-field class="element2">
         <mat-label>Model</mat-label>
         <input type="text" matInput placeholder="Model" [(ngModel)]="car.carMarkModel.model" name="model" required="true">
+        <mat-icon matSuffix>drive_eta</mat-icon>
 
       </mat-form-field>
       <mat-form-field class="element">
         <mat-label>Numer rejestracyjny</mat-label>
         <input type="text" matInput placeholder="Numer rejestracyjny" [(ngModel)]="car.registrationNumber"
                name="registrationNumber" required="true">
+        <mat-icon matSuffix>call_to_action</mat-icon>
+
       </mat-form-field>
       <mat-form-field class="element2">
         <mat-label>Pojemność silnika</mat-label>
         <input type="number" matInput placeholder="Pojemność silnika" [(ngModel)]="car.engineCapacity"
                name="Pojemność silnika" required="true">
+        <mat-icon matSuffix>thermostat</mat-icon>
 
       </mat-form-field>
       <mat-form-field class="element">
         <mat-label>Kolor</mat-label>
         <input type="text" matInput placeholder="Kolor" [(ngModel)]="car.color" name="color" required="true">
+        <mat-icon matSuffix>color_lens</mat-icon>
 
       </mat-form-field>
       <mat-form-field class="element2">
         <mat-label>Przebieg</mat-label>
         <input type="number" matInput placeholder="Przebieg" [(ngModel)]="car.mileage" name="Przebieg" required="true">
-
+        <mat-icon matSuffix>timeline</mat-icon>
       </mat-form-field>
       <mat-form-field class="element">
         <mat-label>Dostępność</mat-label>

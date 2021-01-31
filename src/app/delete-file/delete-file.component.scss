@@ -1,0 +1,47 @@
+p{
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+.button{
+  margin-right: 30px;
+  width: 70px;
+}
+.action{
+  margin-top: 20px;
+
+  text-align: center;
+}
+.image{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+  img{
+    width: 30%;
+  }
+}
+::ng-deep .icon-outside .close-button{
+  float: right;
+  top:-33px;
+  right:-33px;
+  background-color: white;
+  color: black;
+  outline: 0;
+
+}
+
+::ng-deep .icon-outside .mat-dialog-container {
+  overflow: unset
+}
+.property{
+  font-weight: 500;
+  font-size: 13px;
+  margin-left: 5px;
+}
+li{
+  font-size: 13px;
+}
+.list-group-item{
+  padding: 1px;
+  border: none!important;
+}

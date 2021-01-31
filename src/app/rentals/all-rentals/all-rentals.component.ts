@@ -37,8 +37,8 @@ export class AllRentalsComponent implements OnInit {
         console.log(rental);
         this.dataSource = new MatTableDataSource(rental);
         this.dataSource.filterPredicate = (data, filter) => {
-          const dataStr = data.engineCapacity + data.carMarkModel.mark + data.carMarkModel.model + data.carMarkModel.carClass.className +
-            data.carMarkModel.carClass.pricePerNight + data.isAvailable;
+          const dataStr = data.customer.customerName + data.customer.customerSurname + data.car.carMarkModel.mark + data.car.carMarkModel.model;
+
           return dataStr.indexOf(filter) !== -1;
         };
       }
@@ -58,8 +58,8 @@ export class AllRentalsComponent implements OnInit {
         this.dataSource.paginator = this.paginator;
 
         this.dataSource.filterPredicate = (data, filter) => {
-          const dataStr = data.engineCapacity + data.carMarkModel.mark + data.carMarkModel.model + data.carMarkModel.carClass.className +
-            data.carMarkModel.carClass.pricePerNight + data.isAvailable;
+          const dataStr = data.customer.customerName + data.customer.customerSurname + data.car.carMarkModel.mark + data.car.carMarkModel.model;
+
           return dataStr.indexOf(filter) !== -1;
         };
       }
@@ -93,9 +93,9 @@ export class AllRentalsComponent implements OnInit {
       width: '500px',
       panelClass: 'icon-outside',
       data: rental
-    }).afterClosed().subscribe(rental => {
+    }).afterClosed().subscribe(r => {
       this.refresh();
-      this.rental = rental;
+      this.rental = r;
     });
   }
 

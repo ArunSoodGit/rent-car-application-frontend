@@ -75,7 +75,7 @@ export class AllCarsComponent implements OnInit , AfterViewInit {
 
   onCreate(): void {
     const dialogRef = this.dialog.open(NewCarComponent, {
-      width: '500px',
+      width: '480px',
       height: 'auto',
       panelClass: 'icon-outside',
     }).afterClosed().subscribe(result => {
@@ -85,7 +85,7 @@ export class AllCarsComponent implements OnInit , AfterViewInit {
 
   onEdit(car): void {
     const dialogRef = this.dialog.open(EditCarComponent, {
-      width: '500px',
+      width: '480px',
       panelClass: 'icon-outside',
       data: car
     }).afterClosed().subscribe(result => {

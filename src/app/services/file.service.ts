@@ -26,7 +26,11 @@ export class FileService {
 
   getFilesForRental(id: string): Observable<File[]> {
     const url = `https://localhost:444/rentals/${id}/files`;
-    return this.httpClient.get<File[]>(url, );
+    return this.httpClient.get<File[]>(url);
   }
 
+  deleteFile(id: string): Observable<File>{
+    const url = `https://localhost:444/files/${id}`;
+    return this.httpClient.delete<File>(url);
+  }
 }

@@ -1,0 +1,28 @@
+<button mat-mini-fab mat-raised-button class="close-button" [mat-dialog-close]="true">
+  <mat-icon>close</mat-icon>
+</button>
+<div mat-dialog-title>
+
+
+  <div class="container">
+    <h1 class="title"> Usuń plik</h1>
+    <p>Czy na pewno chcesz usunąć
+      {{data.id}} {{data.name}} ? </p>
+    <div class="image">
+      <img class="mat-card-avatar-img image" src="../../../assets/avatar.png">
+    </div
+
+
+    <div class="action">
+
+      <button type="button" class="btn btn-success button " (click)="onRemove()">Tak</button>
+
+      <button type="button" class="btn btn-danger button" (click)="dialogRef.close()">Nie</button>
+
+    </div>
+  </div>
+
+
+</div>
+
+

@@ -1,4 +1,4 @@
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {AuthenticationService} from '../services/authentication.service';
 
 @Component({
@@ -8,16 +8,18 @@ import {AuthenticationService} from '../services/authentication.service';
 })
 export class HeaderComponent implements OnInit {
   @Output() public sidenavToggle = new EventEmitter();
+  currentDate: string;
 
   constructor(public authenticationService: AuthenticationService) {
   }
 
   ngOnInit(): void {
+    this.currentDate = new Date().toLocaleDateString();
   }
 
   public onToggleSidenav = () => {
     this.sidenavToggle.emit();
 
 
-  }
+  };
 }

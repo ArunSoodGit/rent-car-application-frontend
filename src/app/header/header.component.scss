@@ -1,17 +1,18 @@
 
 .sticky-top{
   z-index: 1;
+
 }
 button{
   outline: 0;
 }
 
 .navbar-logo{
-  height:90px;
-background-image: url("./../../assets/banner4.png");
-  background-size: cover;
-  background-position: center ;
-  background-repeat: no-repeat;
+
+  margin-left: 0;
+  background: rgb(0,24,48);
+  background: linear-gradient(90deg, rgba(0,24,48,1) 0%, rgba(21,0,70,1) 62%, rgba(13,0,80,1) 100%);
+
 }
 .nav-link{
   padding: 0;
@@ -21,20 +22,46 @@ background-image: url("./../../assets/banner4.png");
 
 .icon{
   font-size: 18px;
-  color: #07e3c9;
+  color: #04fdc2;
 }
 .icon2{
   font-size: 18px;
-  color: darkgray;
+  color: #ffb9b9;
 }
 .icon3{
   font-size: 18px;
-  color: #2a3cea;
+  color: #00c2ff;
 }
 .iconLogout{
   font-size: 22px;
-  color: #000a2d;
+  color: white;
 }
 .navbar-brand{
   letter-spacing: 4px;
+  color: white;
+
+
+
+}
+.sticky-top{
+  position: fixed;
+top: 46px;
+  width: 100%;
+  z-index: 4;
+  background: rgb(0,24,48);
+  background: linear-gradient(90deg, rgba(0,24,48,1) 0%, rgba(21,0,70,1) 62%, rgba(13,0,80,1) 100%);
+}
+.sticky-top2{
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 3;
+
+}
+.menu{
+  color: white;
+}
+.date{
+  color: white;
+  font-size: 20px;
 }

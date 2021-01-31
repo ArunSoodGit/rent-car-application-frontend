@@ -23,37 +23,43 @@
       <mat-label>Nazwisko</mat-label>
       <input type="text" matInput placeholder="Marka" [(ngModel)]="customer.customerSurname" name="marka"
              required="true">
+      <mat-icon matSuffix>account_box</mat-icon>
     </mat-form-field>
     <mat-form-field class="element">
       <mat-label>Kraj</mat-label>
       <input type="text" matInput placeholder="Model" [(ngModel)]="customer.country" name="model" required="true">
-
+      <mat-icon matSuffix>public</mat-icon>
     </mat-form-field>
     <mat-form-field class="element2">
       <mat-label>Miasto</mat-label>
       <input type="text" matInput placeholder="Model" [(ngModel)]="customer.cityName" name="model" required="true">
+      <mat-icon matSuffix>location_city</mat-icon>
 
     </mat-form-field>
     <mat-form-field class="element">
       <mat-label>Adres</mat-label>
       <input type="text" matInput placeholder="Numer rejestracyjny" [(ngModel)]="customer.address"
              name="registrationNumber" required="true">
+      <mat-icon matSuffix>room</mat-icon>
+
     </mat-form-field>
     <mat-form-field class="element2">
       <mat-label>Numer prawa jazdy</mat-label>
       <input type="number" matInput placeholder="Pojemność silnika" [(ngModel)]="customer.driverLicenseNumber"
              name="Pojemność silnika" required="true">
-
+      <mat-icon matSuffix>chrome_reader_mode</mat-icon>
     </mat-form-field>
     <mat-form-field class="element">
       <mat-label>Email</mat-label>
       <input type="text" matInput placeholder="Kolor" [(ngModel)]="customer.email" name="color" required="true">
+      <mat-icon matSuffix>email</mat-icon>
 
     </mat-form-field>
     <mat-form-field class="element2">
       <mat-label>Numer telefonu</mat-label>
       <input type="number" matInput placeholder="Przebieg" [(ngModel)]="customer.phoneNumber" name="Przebieg"
              required="true">
+      <mat-icon matSuffix>call</mat-icon>
 
     </mat-form-field>
 

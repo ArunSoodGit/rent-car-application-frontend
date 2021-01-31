@@ -53,6 +53,7 @@ table .mat-row{
     margin-bottom: 20px!important;
     margin-top: 5px!important;
     text-align: center!important;
+
     button{
       width: 50%;
 
@@ -99,4 +100,34 @@ table .mat-row{
 
   font-size: 12px;
   width: 100px!important;
+}
+.container{
+  padding-top: 140px;
+}
+.complete {
+  height: 30px;
+  width: 30px;
+  background-image: url("./../../../assets/complete.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.planned {
+  height: 30px;
+  width: 30px;
+  background-image: url("./../../../assets/planned.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.in-progress {
+  height: 30px;
+  width: 30px;
+  background-image: url("./../../../assets/now.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.mat-stroked-button{
+  border: none;
 }
