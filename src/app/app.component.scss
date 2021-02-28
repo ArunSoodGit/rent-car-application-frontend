@@ -15,3 +15,14 @@ button{
 .mat-drawer-side{
 
 }
+::ng-deep snack-bar-container simple-snack-bar .mat-simple-snackbar-action {
+  color: white!important;
+}
+
+::ng-deep snack-bar-container simple-snack-bar {
+  background-color: rgb(0,24,48);
+}
+::ng-deep snack-bar-container {
+  background-color: rgb(0,24,48)!important;
+  color: white!important;
+}

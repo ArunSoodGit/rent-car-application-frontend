@@ -36,3 +36,17 @@ input{
 .container{
   padding-top: 120px;
 }
+
+
+.btn-primary{
+  background: linear-gradient(90deg, rgba(0,24,48,1) 0%, rgba(21,0,70,1) 62%, rgba(13,0,80,1) 100%);
+  border-color: rgb(0,24,48);
+
+}
+.btn-primary:hover{
+  background: linear-gradient(90deg, rgb(0, 42, 86) 0%, rgb(39, 0, 129) 62%, rgb(26, 1, 191) 100%);
+  border-color: rgb(0,24,48);
+
+}
+
+

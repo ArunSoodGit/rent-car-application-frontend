@@ -142,7 +142,7 @@ export class RentalDetailsComponent implements OnInit {
         {
           text: 'Wynajmujący oddaje w najem Najemcy opisany w §1 samochód na okres:\n'
             + 'Od dnia ' + this.datePipe.transform(this.rental.rentalDate, 'MM/dd/yyyy') + ' godzina 8:00' + '\n' +
-            'Do dnia' + this.datePipe.transform(this.rental.returnDate, 'MM/dd/yyyy') + ' godzina 9:00',
+            'Do dnia ' + this.datePipe.transform(this.rental.returnDate, 'MM/dd/yyyy') + ' godzina 9:00',
           style: 'text'
         },
         {

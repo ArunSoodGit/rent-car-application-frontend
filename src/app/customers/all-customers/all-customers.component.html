@@ -20,7 +20,7 @@
     </ng-container>
 
     <ng-container matColumnDef="nrPrawaJazdy">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nr.Prawa jazdy</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nr prawa jazdy</th>
       <td mat-cell *matCellDef="let element"  data-label="Nr.Prawa jazdy" (click)="show(element)"> {{element.driverLicenseNumber}} </td>
     </ng-container>
 
@@ -45,7 +45,7 @@
       <td mat-cell *matCellDef="let element" data-label="Adres" (click)="show(element)" > {{element.address }} </td>
     </ng-container>
     <ng-container matColumnDef="NrTelefonu">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Nr.telefonu</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Nr telefonu</th>
       <td mat-cell *matCellDef="let element" data-label="Nr.telefonu" (click)="show(element)"> {{element.phoneNumber }} </td>
     </ng-container>
     <ng-container matColumnDef="email">

@@ -8,7 +8,7 @@ import {LogoutComponent} from './logout/logout.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {HttpInterceptorService} from './services/http-interceptor.service';
 import {HeaderComponent} from './header/header.component';
-import {FormsModule} from '@angular/forms';
+import {FormBuilder, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {AllCustomersComponent} from './customers/all-customers/all-customers.component';
 import {NewCustomerComponent} from './customers/new-customer/new-customer.component';
@@ -103,6 +103,8 @@ registerLocaleData(localePl);
     MatNativeDateModule,
     MatMenuModule,
     MatListModule,
+    BrowserModule,
+    ReactiveFormsModule,
 
   ],
  providers: [{provide: HTTP_INTERCEPTORS,
