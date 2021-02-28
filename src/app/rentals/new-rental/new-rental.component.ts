@@ -25,6 +25,7 @@ export class NewRentalComponent implements OnInit {
   customers: Customer[];
   reservation: Rental[];
   dates: Date[] = [];
+  myDate: Date;
 
   constructor(private router: Router, private customerService: CustomerService,
               private carService: CarService, private rentalService: RentalService,
@@ -33,6 +34,11 @@ export class NewRentalComponent implements OnInit {
   }
 
   ngOnInit(): any {
+    this.myDate = new Date();
+    this.myDate.setHours(0);
+    this.myDate.setMinutes(0);
+    this.myDate.setSeconds(0);
+    this.myDate.setMilliseconds(0);
     this.carService.getCars().subscribe(car => this.cars = car);
     this.customerService.getCustomers().subscribe(customer => this.customers = customer);
 
@@ -47,6 +53,7 @@ export class NewRentalComponent implements OnInit {
     console.log(rental);
     this.rentalService.addRental(rental).subscribe(
       data => {
+        console.log(data);
         this.router.navigate(['/rentals']);
       });
 
@@ -82,7 +89,8 @@ export class NewRentalComponent implements OnInit {
 
   rangeFilter = (d: Date): boolean => {
     const time = d.getTime();
-    return !this.dates.find(x => x.getTime() === time);
+    return !this.dates.find(x => x.getTime() === time) && time >= (this.myDate.getTime());
+
   };
 
   getDatesBetweenDates(startDate, endDate): Date[] {

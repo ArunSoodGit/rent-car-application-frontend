@@ -51,6 +51,7 @@ export class EditRentalComponent implements OnInit {
     console.log(rental);
     this.rentalService.addRental(rental).subscribe(
       data => {
+        console.log(data);
         this.router.navigate(['/rentals']);
       });
 

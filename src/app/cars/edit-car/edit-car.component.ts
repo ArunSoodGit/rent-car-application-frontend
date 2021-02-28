@@ -13,7 +13,7 @@ import {Router} from '@angular/router';
 export class EditCarComponent {
   // car: Car = new Car();
   classes: string[] = ['A', 'B', 'C', 'D'];
-  available: string[] = ['Dostępny', 'Wynajęty'];
+  availableValue: string[] = ['Dostępny', 'Wynajęty'];
   reviews: string[] = ['Tak', 'Nie'];
 
   constructor(private router: Router, private carService: CarService, private snackBar: MatSnackBar, public dialogRef: MatDialogRef<EditCarComponent>,
@@ -25,6 +25,7 @@ export class EditCarComponent {
     console.log(car);
     this.carService.updateCar(car).subscribe(
       data => {
+        console.log(data);
         this.router.navigate(['/cars']);
       }
     );

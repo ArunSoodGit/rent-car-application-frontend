@@ -19,9 +19,7 @@ export class RemoveCarComponent implements OnInit {
   }
 
   onRemove(): void {
-    console.log(this.data.vin);
     this.carService.deleteCar(this.data.vin).subscribe();
-
     this.dialogRef.close();
     this.snackBar.open('Usuwanie zakończone pomyślnie', 'OK', {
       duration: 2000,

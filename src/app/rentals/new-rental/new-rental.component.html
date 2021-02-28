@@ -41,7 +41,7 @@
       <mat-label>Okres wypożczyenia</mat-label>
       <mat-date-range-input [rangePicker]="picker" [dateFilter]="rangeFilter">
         <input (dateChange)="getRentalCost()" [(ngModel)]="rental.rentalDate" matStartDate placeholder="Start date" name="dateOfProduction"  required="true">
-        <input (dateChange)="getRentalCost()" [(ngModel)]="rental.returnDate" matEndDate placeholder="End date" name="dateOfProduction"  required="true">
+        <input (dateChange)="getRentalCost()" [(ngModel)]="rental.returnDate" matEndDate placeholder="End date" name="dateOfProduction"  required="true" >
       </mat-date-range-input>
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-date-range-picker #picker></mat-date-range-picker>

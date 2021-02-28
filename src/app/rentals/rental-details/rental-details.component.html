@@ -1,6 +1,5 @@
 <div *ngIf="rental" class="container">
   <mat-card>
-
     <mat-card-header>
       <div mat-card-avatar><img class="mat-card-avatar-img image" [src]="rental.car.imagePath"></div>
       <mat-card-title>Rezerwacja</mat-card-title>
@@ -10,7 +9,6 @@
       <div class="row">
         <div class="col-md-12 col-xl-6" (click)="showCar()">
           <span class="property">Dane pojazdu</span>
-
           <ul class="list-group rentals ">
             <li class="list-group-item">Numer vin: <span class="property"> {{rental.car.vin}}</span></li>
             <li class="list-group-item">Marka: <span class="property">{{rental.car.carMarkModel.mark}}</span></li>
@@ -59,31 +57,29 @@
 
           <ul class="list-group " *ngFor="let file of files">
 
-              <li class="list-group-item rentals2">
-                <a href="https://localhost:444/files/{{file.id}}" target="_blank">
+            <li class="list-group-item rentals2">
+              <a href="https://localhost:444/files/{{file.id}}" target="_blank">
                 <div class="document"></div>
                 {{file.name}}
-                </a>
-                <div (click)="onRemove(file)" class="bin pull-right "></div>
-              </li>
-
-
+              </a>
+              <div (click)="onRemove(file)" class="bin pull-right "></div>
+            </li>
           </ul>
         </div>
-
       </div>
-
-
     </mat-card-content>
     <mat-card-actions>
-      <button *ngIf="files.length === 0" class="btn-pdf" (click)="generateDocuments()" mat-raised-button>Generuj dokumenty</button>
-      <button *ngIf="rental.status =='Zaplanowana' && files.length > 0" class="btn-pdf" (click)="accept()" mat-raised-button>
+      <button *ngIf="files.length === 0" class="btn-pdf" (click)="generateDocuments()" mat-raised-button>Generuj
+        dokumenty
+      </button>
+      <button *ngIf="rental.status =='Zaplanowana' && files.length > 0" class="btn-pdf" (click)="accept()"
+              mat-raised-button>
         Zatwierdź
       </button>
-      <button *ngIf="rental.status =='W trakcie'" class="btn-pdf" (click)="acceptAndConfirm()" mat-raised-button>Zatwierdź i
+      <button *ngIf="rental.status =='W trakcie'" class="btn-pdf" (click)="acceptAndConfirm()" mat-raised-button>
+        Zatwierdź i
         zakończ wynajem
       </button>
-
     </mat-card-actions>
   </mat-card>
 

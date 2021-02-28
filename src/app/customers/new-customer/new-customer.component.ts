@@ -24,6 +24,7 @@ export class NewCustomerComponent implements OnInit {
 
     this.service.addCustomer(customer).subscribe(
       data => {
+        console.log(data);
         this.router.navigate(['/customers']);
       });
     this.dialogRef.close();

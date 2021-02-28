@@ -30,13 +30,11 @@ export class RentalDetailsComponent implements OnInit {
               private rentalService: RentalService,
               private fileService: FileService, public datePipe: DatePipe,
               private dialog: MatDialog) {
-    this.getCustomer();
-
+    this.getRentals();
   }
 
   ngOnInit(): void {
     return this.getFiles();
-
   }
 
   accept(): void {
@@ -62,8 +60,7 @@ export class RentalDetailsComponent implements OnInit {
     });
   }
 
-  getCustomer(): void {
-
+  getRentals(): void {
     this.rentalService.getRentalById(this.route.snapshot.paramMap.get('id'))
       .subscribe(rental => this.rental = rental);
   }
@@ -81,26 +78,19 @@ export class RentalDetailsComponent implements OnInit {
 
 
   generateDocuments(): void {
-    const documentDefinition = this.getDocumentDefinition();
 
+    const documentDefinition = this.getDocumentDefinition();
     pdfMake.createPdf(documentDefinition).download();
     const pdfDocGenerator = pdfMake.createPdf(documentDefinition);
     const formData = new FormData();
     let blob = null;
     pdfDocGenerator.getBuffer((buffer) => {
       blob = new Blob([buffer]);
-      console.log(blob);
       formData.append('file', blob, this.rental.id.toString());
-
-
-      console.log(formData.get('file'));
-      console.log(formData.get('rentals'));
       this.fileService.postFile(formData).subscribe((response => {
         this.refresh();
-
       }));
     });
-
   }
 
   getDocumentDefinition(): any {
@@ -124,14 +114,14 @@ export class RentalDetailsComponent implements OnInit {
           style: 'company'
         },
         {
-          text: 'zwanym w daleszej częsci umowy WYNAJMUJĄCYM, \n',
+          text: 'zwanym w dalszej części umowy WYNAJMUJĄCYM, \n',
           style: 'text'
         },
         {
           text: 'a\n\n ' + this.rental.customer.customerName.toUpperCase() + ' ' + this.rental.customer.customerSurname.toUpperCase() + '  '
             + 'zamieszkałym w ' + this.rental.customer.cityName.toUpperCase() + ', przy ul.' + this.rental.customer.address.toUpperCase() + ',\n' +
             'legitymującym się prawem jazdy seria i nr: '
-            + this.rental.customer.driverLicenseNumber + '  zwanym w daleszej cześci umowy NAJEMCĄ.\n',
+            + this.rental.customer.driverLicenseNumber + '  zwanym w dalszej części umowy NAJEMCĄ.\n',
           style: 'text'
         },
 

@@ -61,8 +61,8 @@
     </mat-form-field>
     <mat-form-field class="element">
       <mat-label>Dostępność</mat-label>
-      <mat-select [(ngModel)]="car.isAvailable" name="isAvailable">
-        <mat-option *ngFor="let available of available" [value]="available">
+      <mat-select [(ngModel)]="car.isAvailable" name="available" >
+        <mat-option *ngFor="let available of availableValue" [value]="car.isAvailable">
           {{available}}
         </mat-option>
       </mat-select>
@@ -88,11 +88,9 @@
 
     <mat-form-field class="element2">
       <mat-label>Przegląd</mat-label>
-      <mat-select [(ngModel)]="car.review" name="review">
-        <mat-option *ngFor="let review of reviews" [value]="review">
-          {{review}}
-        </mat-option>
-      </mat-select>
+      <input [(ngModel)]="car.review" matInput [matDatepicker]="picker2" name="review">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
     </mat-form-field>
   </form>
 </div>

@@ -22,6 +22,7 @@ export class EditCustomerComponent {
     console.log(customer);
     this.customerService.updateCustomer(customer).subscribe(
       data => {
+        console.log(data);
         this.router.navigate(['/customers']);
       }
     );

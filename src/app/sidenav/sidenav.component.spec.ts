@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { SidenavComponent } from './sidenav.component';
+import {RouterTestingModule} from '@angular/router/testing';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('SidenavComponent', () => {
   let component: SidenavComponent;
@@ -8,7 +10,11 @@ describe('SidenavComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ SidenavComponent ]
+      declarations: [ SidenavComponent ],
+      imports: [
+        RouterTestingModule,
+        HttpClientTestingModule
+      ],
     })
     .compileComponents();
   }));
